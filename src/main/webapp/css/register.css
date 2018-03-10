@@ -28,6 +28,5 @@ input{
 }
 
 body{
-    background-image: url(webimage.jpg);
-
+    background-image: url(../images/webimage.jpg);
 }
