@@ -28,7 +28,6 @@ public class SendEmail {
         }
         return (text.toString());
     }
-    ////////////
 
     //////file read
     String readFile(String fileName) throws IOException {
@@ -48,8 +47,8 @@ public class SendEmail {
         }
     }
 
-    private final String senderEmail = "students.attendance.system@gmail.com";
-    private final String senderPassword = "studentjava";
+    private final String senderEmail = PropertiesUtil.getProperty("Email");
+    private final String senderPassword = PropertiesUtil.getProperty("Password");
     private String receverEmail="students.attendance.system@gmail.com";
     private String smsText=genereteRandomString();
 
