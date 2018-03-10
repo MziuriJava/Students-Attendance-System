@@ -1,7 +1,7 @@
-package ge.mziuri.dao.dao;
+package ge.mziuri.dao;
 
-import ge.mziuri.dao.model.Admin;
-import util.DataBaseConnector;
+import ge.mziuri.model.Admin;
+import ge.mziuri.util.DataBaseConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,11 +24,7 @@ public class AdminDaoimpl implements AdminDao {
         pstm.executeLargeUpdate();
         pstm.close();
         con.close();
-
     }
-
-
-
 
     @Override
     public void deleteadmin(Admin admin) throws Exception {
@@ -52,8 +48,6 @@ public class AdminDaoimpl implements AdminDao {
             else pstmt1.setString(3, admin.getMail());
         if(admin.getPass().isEmpty()) pstmt1.setString(4,rs.getString("pass"));
             else pstmt1.setString(4,admin.getPass());
-
-
     }
 
     @Override

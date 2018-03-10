@@ -1,4 +1,4 @@
-package util;
+package ge.mziuri.util;
 
 public class DataBaseUtil {
 

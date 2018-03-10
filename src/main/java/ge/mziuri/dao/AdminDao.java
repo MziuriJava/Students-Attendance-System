@@ -1,6 +1,6 @@
-package ge.mziuri.dao.dao;
+package ge.mziuri.dao;
 
-import ge.mziuri.dao.model.Admin;
+import ge.mziuri.model.Admin;
 
 import java.util.List;
 
@@ -13,5 +13,4 @@ public interface AdminDao {
     void editadmin (Admin admin) throws Exception;
 
     List<Admin> getAllAdmins () throws Exception;
-
 }

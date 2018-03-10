@@ -1,4 +1,4 @@
-package util;
+package ge.mziuri.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

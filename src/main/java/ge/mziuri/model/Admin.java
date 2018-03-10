@@ -1,4 +1,4 @@
-package ge.mziuri.dao.model;
+package ge.mziuri.model;
 
 public class Admin {
     int ID;
