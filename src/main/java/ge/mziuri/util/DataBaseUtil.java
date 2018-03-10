@@ -3,15 +3,15 @@ package ge.mziuri.util;
 public class DataBaseUtil {
 
 
-        public static final String url = "jdbc:postgresql://localhost:5432/StudentAttendanceSystem";
+        public static final String url = PropertiesUtil.getProperty("DataBase_url");
 
 
 
-        public static final String username = "postgres";
+        public static final String username = PropertiesUtil.getProperty("DataBase_username");
 
 
 
-        public static final String password = "rame";
+        public static final String password = PropertiesUtil.getProperty("DataBase_password");
 
     }
 

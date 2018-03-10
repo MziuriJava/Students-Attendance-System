@@ -7,7 +7,7 @@ public class DataBaseConnector {
 
         public static Connection getConnection() throws Exception {
 
-            Class.forName("org.postgresql.Driver");
+            Class.forName(PropertiesUtil.getProperty("ConnectorClass_name"));
 
             return DriverManager.getConnection(DataBaseUtil.url, DataBaseUtil.username, DataBaseUtil.password);
 
