@@ -2,21 +2,21 @@ CREATE TABLE teacher (
 
   id INT PRIMARY KEY NOT NULL,
 
-  namee VARCHAR(50) NOT NULL,
+  firstname VARCHAR(50) NOT NULL,
 
-  surname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
 
-  mail VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
 
-  pnumber INT,
+  mainphonenumber INT,
 
-  pnumber2 INT,
+  additionalphonenumber INT,
 
-  pass VARCHAR(50) NOT NULL
+  password VARCHAR(50) NOT NULL
 
 );
 
-CREATE TABLE admin (
+CREATE TABLE staff (
 
   id INT PRIMARY KEY NOT NULL,
 
