@@ -10,29 +10,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StaffDAOImpl implements StaffDAO {
-    @Override
-    public void addstaff(Staff staff,Connection con) throws Exception {
 
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (id, namee , surname, mail , pnumber , pnumber2 , pass ) VALUES (?,?,?,?,?,?,?)");
-        pstm.setInt(1, staff.getId());
-        pstm.setString(2,staff.getFirstname());
-        pstm.setString(3,staff.getLastname());
-        pstm.setString(4,staff.getEmail());
-        pstm.setString(5,staff.getMainPhoneNumber());
-        pstm.setString(6,staff.getAdditionalPhoneNumber());
-        pstm.setString(7,staff.getPassword());
+    @Override
+    public void addStaff(Staff staff, Connection con) throws Exception {
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname , lastname, email , main_phone_number , additional_phone_number , password, staff_status) VALUES (?,?,?,?,?,?,?)");
+        pstm.setString(1, staff.getFirstname());
+        pstm.setString(2,staff.getLastname());
+        pstm.setString(3,staff.getEmail());
+        pstm.setString(4,staff.getMainPhoneNumber());
+        pstm.setString(5,staff.getAdditionalPhoneNumber());
+        pstm.setString(6,staff.getPassword());
+        pstm.setString(7,staff.getStaffStatus().name());
         pstm.executeLargeUpdate();
         pstm.close();
         con.close();
     }
 
     @Override
-    public void deletestaff(Staff staff, Connection con) throws Exception {
+    public void deleteStaff(Staff staff, Connection con) throws Exception {
 
     }
 
     @Override
-    public void editstaff(Staff staff,Connection con) throws Exception {
+    public void editStaff(Staff staff, Connection con) throws Exception {
         PreparedStatement pstmt1 = con.prepareStatement( "Update staff SET pnumber =? , pnumber2 =? , mail = ? , pass = ?  Where id=? ");
         PreparedStatement pstmt2 = con.prepareStatement("SELECT * FROM staff WHERE id=?");
         pstmt2.setInt(1,staff.getId());
@@ -73,6 +73,5 @@ public class StaffDAOImpl implements StaffDAO {
         pstmt.close();
         con.close();
         return staffs;
-
     }
 }
