@@ -75,4 +75,22 @@ public class StaffDAOImpl implements StaffDAO {
         con.close();
         return staffs;
     }
+
+    @Override
+    public Boolean loginStaff(Staff staff, Connection con ) throws Exception {
+        try {
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE email = ?");
+            pstmt.setString(1,staff.getEmail());
+            ResultSet rs= pstmt.executeQuery();
+            rs.next();
+            String password= rs.getString("password");
+            if(password.equals(staff.getPassword())) return true ;
+                else return false ;
+
+        } catch (Exception ex) {
+            System.out.println("ვერ მოხდა შესვლა");
+            ex.printStackTrace();
+            return false;
+        }
+    }
 }

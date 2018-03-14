@@ -1,6 +1,7 @@
 package ge.mziuri.dao;
 
 import ge.mziuri.model.Staff;
+import ge.mziuri.model.User;
 
 import java.sql.Connection;
 import java.util.List;
@@ -14,4 +15,6 @@ public interface StaffDAO {
     void editStaff(Staff staff, Connection con) throws Exception;
 
     List<Staff> getAllStaffs (Connection con) throws Exception;
+
+    Boolean loginStaff (Staff staff, Connection con) throws Exception;
 }

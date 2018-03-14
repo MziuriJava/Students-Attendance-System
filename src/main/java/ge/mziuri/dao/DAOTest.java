@@ -22,7 +22,8 @@ public static void main(String[]args)throws Exception{
 
     private static  StaffDAO staffDAO = new StaffDAOImpl();
 
-    public static void   TestAddStaff() throws Exception{try {
+    public static void   TestAddStaff() throws Exception{
+        try {
         Scanner scanner = new Scanner(System.in);
         Staff staff = new Staff();
         staff.setFirstname(scanner.nextLine());
@@ -38,7 +39,8 @@ public static void main(String[]args)throws Exception{
     } catch (Exception ex){
         ex.printStackTrace();
     }}
-    public static void TestGetallstaff() throws Exception{try {
+    public static void TestGetallstaff() throws Exception{
+        try {
         List <Staff> staffs = new ArrayList<>();
         Connection con = DataBaseConnector.getConnection();
         staffs=staffDAO.getAllStaffs(con);
@@ -51,7 +53,8 @@ public static void main(String[]args)throws Exception{
         ex.printStackTrace();
     }
     }
-    public static void TestEditstaff() throws Exception{try{
+    public static void TestEditstaff() throws Exception{
+        try{
         Staff staff = new Staff();
         staff.setFirstname("xXx");
         staff.setLastname("xXx");
@@ -67,15 +70,30 @@ public static void main(String[]args)throws Exception{
         ex.printStackTrace();
     }
     }
-    public static void TestDeleteStaff() throws Exception{try{
-        Staff staff = new Staff();
-        staff.setId(2);
-        Connection con = DataBaseConnector.getConnection();
-        staffDAO.deleteStaff(staff,con);
-        con.close();
-    }catch(Exception ex){
-        ex.printStackTrace();
+    public static void TestDeleteStaff() throws Exception {
+        try {
+            Staff staff = new Staff();
+            staff.setId(2);
+            Connection con = DataBaseConnector.getConnection();
+            staffDAO.deleteStaff(staff, con);
+            con.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 
+    public static void TestLoginStaff() throws Exception {
+        try{
+            Staff staff = new Staff();
+            staff.setPassword("esdf");
+            staff.setEmail("alex");
+
+
+
     }
-}
+    catch (Exception ex){
+        ex.printStackTrace();
+    }
+    }
+    }
+
