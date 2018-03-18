@@ -37,14 +37,15 @@ public class StaffDAOImpl implements StaffDAO {
 
     @Override
     public void editStaff(Staff staff, Connection con) throws Exception {
-        PreparedStatement pstmt = con.prepareStatement("Update staff SET firstname=?, lastname=?, email=?, main_phone_number=?,additional_phone_number=?, staff_status=? WHERE id=?");
+        PreparedStatement pstmt = con.prepareStatement("Update staff SET firstname=?, lastname=?, email=?, main_phone_number=?,additional_phone_number=?, staff_status=?, password=? WHERE id=?");
         pstmt.setString(1, staff.getFirstname());
         pstmt.setString(2, staff.getLastname());
         pstmt.setString(3, staff.getEmail());
         pstmt.setString(4, staff.getMainPhoneNumber());
         pstmt.setString(5, staff.getAdditionalPhoneNumber());
         pstmt.setString(6, staff.getStaffStatus().name());
-        pstmt.setInt(7, staff.getId());
+        pstmt.setString(7, staff.getPassword());
+        pstmt.setInt(8, staff.getId());
         pstmt.executeUpdate();
         pstmt.close();
         con.close();
@@ -62,6 +63,7 @@ public class StaffDAOImpl implements StaffDAO {
             String mainPhoneNumber = rs.getString("main_phone_number");
             String additionalPhoneNumber = rs.getString("additional_phone_number");
             String mail = rs.getString("email");
+            String password = rs.getString("password");
             StaffStatus staffstatus = StaffStatus.valueOf(rs.getString("staff_status"));
 
             Staff staff = new Staff();
@@ -72,6 +74,7 @@ public class StaffDAOImpl implements StaffDAO {
             staff.setMainPhoneNumber(mainPhoneNumber);
             staff.setAdditionalPhoneNumber(additionalPhoneNumber);
             staff.setStaffStatus(staffstatus);
+            staff.setPassword(password);
             staffs.add(staff);
         }
         pstmt.close();
