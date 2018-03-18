@@ -4,6 +4,8 @@ import ge.mziuri.model.Staff;
 import ge.mziuri.model.User;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface StaffDAO {
@@ -16,5 +18,7 @@ public interface StaffDAO {
 
     List<Staff> getAllStaffs (Connection con) throws Exception;
 
-    Boolean loginStaff (Staff staff, Connection con) throws Exception;
+    Staff loginStaff(String email, String password, Connection con) throws Exception;
+
+    Staff getStaff(ResultSet rs) throws SQLException;
 }
