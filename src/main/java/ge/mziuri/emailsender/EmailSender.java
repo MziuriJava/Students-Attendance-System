@@ -15,7 +15,7 @@ import javax.mail.internet.*;
 
 public class EmailSender {
 
-    public void sendEmail(String senderEmail, String senderPassword, String receiverEmail,String mailText ,String subject) throws MessagingException {
+    public static void sendEmail(String senderEmail, String senderPassword, String receiverEmail,String mailText ,String subject) throws MessagingException {
 
         Properties properties = new Properties();
         properties.put("mail.smtp.auth", "true");

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class teacherLoginServlet extends HttpServlet {
+public class StaffLoginServlet extends HttpServlet {
     private StaffDAO staffDAO = new StaffDAOImpl();
 
     @Override
