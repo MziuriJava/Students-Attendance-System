@@ -6,6 +6,7 @@ import ge.mziuri.model.StaffStatus;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,25 +58,7 @@ public class StaffDAOImpl implements StaffDAO {
         ResultSet rs = pstmt.executeQuery();
         List<Staff> staffs = new ArrayList<>();
         while (rs.next()) {
-            int ID = rs.getInt("id");
-            String name = rs.getString("firstname");
-            String surname = rs.getString("lastname");
-            String mainPhoneNumber = rs.getString("main_phone_number");
-            String additionalPhoneNumber = rs.getString("additional_phone_number");
-            String mail = rs.getString("email");
-            String password = rs.getString("password");
-            StaffStatus staffstatus = StaffStatus.valueOf(rs.getString("staff_status"));
-
-            Staff staff = new Staff();
-            staff.setId(ID);
-            staff.setEmail(mail);
-            staff.setFirstname(name);
-            staff.setLastname(surname);
-            staff.setMainPhoneNumber(mainPhoneNumber);
-            staff.setAdditionalPhoneNumber(additionalPhoneNumber);
-            staff.setStaffStatus(staffstatus);
-            staff.setPassword(password);
-            staffs.add(staff);
+            staffs.add(getStaff(rs));
         }
         pstmt.close();
         con.close();
@@ -83,20 +66,42 @@ public class StaffDAOImpl implements StaffDAO {
     }
 
     @Override
-    public Boolean loginStaff(Staff staff, Connection con) throws Exception {
+    public Staff loginStaff(String email , String password , Connection con) throws Exception {
         try {
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE email = ?");
-            pstmt.setString(1, staff.getEmail());
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE email = ? AND password = ?");
+            pstmt.setString(1, email);
+            pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            String password = rs.getString("password");
-            if (password.equals(staff.getPassword())) return true;
-            else return false;
-
+            if (rs.next()) {
+                return getStaff(rs);
+            } else {
+                return null;
+            }
         } catch (Exception ex) {
-            System.out.println("ვერ მოხდა შესვლა");
             ex.printStackTrace();
-            return false;
+            return null;
         }
+    }
+
+    public Staff getStaff(ResultSet rs) throws SQLException {
+        int ID = rs.getInt("id");
+        String name = rs.getString("firstname");
+        String surname = rs.getString("lastname");
+        String mainPhoneNumber = rs.getString("main_phone_number");
+        String additionalPhoneNumber = rs.getString("additional_phone_number");
+        String mail = rs.getString("email");
+        StaffStatus staffstatus = StaffStatus.valueOf(rs.getString("staff_status"));
+        String password = rs.getString("password");
+
+        Staff staff = new Staff();
+        staff.setId(ID);
+        staff.setEmail(mail);
+        staff.setFirstname(name);
+        staff.setLastname(surname);
+        staff.setMainPhoneNumber(mainPhoneNumber);
+        staff.setAdditionalPhoneNumber(additionalPhoneNumber);
+        staff.setStaffStatus(staffstatus);
+        staff.setPassword(password);
+        return staff;
     }
 }
