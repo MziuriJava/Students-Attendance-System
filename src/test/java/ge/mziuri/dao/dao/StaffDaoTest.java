@@ -102,6 +102,27 @@ public class StaffDaoTest {
         Assert.assertTrue(staffs.isEmpty());
     }
 
+    @Test
+    public void testLoginStaff() throws Exception{
+        Staff staff = makeMockStaff1();
+        Connection connection = DataBaseConnector.getConnection();
+        staffDAO.addStaff(staff, connection);
+
+        connection = DataBaseConnector.getConnection();
+        Staff staffFromDb = staffDAO.loginStaff(":)@:)@mail.com", ":):):)", connection);
+        Assert.assertEquals(staff.getFirstname(), staffFromDb.getFirstname());
+        Assert.assertEquals(staff.getLastname(), staffFromDb.getLastname());
+        Assert.assertEquals(staff.getMainPhoneNumber(), staffFromDb.getMainPhoneNumber());
+        Assert.assertEquals(staff.getAdditionalPhoneNumber(), staffFromDb.getAdditionalPhoneNumber());
+        Assert.assertEquals(staff.getEmail(),staffFromDb.getEmail());
+        Assert.assertEquals(staff.getPassword(),staffFromDb.getPassword());
+        Assert.assertEquals(staff.getStaffStatus(), staffFromDb.getStaffStatus());
+
+        connection = DataBaseConnector.getConnection();
+        staffFromDb = staffDAO.loginStaff(":)@:)@mail.com", ":):)sfg:)", connection);
+        Assert.assertNull(staffFromDb); c
+    }
+
     @After
     public void cleanUp() throws Exception {
         Connection connection = DataBaseConnector.getConnection();

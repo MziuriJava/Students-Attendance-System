@@ -19,6 +19,4 @@ public interface StaffDAO {
     List<Staff> getAllStaffs (Connection con) throws Exception;
 
     Staff loginStaff(String email, String password, Connection con) throws Exception;
-
-    Staff getStaff(ResultSet rs) throws SQLException;
 }

@@ -83,7 +83,7 @@ public class StaffDAOImpl implements StaffDAO {
         }
     }
 
-    public Staff getStaff(ResultSet rs) throws SQLException {
+    private Staff getStaff(ResultSet rs) throws SQLException {
         int ID = rs.getInt("id");
         String name = rs.getString("firstname");
         String surname = rs.getString("lastname");
