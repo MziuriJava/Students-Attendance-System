@@ -8,6 +8,7 @@ import ge.mziuri.model.Staff;
 import ge.mziuri.model.StaffStatus;
 import ge.mziuri.util.DataBaseConnector;
 import ge.mziuri.util.PropertiesUtil;
+import ge.mziuri.util.encode.TextEncode;
 import ge.mziuri.util.random.RandomTextGenerator;
 
 import javax.servlet.ServletException;
@@ -52,7 +53,7 @@ public class StaffAddServlet extends HttpServlet {
 
         try {
             EmailSender.sendEmail(PropertiesUtil.getProperty("SenderEmail"), PropertiesUtil.getProperty("SenderPassword"), email , password , "დროებითი პაროლი");
-            staff.setPassword(password);
+            staff.setPassword(TextEncode.textEncode(password));
             staffDAO.addStaff(staff, DataBaseConnector.getConnection());
         } catch (Exception ex) {
             // TODO
