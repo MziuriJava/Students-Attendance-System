@@ -19,4 +19,11 @@ CREATE TABLE course(
   leader_staff INT REFERENCES staff(id),
   price INTEGER
 );
+CREATE TABLE group(
+  id SERIAL PRIMARY KEY NOT NULL,
+  groupName VARCHAR(30),
+  startDate DATE,
+  fk_course INT REFERENCES course(id),
+  fk_staff INT REFERENCES staff(id)
+);
 
