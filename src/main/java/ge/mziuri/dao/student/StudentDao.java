@@ -1,6 +1,6 @@
-package ge.mziuri.dao;
+package ge.mziuri.dao.student;
 
-import ge.mziuri.model.Student;
+import ge.mziuri.model.user.student.Student;
 
 import java.sql.Connection;
 import java.util.List;

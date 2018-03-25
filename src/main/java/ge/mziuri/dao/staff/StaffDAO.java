@@ -1,11 +1,8 @@
-package ge.mziuri.dao;
+package ge.mziuri.dao.staff;
 
-import ge.mziuri.model.Staff;
-import ge.mziuri.model.User;
+import ge.mziuri.model.user.staff.Staff;
 
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 public interface StaffDAO {

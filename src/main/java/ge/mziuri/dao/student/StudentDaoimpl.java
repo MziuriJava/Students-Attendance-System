@@ -1,6 +1,7 @@
-package ge.mziuri.dao;
+package ge.mziuri.dao.student;
 
-import ge.mziuri.model.Student;
+import ge.mziuri.dao.student.StudentDao;
+import ge.mziuri.model.user.student.Student;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDaoimpl implements StudentDao{
+public class StudentDaoimpl implements StudentDao {
 
     @Override
     public void addStudent(Student student, Connection con) throws Exception {

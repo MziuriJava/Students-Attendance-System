@@ -1,8 +1,8 @@
 package ge.mziuri.servlet;
 
-import ge.mziuri.dao.StaffDAO;
-import ge.mziuri.dao.StaffDAOImpl;
-import ge.mziuri.model.Staff;
+import ge.mziuri.dao.staff.StaffDAO;
+import ge.mziuri.dao.staff.StaffDAOImpl;
+import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.util.DataBaseConnector;
 
 import javax.servlet.ServletException;

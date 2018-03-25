@@ -1,6 +1,10 @@
-package ge.mziuri.model;
+package ge.mziuri.model.course;
+
+import ge.mziuri.model.user.staff.Staff;
 
 public class Course {
+
+    private int ID;
 
     private String courseName;
 
@@ -17,6 +21,13 @@ public class Course {
     private Staff founder;
 
     private int price;
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public String getCourseName() {
         return courseName;

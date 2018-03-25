@@ -1,4 +1,6 @@
-package ge.mziuri.model;
+package ge.mziuri.model.user.student;
+
+import ge.mziuri.model.user.User;
 
 public class Student extends User {
 
