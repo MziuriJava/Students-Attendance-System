@@ -18,6 +18,7 @@ CREATE TABLE course(
   description VARCHAR,
   leader_staff INT REFERENCES staff(id),
   price INTEGER
+
 );
 CREATE TABLE group(
   id SERIAL PRIMARY KEY NOT NULL,

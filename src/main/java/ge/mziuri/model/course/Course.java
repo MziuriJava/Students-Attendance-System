@@ -21,6 +21,7 @@ public class Course {
     private Staff founder;
 
     private int price;
+
     public int getID() {
         return ID;
     }
