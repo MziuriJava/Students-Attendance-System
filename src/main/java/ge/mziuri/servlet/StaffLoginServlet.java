@@ -3,7 +3,9 @@ package ge.mziuri.servlet;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.model.user.staff.Staff;
-import ge.mziuri.util.DataBaseConnector;
+import ge.mziuri.model.user.staff.StaffStatus;
+import ge.mziuri.util.db.DataBaseConnector;
+import ge.mziuri.util.encode.TextEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,13 +15,8 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class StaffLoginServlet extends HttpServlet {
-    private StaffDAO staffDAO = new StaffDAOImpl();
 
-    @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("failedAuth", "false");
-        resp.sendRedirect("index.jsp");
-    }
+    private StaffDAO staffDAO = new StaffDAOImpl();
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,20 +29,22 @@ public class StaffLoginServlet extends HttpServlet {
         }
         Staff staff = new Staff();
         try {
-            staff = staffDAO.loginStaff(email, password, DataBaseConnector.getConnection());
+            staff = staffDAO.loginStaff(email, TextEncoder.textEncode(password), DataBaseConnector.getConnection());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (staff != null) {
-            resp.sendRedirect("login.html");
+        if (staff != null) { // TODO test
+            if (staff.getStaffStatus().equals(StaffStatus.ADMIN)) {
+                resp.sendRedirect("sas/addStaff.jsp");
+            } else {
+                resp.sendRedirect("sas/table.html");
+            }
             HttpSession session = req.getSession();
-            session.setAttribute("email", email);
-            session.setMaxInactiveInterval(1000);
+            session.setAttribute("staff", staff);
+            session.setMaxInactiveInterval(3000);
         } else {
             req.setAttribute("failedAuth", "true");
             req.getRequestDispatcher("login.jsp").forward(req, resp);
         }
-
-
     }
 }

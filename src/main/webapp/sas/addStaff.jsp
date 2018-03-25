@@ -23,7 +23,7 @@
         <input type="text" placeholder="ID" name="ID">
         <input type="tel" placeholder="მთავარი ნომერი" name="MainNumber">
         <input type="tel" placeholder="სუბ. ნომერი" name="SubNumber">
-        <center>
+        <div style="text-align: center;">
             <select class="fixed-size" style="border-radius: 8px; width: 250px; height: 36px;" name="status">
                 <option value="Administrator">ადმინისტრატორი</option>
                 <option value="Teacher">მასწავლებელი</option>
@@ -35,9 +35,9 @@
                     out.print("<p class=\"failedAuth\">მომხმარებლის სახელი/პაროლი არასწორია</p>");
                 }
             %>
-        </center>
+        </div>
         <br>
-        <input type="button" value="დამატება">
+        <input type="submit" value="დამატება">
     </form>
 </div>
 

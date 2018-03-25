@@ -4,7 +4,7 @@ import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
-import ge.mziuri.util.DataBaseConnector;
+import ge.mziuri.util.db.DataBaseConnector;
 import ge.mziuri.util.TestDataBaseConnector;
 import org.junit.After;
 import org.junit.Assert;
@@ -120,7 +120,7 @@ public class StaffDaoTest {
 
         connection = DataBaseConnector.getConnection();
         staffFromDb = staffDAO.loginStaff(":)@:)@mail.com", ":):)sfg:)", connection);
-        Assert.assertNull(staffFromDb); c
+        Assert.assertNull(staffFromDb);
     }
 
     @After

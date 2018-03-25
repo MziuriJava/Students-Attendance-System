@@ -4,7 +4,8 @@ import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
-import ge.mziuri.util.DataBaseConnector;
+import ge.mziuri.util.db.DataBaseConnector;
+import ge.mziuri.util.encode.TextEncoder;
 
 import java.sql.Connection;
 import java.util.ArrayList;
@@ -15,10 +16,10 @@ import static ge.mziuri.util.random.RandomTextGenerator.generateRandomString;
 public class DAOTest {
 
 public static void main(String[]args)throws Exception{
-    //TestAddStaff();
+    TestAddStaff();
     //TestGetallstaff();
     //TestEditstaff();
-    TestDeleteStaff();
+    //TestDeleteStaff();
         }
 
     private static StaffDAO staffDAO = new StaffDAOImpl();
@@ -32,7 +33,7 @@ public static void main(String[]args)throws Exception{
         staff.setEmail(scanner.nextLine());
         staff.setMainPhoneNumber(scanner.nextLine());
         staff.setAdditionalPhoneNumber(scanner.nextLine());
-        staff.setPassword(generateRandomString(5));
+        staff.setPassword(TextEncoder.textEncode("rame"));
         staff.setStaffStatus(StaffStatus.ADMIN);
         Connection con = DataBaseConnector.getConnection();
         staffDAO.addStaff(staff, con);

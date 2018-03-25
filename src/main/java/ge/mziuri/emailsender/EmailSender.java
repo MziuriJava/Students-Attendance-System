@@ -1,14 +1,8 @@
 package ge.mziuri.emailsender;
 import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
-import ge.mziuri.util.PropertiesUtil;
-import ge.mziuri.util.random.RandomTextGenerator;
 
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Properties;
-import java.util.Set;
 import javax.mail.*;
 import javax.mail.internet.*;
 

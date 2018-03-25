@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/login.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
 <style>
     .shesvlasize {
         width: 150px;
@@ -14,12 +14,12 @@
 <body>
 <div class="login">
     <form method="post" action="/login">
-        <h2> შესვლა </h2>
-        <center>
-            <input type="email" placeholder="Email" name="email">
-            <input type="password" name="password">
-            <input class="shesvlasize" type="button" value=" შესვლა ">
-        </center>
+        <h2> სისტემაში შესვლა </h2>
+        <div style="text-align: center;">
+            <input type="email" placeholder="მეილი" name="email">
+            <input type="password" placeholder="პაროლი" name="password">
+            <input class="shesvlasize" type="submit" value=" შესვლა ">
+        </div>
         <%
             String failedAuth = (String) request.getAttribute("failedAuth");
             if (failedAuth != null && failedAuth.equals("true")) {

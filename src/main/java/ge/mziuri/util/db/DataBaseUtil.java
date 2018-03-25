@@ -1,4 +1,6 @@
-package ge.mziuri.util;
+package ge.mziuri.util.db;
+
+import ge.mziuri.util.properies.PropertiesUtil;
 
 public class DataBaseUtil {
 

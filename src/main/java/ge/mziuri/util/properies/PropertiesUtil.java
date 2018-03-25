@@ -1,4 +1,4 @@
-package ge.mziuri.util;
+package ge.mziuri.util.properies;
 
 import java.io.File;
 import java.io.FileInputStream;

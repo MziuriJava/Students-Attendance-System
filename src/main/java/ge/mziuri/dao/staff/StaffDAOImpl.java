@@ -85,6 +85,7 @@ public class StaffDAOImpl implements StaffDAO {
     }
 
     private Staff getStaff(ResultSet rs) throws SQLException {
+        // TODO remove password
         int ID = rs.getInt("id");
         String name = rs.getString("firstname");
         String surname = rs.getString("lastname");

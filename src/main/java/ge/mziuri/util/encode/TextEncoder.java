@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class TextEncode {
+public class TextEncoder {
 
     public static String textEncode(String text){
         byte[] inputeText = new byte[0];
@@ -18,7 +18,7 @@ public class TextEncode {
         }
 
         try {
-            messageDigest = MessageDigest.getInstance("SHA-512");
+            messageDigest = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
