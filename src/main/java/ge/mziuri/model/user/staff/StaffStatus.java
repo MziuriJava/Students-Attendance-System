@@ -1,4 +1,4 @@
-package ge.mziuri.model;
+package ge.mziuri.model.user.staff;
 
 public enum StaffStatus {
 

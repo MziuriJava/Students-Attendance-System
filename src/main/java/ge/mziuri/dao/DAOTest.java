@@ -1,11 +1,12 @@
 package ge.mziuri.dao;
 
-import ge.mziuri.model.Staff;
-import ge.mziuri.model.StaffStatus;
+import ge.mziuri.dao.staff.StaffDAO;
+import ge.mziuri.dao.staff.StaffDAOImpl;
+import ge.mziuri.model.user.staff.Staff;
+import ge.mziuri.model.user.staff.StaffStatus;
 import ge.mziuri.util.DataBaseConnector;
 
 import java.sql.Connection;
-import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ public static void main(String[]args)throws Exception{
     TestDeleteStaff();
         }
 
-    private static  StaffDAO staffDAO = new StaffDAOImpl();
+    private static StaffDAO staffDAO = new StaffDAOImpl();
 
     public static void   TestAddStaff() throws Exception{
         try {

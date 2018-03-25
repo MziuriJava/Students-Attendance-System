@@ -1,9 +1,9 @@
 package ge.mziuri.dao.dao;
 
-import ge.mziuri.dao.StaffDAO;
-import ge.mziuri.dao.StaffDAOImpl;
-import ge.mziuri.model.Staff;
-import ge.mziuri.model.StaffStatus;
+import ge.mziuri.dao.staff.StaffDAO;
+import ge.mziuri.dao.staff.StaffDAOImpl;
+import ge.mziuri.model.user.staff.Staff;
+import ge.mziuri.model.user.staff.StaffStatus;
 import ge.mziuri.util.DataBaseConnector;
 import ge.mziuri.util.TestDataBaseConnector;
 import org.junit.After;

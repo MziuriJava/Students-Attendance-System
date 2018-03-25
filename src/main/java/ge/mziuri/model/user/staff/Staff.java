@@ -1,4 +1,6 @@
-package ge.mziuri.model;
+package ge.mziuri.model.user.staff;
+
+import ge.mziuri.model.user.User;
 
 public class Staff extends User {
 

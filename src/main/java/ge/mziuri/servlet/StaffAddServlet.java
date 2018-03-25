@@ -1,11 +1,10 @@
 package ge.mziuri.servlet;
 
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
-import ge.mziuri.dao.StaffDAO;
-import ge.mziuri.dao.StaffDAOImpl;
+import ge.mziuri.dao.staff.StaffDAO;
+import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.emailsender.EmailSender;
-import ge.mziuri.model.Staff;
-import ge.mziuri.model.StaffStatus;
+import ge.mziuri.model.user.staff.Staff;
+import ge.mziuri.model.user.staff.StaffStatus;
 import ge.mziuri.util.DataBaseConnector;
 import ge.mziuri.util.PropertiesUtil;
 import ge.mziuri.util.encode.TextEncode;
@@ -15,9 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Random;
 
 public class StaffAddServlet extends HttpServlet {
     private StaffDAO staffDAO = new StaffDAOImpl();

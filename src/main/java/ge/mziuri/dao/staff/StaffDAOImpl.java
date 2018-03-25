@@ -1,7 +1,8 @@
-package ge.mziuri.dao;
+package ge.mziuri.dao.staff;
 
-import ge.mziuri.model.Staff;
-import ge.mziuri.model.StaffStatus;
+import ge.mziuri.dao.staff.StaffDAO;
+import ge.mziuri.model.user.staff.Staff;
+import ge.mziuri.model.user.staff.StaffStatus;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
