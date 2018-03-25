@@ -14,4 +14,5 @@ public interface CourseDAO {
     List<Course> getAllCourse(Connection con) throws Exception;
 
     void editCourse (Course course , Connection con) throws Exception;
+
 }

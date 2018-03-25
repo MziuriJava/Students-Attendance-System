@@ -65,21 +65,6 @@ public class StudentDaoimpl implements StudentDao {
     }
 
 
-    @Override
-    public Student loginStudent (String email , String password , Connection con) throws Exception {
-        try {
-            PreparedStatement pstm = con.prepareStatement("SELECT * FROM student WHERE email = ? AND password = ?");
-            pstm.setString(1, email);
-            pstm.setString(2, password);
-            ResultSet rs = pstm.executeQuery();
-            if (rs.next()) { return getStudent(rs);
-            } else { return null; }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
-
 
     private Student getStudent(ResultSet rs) throws SQLException {
         int ID = rs.getInt("id");

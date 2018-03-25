@@ -18,12 +18,13 @@ CREATE TABLE course(
   description VARCHAR,
   leader_staff INT REFERENCES staff(id),
   price INTEGER
+
 );
 CREATE TABLE group(
   id SERIAL PRIMARY KEY NOT NULL,
   groupName VARCHAR(30),
   startDate DATE,
-  fk_course INT REFERENCES course(id),
-  fk_staff INT REFERENCES staff(id)
+  course_id INT REFERENCES course(id),
+  staff_id INT REFERENCES staff(id)
 );
 
