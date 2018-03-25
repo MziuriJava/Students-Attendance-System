@@ -1,4 +1,4 @@
-package ge.mziuri.dao.dao;
+package ge.mziuri.dao.staff;
 
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
@@ -120,7 +120,7 @@ public class StaffDaoTest {
 
         connection = DataBaseConnector.getConnection();
         staffFromDb = staffDAO.loginStaff(":)@:)@mail.com", ":):)sfg:)", connection);
-        Assert.assertNull(staffFromDb); c
+        Assert.assertNull(staffFromDb);
     }
 
     @After
