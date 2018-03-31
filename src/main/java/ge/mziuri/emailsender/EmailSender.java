@@ -5,7 +5,6 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
-
 public class EmailSender {
 
     public static void sendEmail(String senderEmail, String senderPassword, String receiverEmail,String mailText ,String subject) throws MessagingException {
