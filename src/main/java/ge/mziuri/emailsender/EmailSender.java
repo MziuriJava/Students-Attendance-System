@@ -1,5 +1,4 @@
 package ge.mziuri.emailsender;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
 
 
 import java.util.Properties;

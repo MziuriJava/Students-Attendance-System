@@ -38,13 +38,16 @@ public class StaffAddServlet extends HttpServlet {
         switch (statusStr) {
             case "Administrator" : {
                 staff.setStaffStatus(StaffStatus.ADMIN);
+                break;
             }
             case "Teacher" : {
                 staff.setStaffStatus(StaffStatus.TEACHER);
+                break;
             }
             case "Other" :
                 default:
                     staff.setStaffStatus(StaffStatus.OTHER);
+
         }
         String password = RandomTextGenerator.generateRandomString(7);
 
