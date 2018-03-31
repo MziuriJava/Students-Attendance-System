@@ -1,11 +1,8 @@
 package ge.mziuri.emailsender;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.MessagingException;
-
 
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
-
 
 public class EmailSender {
 
