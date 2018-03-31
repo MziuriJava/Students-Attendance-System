@@ -2,8 +2,8 @@ package ge.mziuri.dao.student;
 
 
 import ge.mziuri.model.user.student.Student;
-import ge.mziuri.util.DataBaseConnector;
 import ge.mziuri.util.TestDataBaseConnector;
+import ge.mziuri.util.db.DataBaseConnector;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
