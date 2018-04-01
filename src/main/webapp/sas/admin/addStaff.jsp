@@ -15,7 +15,7 @@
 </style>
 <body>
 <div class="addStaff">
-    <form method="post" action="/addStaff">
+    <form method="post" action="/sas/admin/addStaff">
         <h2> მასწავლებლის დამატება </h2>
         <input type="text" placeholder="სახელი" name="name">
         <input type="text" placeholder="გვარი" name="surname">

@@ -35,7 +35,7 @@ public class StaffLoginServlet extends HttpServlet {
         }
         if (staff != null) { // TODO test
             if (staff.getStaffStatus().equals(StaffStatus.ADMIN)) {
-                resp.sendRedirect("sas/addStaff.jsp");
+                resp.sendRedirect("sas/admin/addStaff.jsp");
             } else {
                 resp.sendRedirect("sas/table.html");
             }
