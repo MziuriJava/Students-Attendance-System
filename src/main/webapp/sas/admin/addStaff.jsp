@@ -16,15 +16,15 @@
 <body>
 <div class="addStaff">
     <form method="post" action="/sas/admin/addStaff">
-        <h2> მასწავლებლის დამატება </h2>
-        <input type="text" placeholder="სახელი" name="name">
-        <input type="text" placeholder="გვარი" name="surname">
-        <input type="email" placeholder="Email" name="email">
-        <input type="text" placeholder="ID" name="ID">
-        <input type="tel" placeholder="მთავარი ნომერი" name="MainNumber">
-        <input type="tel" placeholder="სუბ. ნომერი" name="SubNumber">
+        <h2 class ="inputadd"> მასწავლებლის დამატება </h2>
+        <input class="inputtext"  type="text" placeholder="სახელი" name="name">
+        <input class="inputtext"  type="text" placeholder="გვარი" name="surname">
+        <input class="inputtext"  type="email" placeholder="Email" name="email">
+        <input class="inputtext"  type="text" placeholder="ID" name="ID">
+        <input class="inputtext"  type="tel" placeholder="მთავარი ნომერი" name="MainNumber">
+        <input class="inputtext"  type="tel" placeholder="სუბ. ნომერი" name="SubNumber">
         <div style="text-align: center;">
-            <select class="fixed-size" style="border-radius: 8px; width: 250px; height: 36px;" name="status">
+            <select class="fixed-size"  name="status">
                 <option value="Administrator">ადმინისტრატორი</option>
                 <option value="Teacher">მასწავლებელი</option>
                 <option value="Other">სხვა</option>
@@ -37,7 +37,7 @@
             %>
         </div>
         <br>
-        <input type="submit" value="დამატება">
+        <input class="submit" type="submit" value="დამატება">
     </form>
 </div>
 

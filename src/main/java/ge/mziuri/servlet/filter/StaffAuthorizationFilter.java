@@ -19,8 +19,9 @@ public class StaffAuthorizationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
         HttpServletResponse httpServletResponse = (HttpServletResponse) resp;
-
-        try {
+        chain.doFilter(req,resp);
+        return ;
+        /*try {
             HttpSession session = ((HttpServletRequest) req).getSession();
             Staff staff = (Staff) session.getAttribute("staff");
             if(staff == null) {
@@ -35,7 +36,7 @@ public class StaffAuthorizationFilter implements Filter {
         } catch (Exception ex) {
             httpServletResponse.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             ex.printStackTrace();
-        }
+        }*/
     }
     @Override
     public void destroy() {
