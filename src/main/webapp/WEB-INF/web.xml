@@ -7,13 +7,23 @@
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
+    <filter>
+        <filter-name>StaffAuthorizationFilter</filter-name>
+        <filter-class>ge.mziuri.servlet.filter.StaffAuthorizationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>StaffAuthorizationFilter</filter-name>
+        <url-pattern>/sas/admin/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>StaffAddServlet</servlet-name>
         <servlet-class>ge.mziuri.servlet.StaffAddServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StaffAddServlet</servlet-name>
-        <url-pattern>/addStaff</url-pattern>
+        <url-pattern>/sas/admin/addStaff</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -24,6 +34,7 @@
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
 
 
 </web-app>

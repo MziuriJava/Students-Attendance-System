@@ -1,12 +1,17 @@
 package ge.mziuri.dao;
 
+import ge.mziuri.dao.course.CourseDAO;
+import ge.mziuri.dao.course.CourseDAOImpl;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
+import ge.mziuri.model.course.Course;
+import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
 import ge.mziuri.util.db.DataBaseConnector;
 import ge.mziuri.util.encode.TextEncoder;
 
+import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +21,17 @@ import static ge.mziuri.util.random.RandomTextGenerator.generateRandomString;
 public class DAOTest {
 
 public static void main(String[]args)throws Exception{
-    TestAddStaff();
+    //TestAddStaff();
     //TestGetallstaff();
     //TestEditstaff();
     //TestDeleteStaff();
+    //TestAddCourse();
+    //TestEditCourse();
+    TestGetCourses();
         }
 
     private static StaffDAO staffDAO = new StaffDAOImpl();
-
+    private static CourseDAO courseDAO = new CourseDAOImpl();
     public static void   TestAddStaff() throws Exception{
         try {
         Scanner scanner = new Scanner(System.in);
@@ -96,6 +104,36 @@ public static void main(String[]args)throws Exception{
     catch (Exception ex){
         ex.printStackTrace();
     }
+    }
+
+    public static void TestAddCourse() throws  Exception {
+        Connection con = DataBaseConnector.getConnection();
+        Course course = new Course();
+        course.setCourseName("JAVA");
+        course.setCourseStatus(CourseStatus.Passive);
+        Staff staff = new Staff();
+        staff.setId(1);
+        course.setFounder(staff);
+        courseDAO.addCourse(course,con);
+    }
+    public static void TestEditCourse() throws Exception{
+        Connection con = DataBaseConnector.getConnection();
+        Course course = new Course();
+        course.setCourseName("JAVA");
+        course.setID(1);
+        course.setCourseStatus(CourseStatus.Passive);
+        Staff staff = new Staff();
+        staff.setId(1);
+        course.setFounder(staff);
+        courseDAO.editCourse(course,con);
+    }
+    public static void TestGetCourses() throws Exception{
+        Connection con = DataBaseConnector.getConnection();
+        List <Course> course = new ArrayList<>();
+        course=courseDAO.getAllCourse(con);
+        for(int i=0;i<course.size();i++){
+            System.out.println(course.get(i).getID());
+        }
     }
     }
 

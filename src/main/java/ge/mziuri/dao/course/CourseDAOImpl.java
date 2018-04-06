@@ -73,8 +73,9 @@ public class CourseDAOImpl implements CourseDAO {
         String status = rs.getString("course_status");
         if(status.equals(CourseStatus.Active)) course.setCourseStatus(CourseStatus.Active); else course.setCourseStatus(CourseStatus.Passive);
         Staff staff = new Staff();
-        staff.setId(rs.getInt("leader-staff"));
+        staff.setId(rs.getInt("leader_staff"));
         course.setFounder(staff);
         return course;
     }
+
 }
