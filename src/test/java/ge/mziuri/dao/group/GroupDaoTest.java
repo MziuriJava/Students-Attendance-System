@@ -4,9 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class GroupDaoTest {
-private GroupDAO groupDAO;
+private GroupDAO groupDAO;}
 
-    @Before
+   /* @Before
         public void setUp{
             groupDAO = new GroupDAOImpl();
         }
@@ -24,3 +24,4 @@ private GroupDAO groupDAO;
 
 
     }
+*/
