@@ -35,6 +35,31 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LoadCourseServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.LoadCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadCourseServlet</servlet-name>
+        <url-pattern>/loadCourses</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LoadStaffServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.LoadStaffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadStaffServlet</servlet-name>
+        <url-pattern>/loadStaffs</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoadStudentServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.LoadStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadStudentServlet</servlet-name>
+        <url-pattern>/loadStudents</url-pattern>
+    </servlet-mapping>
 
 </web-app>

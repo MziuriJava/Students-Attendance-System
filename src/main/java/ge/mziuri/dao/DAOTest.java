@@ -4,10 +4,13 @@ import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
+import ge.mziuri.dao.student.StudentDao;
+import ge.mziuri.dao.student.StudentDaoimpl;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
+import ge.mziuri.model.user.student.Student;
 import ge.mziuri.util.db.DataBaseConnector;
 import ge.mziuri.util.encode.TextEncoder;
 
@@ -25,11 +28,12 @@ public static void main(String[]args)throws Exception{
     //TestGetallstaff();
     //TestEditstaff();
     //TestDeleteStaff();
-    //TestAddCourse();
+    TestAddCourse();
     //TestEditCourse();
-    TestGetCourses();
+    //TestGetCourses();
+    //TestAddStudent();
         }
-
+    private static StudentDao studentDao = new StudentDaoimpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
     private static CourseDAO courseDAO = new CourseDAOImpl();
     public static void   TestAddStaff() throws Exception{
@@ -107,10 +111,11 @@ public static void main(String[]args)throws Exception{
     }
 
     public static void TestAddCourse() throws  Exception {
+        Scanner sc = new Scanner(System.in);
         Connection con = DataBaseConnector.getConnection();
         Course course = new Course();
-        course.setCourseName("JAVA");
-        course.setCourseStatus(CourseStatus.Passive);
+        course.setCourseName(sc.nextLine());
+        course.setCourseStatus(CourseStatus.Active);
         Staff staff = new Staff();
         staff.setId(1);
         course.setFounder(staff);
@@ -129,11 +134,23 @@ public static void main(String[]args)throws Exception{
     }
     public static void TestGetCourses() throws Exception{
         Connection con = DataBaseConnector.getConnection();
-        List <Course> course = new ArrayList<>();
+        List <Course> course;
         course=courseDAO.getAllCourse(con);
         for(int i=0;i<course.size();i++){
             System.out.println(course.get(i).getID());
         }
+    }
+    public static void TestAddStudent() throws Exception{
+        Scanner sc = new Scanner(System.in);
+        Student student = new Student();
+        student.setFirstname(sc.nextLine());
+        student.setLastname(sc.nextLine());
+        student.setEmail(sc.nextLine());
+        student.setPassword(TextEncoder.textEncode("rame"));
+        student.setPhoneNumber(sc.nextLine());
+        student.setParentName(sc.nextLine());
+        student.setParentNumber(sc.nextLine());
+        studentDao.addStudent(student, DataBaseConnector.getConnection());
     }
     }
 

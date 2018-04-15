@@ -18,13 +18,23 @@ public class LoadStaffServlet extends HttpServlet {
         try {
             List<Staff> staffs = staffDAO.getAllStaffs(DataBaseConnector.getConnection());
             req.setAttribute("staffs", staffs);
-            req.getRequestDispatcher("sas/admin/staffs.jsp").forward(req, resp);
+            req.getRequestDispatcher("staffs.jsp").forward(req, resp);
         } catch (Exception e) {
             // TODO
         }
     }
 
-
+    // TODO remove
+    public void doGet(HttpServletRequest req, HttpServletResponse resp){
+        try {
+            List<Staff> staffs = staffDAO.getAllStaffs(DataBaseConnector.getConnection());
+            req.setAttribute("staffs", staffs);
+            req.getRequestDispatcher("staffs.jsp").forward(req, resp);
+        } catch (Exception e) {
+            // TODO
+            e.printStackTrace();
+        }
+    }
 
 
 

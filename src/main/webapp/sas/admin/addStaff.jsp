@@ -2,7 +2,6 @@
 <html>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../../css/register.css">
-<href
 <head>
     <title> მასწავლებლის დამატება</title>
 </head>
