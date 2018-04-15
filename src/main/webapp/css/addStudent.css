@@ -1,0 +1,63 @@
+.addstudent{
+    width: 400px;
+    margin: auto;
+    background: transparent;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+form{
+    padding: 10px;
+    border: 1px solid orange
+}
+
+h2{
+    text-align: center;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+p {
+    text-align: center;
+    margin: 1px;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.inputadd{
+    text-align: center;
+    color: #444444;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.2);
+}
+
+.inputtext{
+    text-align: center;
+    width: 250px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+}
+
+input{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+}
+
+.shesvlasize{
+    text-align: center;
+    margin: 8px;
+    width: 100px;
+    height: 30px;
+    border: none;
+    background: rgba(255,255,255,.2);
+}
+
+body{
+    background-image: url(../images/webimage.jpg);
+}

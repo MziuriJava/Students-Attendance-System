@@ -1,0 +1,98 @@
+.course{
+    width: 300px;
+    background:transparent;
+    margin: 50px auto auto;
+    padding: 10px;
+}
+
+form{
+    padding: 10px;
+    border: 1px solid orange
+}
+
+.AddsyllabusSize {
+    margin: 10px;
+    width: 233px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+}
+
+.shesvlasize {
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    border: none;
+    background: rgba(255,255,255,.2);
+
+}
+
+.inputadd{
+    text-align: center;
+    color: #444444;
+    padding: 10px;
+    border-radius: 20px;
+    background: rgba(255,255,255,.2);
+}
+
+.courseLengthInput {
+    text-align: center;
+    margin: 4px;
+    width: 250px;
+    height: 30px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+}
+
+.courseNameInput{
+    text-align: center;
+    margin: 4px;
+    width: 250px;
+    height: 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+}
+
+.courseDescriptionInput{
+    text-align: center;
+    margin: 4px;
+    width: 250px;
+    height: 90px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+}
+
+.coursePriceInput{
+    text-align: center;
+    margin: 4px;
+    width: 250px;
+    height: 15px;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+}
+
+h2{
+    text-align: center;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+p{
+    text-align: center;
+    margin: 5px;
+}
+
+input{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+}
+
+body{
+    background-image: url(../images/webimage.jpg);
+}
