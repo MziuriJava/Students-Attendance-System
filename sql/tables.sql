@@ -8,6 +8,7 @@ CREATE TABLE staff (
   password VARCHAR(50) NOT NULL,
   staff_status VARCHAR(50) NOT NULL
 );
+
 CREATE TABLE course(
   id SERIAL PRIMARY KEY NOT NULL,
   course_name VARCHAR(30),
@@ -18,8 +19,10 @@ CREATE TABLE course(
   description VARCHAR,
   leader_staff INT REFERENCES staff(id),
   price INTEGER
-
 );
+
+ALTER TABLE course ADD COLUMN syllabus bytea;
+
 CREATE TABLE student(
   id SERIAL PRIMARY KEY NOT NULL,
   firstname VARCHAR(50) NOT NULL,
@@ -31,10 +34,7 @@ CREATE TABLE student(
   parent_number VARCHAR(50)
 );
 
-
-
-)
-CREATE TABLE class_group(
+CREATE TABLE group(
   id SERIAL PRIMARY KEY NOT NULL,
   groupName VARCHAR(30),
   startDate DATE,
