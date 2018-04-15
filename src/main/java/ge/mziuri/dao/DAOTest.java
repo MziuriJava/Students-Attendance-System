@@ -14,13 +14,11 @@ import ge.mziuri.model.user.student.Student;
 import ge.mziuri.util.db.DataBaseConnector;
 import ge.mziuri.util.encode.TextEncoder;
 
-import javax.xml.crypto.Data;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static ge.mziuri.util.random.RandomTextGenerator.generateRandomString;
 public class DAOTest {
 
 public static void main(String[]args)throws Exception{
@@ -28,7 +26,7 @@ public static void main(String[]args)throws Exception{
     //TestGetallstaff();
     //TestEditstaff();
     //TestDeleteStaff();
-    TestAddCourse();
+    //TestAddCourse();
     //TestEditCourse();
     //TestGetCourses();
     //TestAddStudent();
@@ -115,7 +113,7 @@ public static void main(String[]args)throws Exception{
         Connection con = DataBaseConnector.getConnection();
         Course course = new Course();
         course.setCourseName(sc.nextLine());
-        course.setCourseStatus(CourseStatus.Active);
+        course.setCourseStatus(CourseStatus.DEACTIVATED);
         Staff staff = new Staff();
         staff.setId(1);
         course.setFounder(staff);
@@ -126,7 +124,7 @@ public static void main(String[]args)throws Exception{
         Course course = new Course();
         course.setCourseName("JAVA");
         course.setID(1);
-        course.setCourseStatus(CourseStatus.Passive);
+        course.setCourseStatus(CourseStatus.DEACTIVATED);
         Staff staff = new Staff();
         staff.setId(1);
         course.setFounder(staff);

@@ -1,6 +1,5 @@
 package ge.mziuri.dao.course;
 
-import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.user.staff.Staff;
@@ -71,7 +70,7 @@ public class CourseDAOImpl implements CourseDAO {
         course.setDescription(rs.getString("description"));
         course.setLessonsPerWeek(rs.getInt("lessons_per_week"));
         String status = rs.getString("course_status");
-        if(status.equals(CourseStatus.Active)) course.setCourseStatus(CourseStatus.Active); else course.setCourseStatus(CourseStatus.Passive);
+        if(status.equals(CourseStatus.ACTIVE)) course.setCourseStatus(CourseStatus.ACTIVE); else course.setCourseStatus(CourseStatus.DEACTIVATED);
         Staff staff = new Staff();
         staff.setId(rs.getInt("leader_staff"));
         course.setFounder(staff);

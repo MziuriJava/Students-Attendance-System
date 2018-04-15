@@ -62,4 +62,13 @@
         <url-pattern>/loadStudents</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>FileUploadDBServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.FileUploadDBServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUploadDBServlet</servlet-name>
+        <url-pattern>/uploadServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>
