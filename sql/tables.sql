@@ -18,8 +18,10 @@ CREATE TABLE course(
   description VARCHAR,
   leader_staff INT REFERENCES staff(id),
   price INTEGER
-
 );
+
+ALTER TABLE course ADD COLUMN syllabus bytea;
+
 CREATE TABLE group(
   id SERIAL PRIMARY KEY NOT NULL,
   groupName VARCHAR(30),
