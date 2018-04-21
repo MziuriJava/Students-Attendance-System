@@ -1,3 +1,4 @@
+<%@ page import="ge.mziuri.model.user.staff.Staff" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <meta charset="UTF-8">
@@ -16,7 +17,10 @@
 <div class="addStaff">
     <form method="post" action="/sas/admin/addStaff">
         <h2 class ="inputadd"> მასწავლებლის დამატება </h2>
-        <input class="inputtext"  type="text" placeholder="სახელი" name="name">
+        <%
+            Staff staff = (Staff) request.getAttribute("staff");
+        %>
+        <input class="inputtext"  type="text" placeholder="სახელი" name="name" value="<%=(staff == null) ? "" : staff.getFirstname()%>">
         <input class="inputtext"  type="text" placeholder="გვარი" name="surname">
         <input class="inputtext"  type="email" placeholder="Email" name="email">
         <input class="inputtext"  type="text" placeholder="ID" name="ID">

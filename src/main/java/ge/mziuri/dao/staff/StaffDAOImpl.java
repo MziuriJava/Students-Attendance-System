@@ -84,6 +84,11 @@ public class StaffDAOImpl implements StaffDAO {
         }
     }
 
+    @Override
+    public Staff getStaffById(int id) throws Exception {
+        return null;
+    }
+
     private Staff getStaff(ResultSet rs) throws SQLException {
         // TODO remove password
         int ID = rs.getInt("id");
