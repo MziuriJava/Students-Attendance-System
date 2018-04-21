@@ -34,11 +34,20 @@ CREATE TABLE student(
   parent_number VARCHAR(50)
 );
 
-CREATE TABLE group(
+CREATE TABLE class_group(
   id SERIAL PRIMARY KEY NOT NULL,
   groupName VARCHAR(30),
   startDate DATE,
   course_id INT REFERENCES course(id),
   staff_id INT REFERENCES staff(id)
 );
+CREATE TABLE journal(
+ student_id INT REFERENCES student(id),
+ group_id INT REFERENCES class_group(id),
+ date DATE,
+ attendance BOOLEAN,
+ lesson_mark INT,
+ homework_mark INT,
+ test_mark INT
+)
 
