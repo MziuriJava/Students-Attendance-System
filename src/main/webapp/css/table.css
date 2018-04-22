@@ -51,9 +51,8 @@ table.blueTable tfoot td {
 .centerButton{
     text-align: center;
     width: 1px;
-    height: 0px;
+    height: 0px;}
 
-}
 .buttonStyle{
     width: 25px;
     height: 25px;

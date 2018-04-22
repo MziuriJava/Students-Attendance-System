@@ -10,7 +10,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void addStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname , lastname, email , phone_number ,  password, parent_name, parent_number, birth_date, school, personal_ID ) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname , lastname, email , phone_number ,  password, parent_name, parent_number, birth_date, school, personal_id ) VALUES (?,?,?,?,?,?,?,?,?,?)");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
@@ -36,7 +36,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void editStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("UPDATE student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number, birth_date, school, personal_ID WHERE id=?");
+        PreparedStatement pstm = con.prepareStatement("UPDATE student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number, birth_date, school, personal_id WHERE id=?");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
@@ -79,7 +79,7 @@ public class StudentDaoImpl implements StudentDao {
         String parent_number = rs.getString("parent_number");
         String school =rs.getString("school");
         Date birth_date = rs.getDate("birth_date");
-        String personal_ID = rs.getString("personal_ID");
+        String personal_ID = rs.getString("personal_id");
 
         Student student = new Student();
         student.setId(ID);

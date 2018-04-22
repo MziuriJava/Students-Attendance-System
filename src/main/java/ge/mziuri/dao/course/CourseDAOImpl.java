@@ -1,6 +1,5 @@
 package ge.mziuri.dao.course;
 
-import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.user.staff.Staff;
@@ -14,7 +13,7 @@ import java.util.List;
 public class CourseDAOImpl implements CourseDAO {
     @Override
     public void addCourse(Course course, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO course (course_name , course_status , course_length , course_lesson_time , lessons_per_week , description , leader_staff , price ) VALUES (?,?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO course (course_name , course_status , course_length , course_lesson_time , lessons_per_week , description , leader_staff , price , syllabus) VALUES (?,?,?,?,?,?,?,?,?)");
         pstm.setString(1,course.getCourseName());
         pstm.setString(2,course.getCourseStatus().toString());
         pstm.setInt(3,course.getCourseLength());
@@ -23,6 +22,7 @@ public class CourseDAOImpl implements CourseDAO {
         pstm.setString(6,course.getDescription());
         pstm.setInt(7,course.getFounder().getId());
         pstm.setInt(8,course.getPrice());
+        pstm.setBytes(9, course.getSyllabus());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -45,7 +45,7 @@ public class CourseDAOImpl implements CourseDAO {
 
     @Override
     public void editCourse(Course course, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("Update course SET course_name = ? , course_status=? , course_length=? , course_lesson_time=? , lessons_per_week=? , description=? , leader_staff=? , price=? WHERE id=? ");
+        PreparedStatement pstm = con.prepareStatement("Update course SET course_name = ? , course_status=? , course_length=? , course_lesson_time=? , lessons_per_week=? , description=? , leader_staff=? , price=? , syllabus=? WHERE id=? ");
         pstm.setInt(9,course.getID());
         pstm.setString(1,course.getCourseName());
         pstm.setString(2,course.getCourseStatus().toString());
@@ -54,7 +54,8 @@ public class CourseDAOImpl implements CourseDAO {
         pstm.setInt(5,course.getLessonsPerWeek());
         pstm.setString(6,course.getDescription());
         pstm.setInt(7,course.getFounder().getId());
-        pstm.setInt(8,course.getPrice());
+        pstm.setBytes(8,course.getSyllabus());
+        pstm.setInt(9, course.getPrice());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -71,10 +72,12 @@ public class CourseDAOImpl implements CourseDAO {
         course.setDescription(rs.getString("description"));
         course.setLessonsPerWeek(rs.getInt("lessons_per_week"));
         String status = rs.getString("course_status");
-        if(status.equals(CourseStatus.Active)) course.setCourseStatus(CourseStatus.Active); else course.setCourseStatus(CourseStatus.Passive);
+        if(status.equals(CourseStatus.ACTIVE)) course.setCourseStatus(CourseStatus.ACTIVE); else course.setCourseStatus(CourseStatus.DEACTIVATED);
         Staff staff = new Staff();
-        staff.setId(rs.getInt("leader-staff"));
+        staff.setId(rs.getInt("leader_staff"));
         course.setFounder(staff);
+        course.setSyllabus(rs.getBytes("syllabus"));
         return course;
     }
+
 }

@@ -78,7 +78,23 @@ public class StaffDAOImpl implements StaffDAO {
             } else {
                 return null;
             }
+
         } catch (Exception ex) {
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Staff getStaffById(int id, Connection con) throws Exception {
+        try {
+            PreparedStatement pstmt = con.prepareStatement("SELECT FROM staff WHERE id = ?");
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            pstmt.close();
+            con.close();
+            return getStaff(rs);
+        }catch(Exception ex){
             ex.printStackTrace();
             return null;
         }

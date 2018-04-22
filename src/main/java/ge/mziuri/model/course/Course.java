@@ -22,6 +22,8 @@ public class Course {
 
     private int price;
 
+    private byte[] syllabus;
+
     public int getID() {
         return ID;
     }
@@ -92,5 +94,13 @@ public class Course {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public byte[] getSyllabus() {
+        return syllabus;
+    }
+
+    public void setSyllabus(byte[] syllabus) {
+        this.syllabus = syllabus;
     }
 }

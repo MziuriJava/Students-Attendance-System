@@ -7,13 +7,23 @@
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
+    <filter>
+        <filter-name>StaffAuthorizationFilter</filter-name>
+        <filter-class>ge.mziuri.servlet.filter.StaffAuthorizationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>StaffAuthorizationFilter</filter-name>
+        <url-pattern>/sas/admin/*</url-pattern>
+    </filter-mapping>
+
     <servlet>
         <servlet-name>StaffAddServlet</servlet-name>
         <servlet-class>ge.mziuri.servlet.StaffAddServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StaffAddServlet</servlet-name>
-        <url-pattern>/addStaff</url-pattern>
+        <url-pattern>/sas/admin/addStaff</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -25,5 +35,40 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>LoadCourseServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.LoadCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadCourseServlet</servlet-name>
+        <url-pattern>/loadCourses</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoadStaffServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.LoadStaffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadStaffServlet</servlet-name>
+        <url-pattern>/loadStaffs</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoadStudentServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.LoadStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoadStudentServlet</servlet-name>
+        <url-pattern>/loadStudents</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FileUploadDBServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.FileUploadDBServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileUploadDBServlet</servlet-name>
+        <url-pattern>/uploadServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>

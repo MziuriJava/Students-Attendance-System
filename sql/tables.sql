@@ -8,6 +8,7 @@ CREATE TABLE staff (
   password VARCHAR(50) NOT NULL,
   staff_status VARCHAR(50) NOT NULL
 );
+
 CREATE TABLE course(
   id SERIAL PRIMARY KEY NOT NULL,
   course_name VARCHAR(30),
@@ -18,24 +19,37 @@ CREATE TABLE course(
   description VARCHAR,
   leader_staff INT REFERENCES staff(id),
   price INTEGER
-
 );
-CREATE TABLE group(
+
+ALTER TABLE course ADD COLUMN syllabus bytea;
+
+CREATE TABLE student(
+  id SERIAL PRIMARY KEY NOT NULL,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  password VARCHAR(50),
+  phone_number VARCHAR(50),
+  parent_name VARCHAR(50),
+  parent_number VARCHAR(50),
+  personal_id VARCHAR(50) NOT NULL,
+  birth_date DATE NOT NULL,
+  school VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE class_group(
   id SERIAL PRIMARY KEY NOT NULL,
   groupName VARCHAR(30),
   startDate DATE,
   course_id INT REFERENCES course(id),
   staff_id INT REFERENCES staff(id)
 );
-
-CREATE TABLE student (
-  id SERIAL PRIMARY KEY NOT NULL,
-  firstname VARCHAR(50) NOT NULL,
-  lastname VARCHAR(50) NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  phone_number VARCHAR(50) NOT NULL,
-  personalId VARCHAR(50) NOT NULL,
-  password VARCHAR(50) NOT NULL,
-  birthDate VARCHAR(50) NOT NULL,
-  school VARCHAR(50) NOT NULL
-);
+CREATE TABLE journal(
+ student_id INT REFERENCES student(id),
+ group_id INT REFERENCES class_group(id),
+ date DATE,
+ attendance BOOLEAN,
+ lesson_mark INT,
+ homework_mark INT,
+ test_mark INT
+)

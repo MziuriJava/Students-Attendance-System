@@ -2,12 +2,7 @@
 <html>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/login.css">
-<style>
-    .shesvlasize {
-        width: 150px;
-        height: 30px;
-    }
-</style>
+
 <head>
     <title> შესვლა </title>
 </head>
@@ -15,10 +10,14 @@
 <div class="login">
     <form method="post" action="/login">
         <h2> სისტემაში შესვლა </h2>
-        <div style="text-align: center;">
-            <input type="email" placeholder="მეილი" name="email">
-            <input type="password" placeholder="პაროლი" name="password">
-            <input class="shesvlasize" type="submit" value=" შესვლა ">
+        <div>
+            <label class="lab" >მეილი</label>
+            <input class="form-styling" type="email"  name="email">
+            <label class="lab">პაროლი</label>
+            <input class="form-styling" type="password" name="password">
+
+            <input class="signin" type="submit" value=" შესვლა ">
+
         </div>
         <%
             String failedAuth = (String) request.getAttribute("failedAuth");
