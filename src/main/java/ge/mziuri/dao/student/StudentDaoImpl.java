@@ -95,5 +95,18 @@ public class StudentDaoImpl implements StudentDao {
         student.setPersonalID(personal_ID);
         return student;
     }
+
+    @Override
+    public List<Student> searchStudent(int id,String name,String surname,String email, Connection con) throws Exception {
+        String sql ="SELECT * FROM student WHERE 1==1 ";
+        if(id==0) {} else sql=sql+"AND id="+Integer.toString(id)+" ";
+        if(name.isEmpty()) {} else sql=sql+"AND firstname LIKE "+"'"+name+"' ";
+        if(surname.isEmpty()) {} else sql=sql+"AND lastname LIKE "+"'"+surname+"' ";
+        if(email.isEmpty()) {} else sql=sql+"AND email LIKE "+"'"+email+"' ";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        ResultSet rs=pstm.executeQuery();
+
+        return null;
+    }
 }
 

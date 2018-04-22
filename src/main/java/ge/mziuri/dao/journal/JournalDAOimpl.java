@@ -31,7 +31,7 @@ public class JournalDAOimpl implements JournalDAO {
 
     @Override
     public void editLabel(Label label, Connection con) throws Exception {
-        PreparedStatement pstm =con.prepareStatement("Update journal SET attendance=?,lesson_mark=?,homework_mark=?,test_mark=? WHERE student_id=?,group_id=?,date=? ");
+        PreparedStatement pstm =con.prepareStatement("Update journal SET attendance=?,lesson_mark=?,homework_mark=?,test_mark=? WHERE student_id=? AND group_id=? AND date=? ");
         pstm.setBoolean(1,label.isAttend());
         pstm.setInt(2,label.getLessonMark());
         pstm.setInt(3,label.getHomeworkMark());
