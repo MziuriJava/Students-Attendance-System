@@ -5,7 +5,7 @@ import ge.mziuri.dao.course.CourseDAOImpl;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.dao.student.StudentDao;
-import ge.mziuri.dao.student.StudentDaoimpl;
+import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.user.staff.Staff;
@@ -31,7 +31,7 @@ public static void main(String[]args)throws Exception{
     //TestGetCourses();
     //TestAddStudent();
         }
-    private static StudentDao studentDao = new StudentDaoimpl();
+    private static StudentDao studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
     private static CourseDAO courseDAO = new CourseDAOImpl();
     public static void   TestAddStaff() throws Exception{

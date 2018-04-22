@@ -73,12 +73,13 @@ public class StaffDAOImpl implements StaffDAO {
             pstmt.setString(1, email);
             pstmt.setString(2, password);
             ResultSet rs = pstmt.executeQuery();
+            Staff staff = null;
             if (rs.next()) {
-                return getStaff(rs);
-            } else {
-                return null;
+                staff = getStaff(rs);
             }
-
+            pstmt.close();
+            con.close();
+            return staff;
         } catch (Exception ex) {
             ex.printStackTrace();
             return null;
@@ -88,12 +89,14 @@ public class StaffDAOImpl implements StaffDAO {
     @Override
     public Staff getStaffById(int id, Connection con) throws Exception {
         try {
-            PreparedStatement pstmt = con.prepareStatement("SELECT FROM staff WHERE id = ?");
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE id = ?");
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            Staff staff = getStaff(rs);
             pstmt.close();
             con.close();
-            return getStaff(rs);
+            return staff;
         }catch(Exception ex){
             ex.printStackTrace();
             return null;

@@ -71,4 +71,12 @@
         <url-pattern>/uploadServlet</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>EditStaffServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.EditStaffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditStaffServlet</servlet-name>
+        <url-pattern>/editStaff</url-pattern>
+    </servlet-mapping>
 </web-app>
