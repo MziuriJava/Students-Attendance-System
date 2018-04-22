@@ -16,10 +16,10 @@
 </style>
 <body>
 <div class="addStaff">
+    <%
+        Staff staff = (Staff) request.getAttribute("staff");
+    %>
     <form method="post" action="/sas/admin/addStaff">
-        <%
-            Staff staff = (Staff) request.getAttribute("staff");
-        %>
         <h2 class ="inputadd"><%=(staff == null) ? "მასწავლებლის დამატება" : "მასწავლებლის რედაქტირება"%>  </h2>
         <input class="inputtext"  type="text" placeholder="სახელი" name="name" value="<%=(staff == null) ? "" : staff.getFirstname()%>">
         <input class="inputtext"  type="text" placeholder="გვარი" name="surname" value="<%=(staff == null) ? "" : staff.getLastname()%>">

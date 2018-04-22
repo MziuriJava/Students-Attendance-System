@@ -44,7 +44,10 @@
                         </form>
                     </td>
                     <td class= "centerButton">
-                        <button type="button" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
+                        <form method="post" action="/deleteStaff">
+                            <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
+                            <input type="hidden" name="staffId" value="<%=staffs.get(i).getId()%>">
+                        </form>
                     </td>
                 </tr>
             <%

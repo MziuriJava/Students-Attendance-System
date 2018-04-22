@@ -46,7 +46,7 @@
 
     <servlet>
         <servlet-name>LoadStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.LoadStaffServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.LoadStaffsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadStaffServlet</servlet-name>
@@ -73,10 +73,19 @@
 
     <servlet>
         <servlet-name>EditStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.EditStaffServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.LoadStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditStaffServlet</servlet-name>
         <url-pattern>/editStaff</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteStaffServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.DeleteStaffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteStaffServlet</servlet-name>
+        <url-pattern>/deleteStaff</url-pattern>
     </servlet-mapping>
 </web-app>
