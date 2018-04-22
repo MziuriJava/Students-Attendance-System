@@ -1,10 +1,9 @@
 package ge.mziuri.servlet;
 
 import ge.mziuri.dao.student.StudentDao;
-import ge.mziuri.dao.student.StudentDaoimpl;
+import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.user.student.Student;
 import ge.mziuri.util.db.DataBaseConnector;
-import org.omg.CORBA.Request;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +12,7 @@ import java.util.List;
 
 public class LoadStudentServlet extends HttpServlet {
 
-    private StudentDao studentDao = new StudentDaoimpl();
+    private StudentDao studentDao = new StudentDaoImpl();
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {

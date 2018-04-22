@@ -7,7 +7,7 @@ import ge.mziuri.dao.journal.JournalDAOimpl;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.dao.student.StudentDao;
-import ge.mziuri.dao.student.StudentDaoimpl;
+import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.group.Group;
@@ -37,7 +37,7 @@ public static void main(String[]args)throws Exception{
     //TestAddStudent();
     TestAddLabel();
         }
-    private static StudentDao studentDao = new StudentDaoimpl();
+    private static StudentDao studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
     private static CourseDAO courseDAO = new CourseDAOImpl();
     private static JournalDAO journalDAO = new JournalDAOimpl();
