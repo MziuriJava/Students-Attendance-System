@@ -21,11 +21,11 @@
             Staff staff = (Staff) request.getAttribute("staff");
         %>
         <input class="inputtext"  type="text" placeholder="სახელი" name="name" value="<%=(staff == null) ? "" : staff.getFirstname()%>">
-        <input class="inputtext"  type="text" placeholder="გვარი" name="surname">
-        <input class="inputtext"  type="email" placeholder="Email" name="email">
-        <input class="inputtext"  type="text" placeholder="ID" name="ID">
-        <input class="inputtext"  type="tel" placeholder="მთავარი ნომერი" name="MainNumber">
-        <input class="inputtext"  type="tel" placeholder="სუბ. ნომერი" name="SubNumber">
+        <input class="inputtext"  type="text" placeholder="გვარი" name="surname" value="<%=(staff == null) ? "" : staff.getLastname()%>">
+        <input class="inputtext"  type="email" placeholder="Email" name="email" value="<%=(staff == null) ? "" : staff.getEmail()%>">
+        <input class="inputtext"  type="text" placeholder="ID" name="ID" value="<%=(staff == null) ? "" : staff.getId()%>">
+        <input class="inputtext"  type="tel" placeholder="მთავარი ნომერი" name="MainNumber" value="<%=(staff == null) ? "" : staff.getMainPhoneNumber()%>">
+        <input class="inputtext"  type="tel" placeholder="სუბ. ნომერი" name="SubNumber" value="<%=(staff == null) ? "" : staff.getAdditionalPhoneNumber()%>">
         <div style="text-align: center;">
             <select class="fixed-size"  name="status">
                 <option value="Administrator">ადმინისტრატორი</option>

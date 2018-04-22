@@ -17,5 +17,5 @@ public interface StaffDAO {
 
     Staff loginStaff(String email, String password, Connection con) throws Exception;
 
-    Staff getStaffById(int id) throws Exception;
+    Staff getStaffById(int id, Connection con) throws Exception;
 }
