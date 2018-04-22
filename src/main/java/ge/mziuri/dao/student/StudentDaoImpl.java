@@ -1,20 +1,16 @@
 package ge.mziuri.dao.student;
 
-import ge.mziuri.dao.student.StudentDao;
 import ge.mziuri.model.user.student.Student;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDaoimpl implements StudentDao {
+public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void addStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname , lastname, email , phone_number ,  password, parent_name, parent_number) VALUES (?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname , lastname, email , phone_number ,  password, parent_name, parent_number, birth_date, school, personal_ID ) VALUES (?,?,?,?,?,?,?,?,?,?)");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
@@ -22,6 +18,9 @@ public class StudentDaoimpl implements StudentDao {
         pstm.setString(5, student.getPassword());
         pstm.setString(6, student.getParentName());
         pstm.setString(7, student.getParentNumber());
+        pstm.setString(8, student.getSchool());
+        pstm.setDate(9, new Date(student.getBirthDate().getTime()));
+        pstm.setString(10,student.getPersonalID());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -37,7 +36,7 @@ public class StudentDaoimpl implements StudentDao {
 
     @Override
     public void editStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("Update student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number WHERE id=?");
+        PreparedStatement pstm = con.prepareStatement("UPDATE student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number, birth_date, school, personal_ID WHERE id=?");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
@@ -45,7 +44,10 @@ public class StudentDaoimpl implements StudentDao {
         pstm.setString(5, student.getPassword());
         pstm.setString(6, student.getParentName());
         pstm.setString(7, student.getParentNumber());
-        pstm.setInt(8,student.getId());
+        pstm.setString(8,student.getSchool());
+        pstm.setDate(9,new Date(student.getBirthDate().getTime()));
+        pstm.setString(10,student.getPersonalID());
+        pstm.setInt(11,student.getId());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -75,6 +77,9 @@ public class StudentDaoimpl implements StudentDao {
         String password = rs.getString("password");
         String parent_name = rs.getString("parent_name");
         String parent_number = rs.getString("parent_number");
+        String school =rs.getString("school");
+        Date birth_date = rs.getDate("birth_date");
+        String personal_ID = rs.getString("personal_ID");
 
         Student student = new Student();
         student.setId(ID);
@@ -85,7 +90,9 @@ public class StudentDaoimpl implements StudentDao {
         student.setPhoneNumber(mainPhoneNumber);
         student.setParentName(parent_name);
         student.setParentNumber(parent_number);
-
+        student.setSchool(school);
+        student.setBirthDate(birth_date);
+        student.setPersonalID(personal_ID);
         return student;
     }
 }

@@ -28,3 +28,14 @@ CREATE TABLE group(
   staff_id INT REFERENCES staff(id)
 );
 
+CREATE TABLE student (
+  id SERIAL PRIMARY KEY NOT NULL,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  email VARCHAR(50) NOT NULL,
+  phone_number VARCHAR(50) NOT NULL,
+  personalId VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL,
+  birthDate VARCHAR(50) NOT NULL,
+  school VARCHAR(50) NOT NULL
+);

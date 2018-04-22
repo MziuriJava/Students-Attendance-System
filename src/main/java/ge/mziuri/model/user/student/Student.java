@@ -2,25 +2,38 @@ package ge.mziuri.model.user.student;
 
 import ge.mziuri.model.user.User;
 
+import java.util.Date;
+
 public class Student extends User {
 
-    private String PhoneNumber;
+    private String phoneNumber;
 
-    private String ParentName;
+    private String parentName;
 
-    private String ParentNumber;
+    private String parentNumber;
 
+    private Date birthDate;
 
-    public String getParentNumber() { return ParentNumber; }
+    private String school;
 
-    public void setParentNumber(String parentNumber) { ParentNumber = parentNumber; }
+    public String getParentNumber() { return parentNumber; }
 
-    public String getParentName() { return ParentName; }
+    public void setParentNumber(String parentNumber) { this.parentNumber = parentNumber; }
 
-    public void setParentName(String parentName) { ParentName = parentName; }
+    public String getParentName() { return parentName; }
 
-    public String getPhoneNumber() { return PhoneNumber; }
+    public void setParentName(String parentName) { this.parentName = parentName; }
 
-    public void setPhoneNumber(String phoneNumber) { PhoneNumber = phoneNumber; }
+    public String getPhoneNumber() { return phoneNumber; }
+
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
+    public Date getBirthDate() { return birthDate; }
+
+    public void setBirthDate(Date birthDate) { this.birthDate = birthDate; }
+
+    public String getSchool() { return school;  }
+
+    public void setSchool(String school) { this.school = school; }
 }
 

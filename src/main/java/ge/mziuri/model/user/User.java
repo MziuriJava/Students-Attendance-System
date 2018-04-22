@@ -12,6 +12,8 @@ public class User {
 
     private String password;
 
+    private String personalID;
+
     public int getId() {
         return id;
     }
@@ -51,4 +53,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getPersonalID() { return personalID; }
+
+    public void setPersonalID(String personalID) { this.personalID = personalID; }
 }
