@@ -5,41 +5,25 @@ import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.util.db.DataBaseConnector;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
+import java.io.IOException;
 
 public class LoadStaffServlet extends HttpServlet {
 
     private StaffDAO staffDAO = new StaffDAOImpl();
 
-    public void doPost(HttpServletRequest req, HttpServletResponse resp){
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int staffId = Integer.parseInt(req.getParameter("staffId"));
         try {
-            List<Staff> staffs = staffDAO.getAllStaffs(DataBaseConnector.getConnection());
-            req.setAttribute("staffs", staffs);
-            req.getRequestDispatcher("staffs.jsp").forward(req, resp);
-        } catch (Exception e) {
+            Staff staff = staffDAO.getStaffById(staffId, DataBaseConnector.getConnection());
+            req.setAttribute("staff", staff);
+            req.getRequestDispatcher("sas/admin/addStaff.jsp").forward(req, resp);
+        } catch (Exception ex) {
             // TODO
         }
     }
-
-    // TODO remove
-    public void doGet(HttpServletRequest req, HttpServletResponse resp){
-        try {
-            List<Staff> staffs = staffDAO.getAllStaffs(DataBaseConnector.getConnection());
-            req.setAttribute("staffs", staffs);
-            req.getRequestDispatcher("staffs.jsp").forward(req, resp);
-        } catch (Exception e) {
-            // TODO
-            e.printStackTrace();
-        }
-    }
-
-
-
-
-
-
-
 }

@@ -11,17 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class EditStaffServlet extends HttpServlet {
-
+public class DeleteStaffServlet extends HttpServlet {
     private StaffDAO staffDAO = new StaffDAOImpl();
 
-    @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int staffId = Integer.parseInt(req.getParameter("staffId"));
         try {
-            Staff staff = staffDAO.getStaffById(staffId, DataBaseConnector.getConnection());
-            req.setAttribute("staff", staff);
-            req.getRequestDispatcher("sas/admin/addStaff.jsp").forward(req, resp);
+            Staff staff = new Staff();
+            staff.setId(staffId);
+            staffDAO.deleteStaff(staff, DataBaseConnector.getConnection());
+            resp.sendRedirect("/loadStaffs");
         } catch (Exception ex) {
             // TODO
         }
