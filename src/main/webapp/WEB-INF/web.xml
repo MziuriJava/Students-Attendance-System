@@ -88,4 +88,13 @@
         <servlet-name>DeleteStaffServlet</servlet-name>
         <url-pattern>/deleteStaff</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddCourseServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.AddCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCourseServlet</servlet-name>
+        <url-pattern>/addCourse</url-pattern>
+    </servlet-mapping>
 </web-app>
