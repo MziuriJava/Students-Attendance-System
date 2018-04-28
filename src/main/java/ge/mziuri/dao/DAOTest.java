@@ -34,8 +34,8 @@ public static void main(String[]args)throws Exception{
     //TestAddCourse();
     //TestEditCourse();
     //TestGetCourses();
-    //TestAddStudent();
-    TestAddLabel();
+    TestAddStudent();
+    //TestAddLabel();
         }
     private static StudentDao studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();

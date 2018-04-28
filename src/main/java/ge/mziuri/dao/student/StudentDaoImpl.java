@@ -36,7 +36,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void editStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("UPDATE student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number, birth_date, school, personal_id WHERE id=?");
+        PreparedStatement pstm = con.prepareStatement("UPDATE student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number=?, birth_date=?, school=?, personal_id=? WHERE id=?");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
@@ -97,16 +97,22 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public List<Student> searchStudent(int id,String name,String surname,String email, Connection con) throws Exception {
-        String sql ="SELECT * FROM student WHERE 1==1 ";
+    public List<Student> searchStudent(int id,String name,String surname,String email,String school, Connection con) throws Exception {
+        String sql ="SELECT * FROM student WHERE 1=1 ";
         if(id==0) {} else sql=sql+"AND id="+Integer.toString(id)+" ";
-        if(name.isEmpty()) {} else sql=sql+"AND firstname LIKE "+"'"+name+"' ";
-        if(surname.isEmpty()) {} else sql=sql+"AND lastname LIKE "+"'"+surname+"' ";
-        if(email.isEmpty()) {} else sql=sql+"AND email LIKE "+"'"+email+"' ";
+        if(name.isEmpty()) {} else sql=sql+"AND firstname LIKE "+"'%"+name+"%' ";
+        if(surname.isEmpty()) {} else sql=sql+"AND lastname LIKE "+"'%"+surname+"%' ";
+        if(email.isEmpty()) {} else sql=sql+"AND email LIKE "+"'%"+email+"%' ";
+        if(school.isEmpty()) {} else sql=sql+"AND school Like "+"'%"+school+"%' ";
         PreparedStatement pstm = con.prepareStatement(sql);
         ResultSet rs=pstm.executeQuery();
-
-        return null;
+        List<Student> students = new ArrayList<>();
+        while (rs.next()) {
+            students.add(getStudent(rs));
+        }
+        pstm.close();
+        con.close();
+        return students;
     }
 }
 
