@@ -178,7 +178,11 @@ public static void main(String[]args)throws Exception{
 
     public static void TestSearchStudents() throws Exception{
         List<Student> students=new ArrayList<>();
-
+        Connection con = DataBaseConnector.getConnection();
+        students=studentDao.searchStudent(3,"lekso","bora","lekso","komarovi",con);
+        for(int i=0;i<students.size();i++){
+            System.out.println(students.get(i).getFirstname());
+        }
     }
     }
 

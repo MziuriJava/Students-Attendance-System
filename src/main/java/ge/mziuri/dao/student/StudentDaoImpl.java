@@ -100,10 +100,10 @@ public class StudentDaoImpl implements StudentDao {
     public List<Student> searchStudent(int id,String name,String surname,String email,String school, Connection con) throws Exception {
         String sql ="SELECT * FROM student WHERE 1=1 ";
         if(id==0) {} else sql=sql+"AND id="+Integer.toString(id)+" ";
-        if(name.isEmpty()) {} else sql=sql+"AND firstname LIKE "+"'%"+name+"%' ";
-        if(surname.isEmpty()) {} else sql=sql+"AND lastname LIKE "+"'%"+surname+"%' ";
-        if(email.isEmpty()) {} else sql=sql+"AND email LIKE "+"'%"+email+"%' ";
-        if(school.isEmpty()) {} else sql=sql+"AND school Like "+"'%"+school+"%' ";
+        if(name == null || name.isEmpty()) {} else sql=sql+"AND firstname LIKE "+"'%"+name+"%' ";
+        if(surname == null || surname.isEmpty()) {} else sql=sql+"AND lastname LIKE "+"'%"+surname+"%' ";
+        if(email == null || email.isEmpty()) {} else sql=sql+"AND email LIKE "+"'%"+email+"%' ";
+        if(school == null || school.isEmpty()) {} else sql=sql+"AND school Like "+"'%"+school+"%' ";
         PreparedStatement pstm = con.prepareStatement(sql);
         ResultSet rs=pstm.executeQuery();
         List<Student> students = new ArrayList<>();
