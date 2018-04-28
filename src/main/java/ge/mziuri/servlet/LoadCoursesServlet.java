@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.html.HTML;
 import java.util.List;
 
-public class LoadCourseServlet extends HttpServlet {
+public class LoadCoursesServlet extends HttpServlet {
     private CourseDAO courseDAO = new CourseDAOImpl();
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {

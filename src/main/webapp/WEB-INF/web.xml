@@ -37,7 +37,7 @@
 
     <servlet>
         <servlet-name>LoadCourseServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.LoadCourseServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.LoadCoursesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadCourseServlet</servlet-name>
@@ -55,7 +55,7 @@
 
     <servlet>
         <servlet-name>LoadStudentServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.LoadStudentServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.LoadStudentsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadStudentServlet</servlet-name>
@@ -97,4 +97,48 @@
         <servlet-name>AddCourseServlet</servlet-name>
         <url-pattern>/addCourse</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.DeleteStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteStudentServlet</servlet-name>
+        <url-pattern>/deleteStudent</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>DeleteCourseServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.DeleteCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCourseServlet</servlet-name>
+        <url-pattern>/deleteCourse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditCourseServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.EditCourseServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditCourseServlet</servlet-name>
+        <url-pattern>/editCourse</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EditStudentServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.EditStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EditStudentServlet</servlet-name>
+        <url-pattern>/editStudent</url-pattern>
+    </servlet-mapping>
+
+
+
+
+
+
+
 </web-app>
