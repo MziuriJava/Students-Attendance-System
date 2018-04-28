@@ -34,8 +34,9 @@ public static void main(String[]args)throws Exception{
     //TestAddCourse();
     //TestEditCourse();
     //TestGetCourses();
-    TestAddStudent();
+    //TestAddStudent();
     //TestAddLabel();
+    TestSearchStudents();
         }
     private static StudentDao studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
@@ -151,10 +152,13 @@ public static void main(String[]args)throws Exception{
         student.setFirstname(sc.nextLine());
         student.setLastname(sc.nextLine());
         student.setEmail(sc.nextLine());
+        student.setPersonalID("10101013");
+        student.setSchool("komarovi");
         student.setPassword(TextEncoder.textEncode("rame"));
-        student.setPhoneNumber(sc.nextLine());
-        student.setParentName(sc.nextLine());
-        student.setParentNumber(sc.nextLine());
+        student.setPhoneNumber("579460707");
+        student.setParentName("alex");
+        student.setBirthDate(new Date());
+        student.setParentNumber("555555555");
         studentDao.addStudent(student, DataBaseConnector.getConnection());
     }
     public static void TestAddLabel() throws Exception{
@@ -170,6 +174,11 @@ public static void main(String[]args)throws Exception{
         label.setLessonMark(9);
         Connection con = DataBaseConnector.getConnection();
         journalDAO.addLabel(label,con);
+    }
+
+    public static void TestSearchStudents() throws Exception{
+        List<Student> students=new ArrayList<>();
+
     }
     }
 

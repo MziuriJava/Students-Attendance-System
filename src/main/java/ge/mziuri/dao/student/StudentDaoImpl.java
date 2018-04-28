@@ -10,7 +10,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void addStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname , lastname, email , phone_number ,  password, parent_name, parent_number, birth_date, school, personal_id ) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname, lastname, email, phone_number, password, parent_name, parent_number, school, birth_date, personal_id) VALUES (?,?,?,?,?,?,?,?,?,?)");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
