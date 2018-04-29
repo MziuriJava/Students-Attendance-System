@@ -38,14 +38,14 @@
         <td><%=students.get(i).getParentNumber()%></td>
         <td class= "centerButton">
             <form method="post" action="/editStudent">
-                <button type="button" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
+                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
                 <input type="hidden" name="studentId" value="<%=students.get(i).getId()%>">
             </form>
         </td>
 
         <td class= "centerButton">
             <form method="post" action="/deleteStudent">
-                <button type="button" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
+                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
                 <input type="hidden" name="studentId" value="<%=students.get(i).getId()%>">
             </form>
         </td>

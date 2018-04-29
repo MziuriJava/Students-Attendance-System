@@ -114,5 +114,22 @@ public class StudentDaoImpl implements StudentDao {
         con.close();
         return students;
     }
+
+    @Override
+    public Student getStudentById(int id, Connection con) throws Exception {
+        try {
+            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM student WHERE id = ?");
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+            Student student = getStudent(rs);
+            pstmt.close();
+            con.close();
+            return student;
+        }catch(Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
 }
 
