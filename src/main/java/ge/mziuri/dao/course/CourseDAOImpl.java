@@ -20,7 +20,7 @@ public class CourseDAOImpl implements CourseDAO {
         pstm.setDouble(4,course.getCourseLessonTime());
         pstm.setInt(5,course.getLessonsPerWeek());
         pstm.setString(6,course.getDescription());
-        pstm.setInt(7,course.getFounder().getId());
+//        pstm.setInt(7,course.getFounder().getId());  TODO
         pstm.setInt(8,course.getPrice());
         pstm.setBytes(9, course.getSyllabus());
         pstm.executeUpdate();

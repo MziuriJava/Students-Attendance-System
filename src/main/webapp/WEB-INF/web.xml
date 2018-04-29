@@ -19,7 +19,7 @@
 
     <servlet>
         <servlet-name>StaffAddServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.StaffAddServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.AddStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StaffAddServlet</servlet-name>
@@ -73,7 +73,7 @@
 
     <servlet>
         <servlet-name>EditStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.LoadStaffServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.EditStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditStaffServlet</servlet-name>
@@ -95,7 +95,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AddCourseServlet</servlet-name>
-        <url-pattern>uploadTest/addCourse</url-pattern>
+        <url-pattern>/uploadTest/addCourse</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -117,14 +117,14 @@
         <url-pattern>/deleteCourse</url-pattern>
     </servlet-mapping>
 
-    <servlet>
-        <servlet-name>EditCourseServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.EditCourseServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>EditCourseServlet</servlet-name>
-        <url-pattern>/editCourse</url-pattern>
-    </servlet-mapping>
+    <!--<servlet>-->
+        <!--<servlet-name>EditCourseServlet</servlet-name>-->
+        <!--<servlet-class>ge.mziuri.servlet.EditCourseServlet</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>EditCourseServlet</servlet-name>-->
+        <!--<url-pattern>/editCourse</url-pattern>-->
+    <!--</servlet-mapping>-->
 
     <servlet>
         <servlet-name>EditStudentServlet</servlet-name>

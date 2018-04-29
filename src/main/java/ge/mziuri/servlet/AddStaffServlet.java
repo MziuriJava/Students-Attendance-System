@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class StaffAddServlet extends HttpServlet {
+public class AddStaffServlet extends HttpServlet {
     private StaffDAO staffDAO = new StaffDAOImpl();
 
     @Override
@@ -55,6 +55,7 @@ public class StaffAddServlet extends HttpServlet {
             EmailSender.sendEmail(PropertiesUtil.getProperty("SenderEmail"), PropertiesUtil.getProperty("SenderPassword"), email , password , "დროებითი პაროლი");
             staff.setPassword(TextEncoder.textEncode(password));
             staffDAO.addStaff(staff, DataBaseConnector.getConnection());
+            resp.sendRedirect("/loadStaffs");
         } catch (Exception ex) {
             // TODO
         }
