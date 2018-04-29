@@ -15,13 +15,14 @@ CREATE TABLE course(
   course_status VARCHAR(30),
   course_length INTEGER,
   course_lesson_time INTEGER,
-  lessons_per_week INT,
+  lessons_per_week INTEGER,
   description VARCHAR,
   leader_staff INT REFERENCES staff(id),
   price INTEGER
 );
-
 ALTER TABLE course ADD COLUMN syllabus bytea;
+ALTER TABLE course DROP COLUMN course_lesson_time;
+ALTER TABLE course ADD COLUMN course_lesson_time REAL;
 
 CREATE TABLE student(
   id SERIAL PRIMARY KEY NOT NULL,
@@ -44,6 +45,7 @@ CREATE TABLE class_group(
   course_id INT REFERENCES course(id),
   staff_id INT REFERENCES staff(id)
 );
+
 CREATE TABLE journal(
  student_id INT REFERENCES student(id),
  group_id INT REFERENCES class_group(id),

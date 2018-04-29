@@ -3,8 +3,9 @@ package ge.mziuri.servlet;
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
 import ge.mziuri.model.course.Course;
-import ge.mziuri.model.user.staff.Staff;
+import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.util.db.DataBaseConnector;
+import org.apache.commons.io.IOUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -21,37 +22,30 @@ public class AddCourseServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
-        String course_name=request.getParameter("course_name");
-        String course_status=request.getParameter("course_status");
-        int course_length=Integer.parseInt(request.getParameter("course_length"));
-        int course_lesson_time=Integer.parseInt(request.getParameter("course_lesson_time"));
-        int lessons_per_week =Integer.parseInt(request.getParameter("lessons_per_week"));
-        String description=request.getParameter("description");
-        int price=Integer.parseInt(request.getParameter("price"));
-        String leader_staff=request.getParameter("leader_staff");
+        String courseName = request.getParameter("courseName");
+        int courseLength = Integer.parseInt(request.getParameter("courseLength"));
+        double courseLessonTime = Double.parseDouble(request.getParameter("courseLessonTime"));
+        int lessonsPerWeek = Integer.parseInt(request.getParameter("lessonsPerWeek"));
+        String description = request.getParameter("description");
+        int price = Integer.parseInt(request.getParameter("price"));
+        // TODO add founder
 
         Course course=new Course();
-        course.setCourseName(course_name);
-        course.setCourseLength(course_length);
-        course.setLessonsPerWeek(lessons_per_week);
-        course.setCourseLessonTime(course_lesson_time);
+        course.setCourseName(courseName);
+        course.setCourseStatus(CourseStatus.ACTIVE);
+        course.setCourseLength(courseLength);
+        course.setLessonsPerWeek(lessonsPerWeek);
+        course.setCourseLessonTime(courseLessonTime);
         course.setDescription(description);
         course.setPrice(price);
 
         InputStream inputStream = null;
 
-        Part filePart = request.getPart("Syllabus");
+        Part filePart = request.getPart("syllabus");
         if (filePart != null) {
-            // prints out some information for debugging
-            System.out.println(filePart.getName());
-            System.out.println(filePart.getSize());
-            System.out.println(filePart.getContentType());
-
-            // obtains input stream of the upload file
             inputStream = filePart.getInputStream();
         }
-
-        //course.setSyllabus(IOUtils.toByteArray(inputStream));
+        course.setSyllabus(IOUtils.toByteArray(inputStream));
 
         try {
             courseDAO.addCourse(course, DataBaseConnector.getConnection());

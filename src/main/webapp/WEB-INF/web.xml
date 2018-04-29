@@ -95,7 +95,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AddCourseServlet</servlet-name>
-        <url-pattern>/addCourse</url-pattern>
+        <url-pattern>uploadTest/addCourse</url-pattern>
     </servlet-mapping>
 
     <servlet>

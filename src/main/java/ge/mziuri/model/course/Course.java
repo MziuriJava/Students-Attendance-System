@@ -12,7 +12,7 @@ public class Course {
 
     private int courseLength;
 
-    private int courseLessonTime;
+    private double courseLessonTime;
 
     private int lessonsPerWeek;
 
@@ -56,11 +56,11 @@ public class Course {
         this.courseLength = courseLength;
     }
 
-    public int getCourseLessonTime() {
+    public double getCourseLessonTime() {
         return courseLessonTime;
     }
 
-    public void setCourseLessonTime(int courseLessonTime) {
+    public void setCourseLessonTime(double courseLessonTime) {
         this.courseLessonTime = courseLessonTime;
     }
 
