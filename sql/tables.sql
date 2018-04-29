@@ -55,3 +55,16 @@ CREATE TABLE journal(
  homework_mark INT,
  test_mark INT
 )
+CREATE TABLE assessment(
+  staff_id INT REFERENCES staff(id),
+  student_id INT REFERENCES student(id),
+  group_id INT REFERENCES class_group(id),
+  name VARCHAR,
+  start_date DATE,
+  end_date DATE,
+  description VARCHAR,
+  average_grade INT,
+  tests VARCHAR,
+  number_of_lessons INT,
+  attended_lessons INT
+)

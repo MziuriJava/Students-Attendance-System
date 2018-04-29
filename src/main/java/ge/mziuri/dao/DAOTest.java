@@ -1,5 +1,7 @@
 package ge.mziuri.dao;
 
+import ge.mziuri.dao.assessment.AssessmentDAO;
+import ge.mziuri.dao.assessment.AssessmentDAOimpl;
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
 import ge.mziuri.dao.journal.JournalDAO;
@@ -36,12 +38,14 @@ public static void main(String[]args)throws Exception{
     //TestGetCourses();
     //TestAddStudent();
     //TestAddLabel();
-    TestSearchStudents();
+    //TestSearchStudents();
+    Testunmarshller();
         }
     private static StudentDao studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
     private static CourseDAO courseDAO = new CourseDAOImpl();
     private static JournalDAO journalDAO = new JournalDAOimpl();
+    private static AssessmentDAO assessmentDAO = new AssessmentDAOimpl();
     public static void   TestAddStaff() throws Exception{
         try {
         Scanner scanner = new Scanner(System.in);
@@ -184,5 +188,8 @@ public static void main(String[]args)throws Exception{
             System.out.println(students.get(i).getFirstname());
         }
     }
+    public static void Testunmarshller() throws Exception{
+
     }
+}
 
