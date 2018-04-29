@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <%--<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">--%>
+    <link rel="stylesheet" type="text/css" href="../css/addCourse.css">
     <title>კურსი</title>
 </head>
 <body>
 
 <div class="course">
-    <form method="post" action="/uploadServlet" enctype="multipart/form-data">
+    <form method="post" action="/uploadTest/addCourse" enctype="multipart/form-data">
         <h2 class="inputadd"> კურსი </h2>
         <div style="text-align: center;">
             <p>კურსის სახელი</p>
