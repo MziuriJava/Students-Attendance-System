@@ -21,7 +21,7 @@ public class EditStudentServlet extends HttpServlet {
         try {
             Student student = studentDao.getStudentById(studentId, DataBaseConnector.getConnection());
             req.setAttribute("student", student);
-            req.getRequestDispatcher("sas/admin/addStudent.jsp").forward(req, resp);
+            req.getRequestDispatcher("sas/addStudent.jsp").forward(req, resp);
         } catch (Exception ex) {
             // TODO
         }
