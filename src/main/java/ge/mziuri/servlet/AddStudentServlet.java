@@ -3,6 +3,7 @@ package ge.mziuri.servlet;
 import ge.mziuri.dao.student.StudentDao;
 import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.user.student.Student;
+import ge.mziuri.util.db.DataBaseConnector;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,20 +17,26 @@ public class AddStudentServlet extends HttpServlet{
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String StudentName = req.getParameter("StudentName");
-        String StudentSurname = req.getParameter("StudentSurname");
-        String StudentEmail = req.getParameter("StudentEmail");
-        String StudentPhoneNumber = req.getParameter("StudentPhoneNumber");
-        String StudentParentName = req.getParameter("StudentParentName");
-        String StudentParentNumber = req.getParameter("StudentParentNumber");
+        String studentName = req.getParameter("studentName");
+        String studentSurname = req.getParameter("studentSurname");
+        String studentEmail = req.getParameter("studentEmail");
+        String studentPhoneNumber = req.getParameter("studentPhoneNumber");
+        String studentParentName = req.getParameter("studentParentName");
+        String studentParentNumber = req.getParameter("studentParentNumber");
 
         Student student = new Student();
-        student.setFirstname(StudentName);
-        student.setLastname(StudentSurname);
-        student.setEmail(StudentEmail);
-        student.setPhoneNumber(StudentPhoneNumber);
-        student.setParentName(StudentParentName);
-        student.setParentNumber(StudentParentNumber);
+        student.setFirstname(studentName);
+        student.setLastname(studentSurname);
+        student.setEmail(studentEmail);
+        student.setPhoneNumber(studentPhoneNumber);
+        student.setParentName(studentParentName);
+        student.setParentNumber(studentParentNumber);
+
+        try {
+            studentDao.addStudent(student, DataBaseConnector.getConnection());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
