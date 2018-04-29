@@ -68,3 +68,16 @@ CREATE TABLE assessment(
   number_of_lessons INT,
   attended_lessons INT
 )
+CREATE TABLE post(
+  id SERIAL PRIMARY KEY NOT NULL,
+  post VARCHAR ,
+  author VARCHAR ,
+  date DATE
+);
+CREATE TABLE comment(
+  id SERIAL PRIMARY KEY NOT NULL ,
+  post VARCHAR ,
+  author VARCHAR ,
+  date DATE ,
+  post_id int REFERENCES post(id)
+  );
