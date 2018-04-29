@@ -17,7 +17,7 @@ public class CourseDAOImpl implements CourseDAO {
         pstm.setString(1,course.getCourseName());
         pstm.setString(2,course.getCourseStatus().toString());
         pstm.setInt(3,course.getCourseLength());
-        pstm.setInt(4,course.getCourseLessonTime());
+        pstm.setDouble(4,course.getCourseLessonTime());
         pstm.setInt(5,course.getLessonsPerWeek());
         pstm.setString(6,course.getDescription());
         pstm.setInt(7,course.getFounder().getId());
@@ -50,7 +50,7 @@ public class CourseDAOImpl implements CourseDAO {
         pstm.setString(1,course.getCourseName());
         pstm.setString(2,course.getCourseStatus().toString());
         pstm.setInt(3,course.getCourseLength());
-        pstm.setInt(4,course.getCourseLessonTime());
+        pstm.setDouble(4,course.getCourseLessonTime());
         pstm.setInt(5,course.getLessonsPerWeek());
         pstm.setString(6,course.getDescription());
         pstm.setInt(7,course.getFounder().getId());
@@ -66,13 +66,13 @@ public class CourseDAOImpl implements CourseDAO {
         Course course = new Course();
         course.setID(rs.getInt("id"));
         course.setCourseLength(rs.getInt("course_length"));
-        course.setCourseLessonTime(rs.getInt("course_lesson_time"));
+        course.setCourseLessonTime(rs.getDouble("course_lesson_time"));
         course.setPrice(rs.getInt("price"));
         course.setCourseName(rs.getString("course_name"));
         course.setDescription(rs.getString("description"));
         course.setLessonsPerWeek(rs.getInt("lessons_per_week"));
         String status = rs.getString("course_status");
-        if(status.equals(CourseStatus.ACTIVE)) course.setCourseStatus(CourseStatus.ACTIVE); else course.setCourseStatus(CourseStatus.DEACTIVATED);
+        course.setCourseStatus(CourseStatus.valueOf(status));
         Staff staff = new Staff();
         staff.setId(rs.getInt("leader_staff"));
         course.setFounder(staff);

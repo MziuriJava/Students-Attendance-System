@@ -44,14 +44,25 @@
         <td><%=courses.get(i).getCourseStatus()%></td>
         <td><%=courses.get(i).getFounder()%></td>
         <td class= "centerButton">
-            <button type="button" class="buttonStyle"><img class="imgStyle" src="images/download.png"/></button>
+            <form method="post" action="">
+                <button type="button" class="buttonStyle"><img class="imgStyle" src="images/download.png"/></button>
+                <input type="hidden" name="courseId" value="<%%>">
+            </form>
         </td>
         <td class= "centerButton">
-            <button type="button" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
+            <form method="post" action="/editCourse">
+                <button type="button" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
+                <input type="hidden" name="courseId" value="<%=courses.get(i).getID()%>">
+            </form>
         </td>
+
         <td class= "centerButton">
-            <button type="button" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
+            <form method="post" action="/deleteCourse">
+                <button type="button" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
+                <input type="hidden" name="courseId" value="<%=courses.get(i).getID()%>">
+            </form>
         </td>
+
     </tr>
     <%
             i++;}

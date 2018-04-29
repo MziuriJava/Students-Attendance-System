@@ -5,7 +5,7 @@ import ge.mziuri.model.user.student.Student;
 
 import java.util.Date;
 
-public class Journal {
+public class Label {
 
     private Group group;
 

@@ -41,7 +41,7 @@
             %>
         </div>
         <br>
-        <input class="submit" type="submit" value="დამატება">
+        <input class="submit" type="submit" value=<%=(staff == null) ? "დამატება" : "შეცვლა"%>>
     </form>
 </div>
 

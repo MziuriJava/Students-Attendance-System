@@ -1,3 +1,4 @@
+<% Student student = null; %>
 <%@ page import="ge.mziuri.model.user.student.Student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -8,32 +9,26 @@
 </head>
 <body>
 <div class="addstudent">
-    <form>
-        <h2 class="inputadd"> სტუდენტის დამატება </h2>
+    <form action="/sas/addStudent">
+        <h2 class="inputadd"> სტუდენტის დამატება <%=(student == null) ? "სტუდენტის დამატება" : "სტუდენტის რედაქტირება"%> </h2>
         <div style="text-align: center;">
             <%
-                Student student = (Student) request.getAttribute("student");
+                student = (Student) request.getAttribute("student");
             %>
             <p>სახელი</p>
-            <input class="inputtext" type="text" name="StudentName">
+            <input class="inputtext" type="text" name="studentName" value="<%=(student == null) ? "" : student.getFirstname()%>">
             <p>გვარი</p>
-            <input class="inputtext" type="text" name=StudentSurname"">
+            <input class="inputtext" type="text" name="studentSurname" value="<%=(student == null) ? "" : student.getLastname()%>">
             <p>იმეილი</p>
-            <input class="inputtext" type="email" name="StudentEmail">
+            <input class="inputtext" type="email" name="studentEmail" value="<%=(student == null) ? "" : student.getEmail()%>">
             <p>ტელეფონის ნომერი</p>
-            <input class="inputtext" type="tel" name="PhoneNumber">
+            <input class="inputtext" type="tel" name="studentPhoneNumber" value="<%=(student == null) ? "" : student.getPhoneNumber()%>">
             <p>მშობლის სახელი</p>
-            <input class="inputtext" type="text" name="ParentName">
+            <input class="inputtext" type="text" name="studentParentName" value="<%=(student == null) ? "" : student.getParentName()%>">
             <p>მშობლის ნომერი</p>
-            <input class="inputtext" type="tel" name="ParentNumber">
+            <input class="inputtext" type="tel" name="studentParentNumber" value="<%=(student == null) ? "" : student.getParentNumber()%>">
             <br>
             <input type="submit" class="shesvlasize">
-            <%
-                String failedAuth = (String)request.getAttribute("failedAuth");
-                if (failedAuth != null && failedAuth.equals("true")) {
-                    out.print("<p class=\"failedAuth\">მომხმარებლის სახელი/პაროლი არასწორია</p>");
-                }
-            %>
         </div>
     </form>
 </div>

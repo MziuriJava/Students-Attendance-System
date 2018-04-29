@@ -10,7 +10,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void addStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname , lastname, email , phone_number ,  password, parent_name, parent_number, birth_date, school, personal_id ) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO student (firstname, lastname, email, phone_number, password, parent_name, parent_number, school, birth_date, personal_id) VALUES (?,?,?,?,?,?,?,?,?,?)");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
@@ -36,7 +36,7 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public void editStudent(Student student, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("UPDATE student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number, birth_date, school, personal_id WHERE id=?");
+        PreparedStatement pstm = con.prepareStatement("UPDATE student SET firstname=?, lastname=?, email=?, phone_number=?, password=?, parent_name=?, parent_number=?, birth_date=?, school=?, personal_id=? WHERE id=?");
         pstm.setString(1, student.getFirstname());
         pstm.setString(2, student.getLastname());
         pstm.setString(3, student.getEmail());
@@ -94,6 +94,25 @@ public class StudentDaoImpl implements StudentDao {
         student.setBirthDate(birth_date);
         student.setPersonalID(personal_ID);
         return student;
+    }
+
+    @Override
+    public List<Student> searchStudent(int id,String name,String surname,String email,String school, Connection con) throws Exception {
+        String sql ="SELECT * FROM student WHERE 1=1 ";
+        if(id==0) {} else sql=sql+"AND id="+Integer.toString(id)+" ";
+        if(name == null || name.isEmpty()) {} else sql=sql+"AND firstname LIKE "+"'%"+name+"%' ";
+        if(surname == null || surname.isEmpty()) {} else sql=sql+"AND lastname LIKE "+"'%"+surname+"%' ";
+        if(email == null || email.isEmpty()) {} else sql=sql+"AND email LIKE "+"'%"+email+"%' ";
+        if(school == null || school.isEmpty()) {} else sql=sql+"AND school Like "+"'%"+school+"%' ";
+        PreparedStatement pstm = con.prepareStatement(sql);
+        ResultSet rs=pstm.executeQuery();
+        List<Student> students = new ArrayList<>();
+        while (rs.next()) {
+            students.add(getStudent(rs));
+        }
+        pstm.close();
+        con.close();
+        return students;
     }
 }
 

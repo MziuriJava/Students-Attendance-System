@@ -2,12 +2,16 @@ package ge.mziuri.dao;
 
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
+import ge.mziuri.dao.journal.JournalDAO;
+import ge.mziuri.dao.journal.JournalDAOimpl;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.dao.student.StudentDao;
 import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
+import ge.mziuri.model.group.Group;
+import ge.mziuri.model.journal.Label;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
 import ge.mziuri.model.user.student.Student;
@@ -16,6 +20,7 @@ import ge.mziuri.util.encode.TextEncoder;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,10 +35,13 @@ public static void main(String[]args)throws Exception{
     //TestEditCourse();
     //TestGetCourses();
     //TestAddStudent();
+    //TestAddLabel();
+    TestSearchStudents();
         }
     private static StudentDao studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
     private static CourseDAO courseDAO = new CourseDAOImpl();
+    private static JournalDAO journalDAO = new JournalDAOimpl();
     public static void   TestAddStaff() throws Exception{
         try {
         Scanner scanner = new Scanner(System.in);
@@ -144,11 +152,37 @@ public static void main(String[]args)throws Exception{
         student.setFirstname(sc.nextLine());
         student.setLastname(sc.nextLine());
         student.setEmail(sc.nextLine());
+        student.setPersonalID("10101013");
+        student.setSchool("komarovi");
         student.setPassword(TextEncoder.textEncode("rame"));
-        student.setPhoneNumber(sc.nextLine());
-        student.setParentName(sc.nextLine());
-        student.setParentNumber(sc.nextLine());
+        student.setPhoneNumber("579460707");
+        student.setParentName("alex");
+        student.setBirthDate(new Date());
+        student.setParentNumber("555555555");
         studentDao.addStudent(student, DataBaseConnector.getConnection());
+    }
+    public static void TestAddLabel() throws Exception{
+        Student student = new Student();
+        student.setId(1);
+        Group group = new Group();
+        group.setId(1);
+        Label label = new Label();
+        label.setAttend(true);
+        label.setStudent(student);
+        label.setGroup(group);
+        label.setDate(new Date());
+        label.setLessonMark(9);
+        Connection con = DataBaseConnector.getConnection();
+        journalDAO.addLabel(label,con);
+    }
+
+    public static void TestSearchStudents() throws Exception{
+        List<Student> students=new ArrayList<>();
+        Connection con = DataBaseConnector.getConnection();
+        students=studentDao.searchStudent(3,"lekso","bora","lekso","komarovi",con);
+        for(int i=0;i<students.size();i++){
+            System.out.println(students.get(i).getFirstname());
+        }
     }
     }
 
