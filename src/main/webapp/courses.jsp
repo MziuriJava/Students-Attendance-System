@@ -35,7 +35,7 @@
         while (i < courses.size()) {
     %>
     <tr>
-        <td><%=courses.get(i).getID()%></td>
+        <td><%=courses.get(i).getId()%></td>
         <td><%=courses.get(i).getCourseName()%></td>
         <td><%=courses.get(i).getCourseLength()%></td>
         <td><%=courses.get(i).getLessonsPerWeek()%></td>
@@ -52,14 +52,14 @@
         <td class= "centerButton">
             <form method="post" action="/editCourse">
                 <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
-                <input type="hidden" name="courseId" value="<%=courses.get(i).getID()%>">
+                <input type="hidden" name="courseId" value="<%=courses.get(i).getId()%>">
             </form>
         </td>
 
         <td class= "centerButton">
             <form method="post" action="/deleteCourse">
                 <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
-                <input type="hidden" name="courseId" value="<%=courses.get(i).getID()%>">
+                <input type="hidden" name="courseId" value="<%=courses.get(i).getId()%>">
             </form>
         </td>
 

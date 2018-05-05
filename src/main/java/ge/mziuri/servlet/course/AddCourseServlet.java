@@ -1,4 +1,4 @@
-package ge.mziuri.servlet;
+package ge.mziuri.servlet.course;
 
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
@@ -18,7 +18,8 @@ import java.io.InputStream;
 
 @MultipartConfig(maxFileSize = 16177215)
 public class AddCourseServlet extends HttpServlet {
-    private CourseDAO courseDAO=new CourseDAOImpl();
+
+    private CourseDAO courseDAO = new CourseDAOImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String courseName = request.getParameter("courseName");
@@ -85,8 +86,5 @@ public class AddCourseServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
-
-
 }

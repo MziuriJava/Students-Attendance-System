@@ -1,6 +1,6 @@
-package ge.mziuri.servlet;
+package ge.mziuri.servlet.student;
 
-import ge.mziuri.dao.student.StudentDao;
+import ge.mziuri.dao.student.StudentDAO;
 import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.user.student.Student;
 import ge.mziuri.util.db.DataBaseConnector;
@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class AddStudentServlet extends HttpServlet{
 
-    private StudentDao studentDao = new StudentDaoImpl();
+    private StudentDAO studentDao = new StudentDaoImpl();
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -62,6 +62,4 @@ public class AddStudentServlet extends HttpServlet{
             e.printStackTrace();
         }
     }
-
-
 }

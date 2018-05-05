@@ -19,7 +19,7 @@
 
     <servlet>
         <servlet-name>StaffAddServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.AddStaffServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.staff.AddStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>StaffAddServlet</servlet-name>
@@ -28,7 +28,7 @@
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.StaffLoginServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.staff.StaffLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -37,7 +37,7 @@
 
     <servlet>
         <servlet-name>LoadCourseServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.LoadCoursesServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.course.LoadCoursesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadCourseServlet</servlet-name>
@@ -46,7 +46,7 @@
 
     <servlet>
         <servlet-name>LoadStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.LoadStaffsServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.staff.LoadStaffsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadStaffServlet</servlet-name>
@@ -55,7 +55,7 @@
 
     <servlet>
         <servlet-name>LoadStudentServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.LoadStudentsServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.student.LoadStudentsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadStudentServlet</servlet-name>
@@ -73,7 +73,7 @@
 
     <servlet>
         <servlet-name>EditStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.EditStaffServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.staff.EditStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditStaffServlet</servlet-name>
@@ -82,7 +82,7 @@
 
     <servlet>
         <servlet-name>DeleteStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.DeleteStaffServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.staff.DeleteStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteStaffServlet</servlet-name>
@@ -91,7 +91,7 @@
 
     <servlet>
         <servlet-name>AddCourseServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.AddCourseServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.course.AddCourseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddCourseServlet</servlet-name>
@@ -100,7 +100,7 @@
 
     <servlet>
         <servlet-name>DeleteStudentServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.DeleteStudentServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.student.DeleteStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteStudentServlet</servlet-name>
@@ -110,7 +110,7 @@
 
     <servlet>
         <servlet-name>DeleteCourseServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.DeleteCourseServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.course.DeleteCourseServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteCourseServlet</servlet-name>
@@ -119,7 +119,7 @@
 
     <!--<servlet>-->
         <!--<servlet-name>EditCourseServlet</servlet-name>-->
-        <!--<servlet-class>ge.mziuri.servlet.EditCourseServlet</servlet-class>-->
+        <!--<servlet-class>ge.mziuri.servlet.course.EditCourseServlet</servlet-class>-->
     <!--</servlet>-->
     <!--<servlet-mapping>-->
         <!--<servlet-name>EditCourseServlet</servlet-name>-->
@@ -128,7 +128,7 @@
 
     <servlet>
         <servlet-name>EditStudentServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.EditStudentServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.student.EditStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>EditStudentServlet</servlet-name>
@@ -137,7 +137,7 @@
 
     <servlet>
         <servlet-name>AddStudentServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.AddStudentServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.student.AddStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddStudentServlet</servlet-name>
@@ -146,7 +146,7 @@
 
     <servlet>
         <servlet-name>AddStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.AddStaffServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.staff.AddStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddStaffServlet</servlet-name>

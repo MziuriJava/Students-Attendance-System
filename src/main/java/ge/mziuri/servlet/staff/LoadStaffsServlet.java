@@ -1,4 +1,4 @@
-package ge.mziuri.servlet;
+package ge.mziuri.servlet.staff;
 
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;

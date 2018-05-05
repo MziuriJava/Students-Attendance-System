@@ -21,6 +21,7 @@ public class StaffAuthorizationFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) resp;
         chain.doFilter(req,resp);
         return ;
+        // TODO uncomment
         /*try {
             HttpSession session = ((HttpServletRequest) req).getSession();
             Staff staff = (Staff) session.getAttribute("staff");

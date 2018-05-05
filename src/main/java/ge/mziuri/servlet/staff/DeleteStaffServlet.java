@@ -1,4 +1,4 @@
-package ge.mziuri.servlet;
+package ge.mziuri.servlet.staff;
 
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class DeleteStaffServlet extends HttpServlet {
+
     private StaffDAO staffDAO = new StaffDAOImpl();
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

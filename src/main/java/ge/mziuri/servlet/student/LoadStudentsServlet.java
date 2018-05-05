@@ -1,6 +1,6 @@
-package ge.mziuri.servlet;
+package ge.mziuri.servlet.student;
 
-import ge.mziuri.dao.student.StudentDao;
+import ge.mziuri.dao.student.StudentDAO;
 import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.user.student.Student;
 import ge.mziuri.util.db.DataBaseConnector;
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class LoadStudentsServlet extends HttpServlet {
 
-    private StudentDao studentDao = new StudentDaoImpl();
+    private StudentDAO studentDao = new StudentDaoImpl();
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
@@ -33,6 +33,4 @@ public class LoadStudentsServlet extends HttpServlet {
             //TODO
         }
     }
-
-
 }

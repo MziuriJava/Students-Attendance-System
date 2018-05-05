@@ -1,20 +1,16 @@
-package ge.mziuri.model.blog.comment;
-
-import ge.mziuri.model.blog.post.Post;
+package ge.mziuri.model.blog;
 
 import java.util.Date;
 
-public class Comment {
+public class Post {
 
     private int id;
 
-    private String comment;
+    private String post;
 
     private String author;
 
     private Date date;
-
-    private Post post;
 
     public int getId() {
         return id;
@@ -24,12 +20,12 @@ public class Comment {
         this.id = id;
     }
 
-    public String getComment() {
-        return comment;
+    public String getPost() {
+        return post;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setPost(String post) {
+        this.post = post;
     }
 
     public String getAuthor() {
@@ -46,13 +42,5 @@ public class Comment {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
     }
 }

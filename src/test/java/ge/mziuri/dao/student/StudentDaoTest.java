@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 public class StudentDaoTest {
-    private StudentDao studentDao;
+    private StudentDAO studentDao;
 
     @Before
     public void setUp() {
@@ -47,7 +47,7 @@ public class StudentDaoTest {
                Assert.assertEquals(mockStudent.getParentNumber(),student.getParentNumber());
                Assert.assertEquals(mockStudent.getSchool(), student.getSchool());
                Assert.assertEquals(mockStudent.getBirthDate(),student.getBirthDate());
-               Assert.assertEquals(mockStudent.getPersonalID(), student.getPersonalID());
+               Assert.assertEquals(mockStudent.getPersonalId(), student.getPersonalId());
   }
   }
 
@@ -89,7 +89,7 @@ public class StudentDaoTest {
         student.setParentNumber("123123213");
         student.setSchool("OTO_DAMSJELI_SKOLA");
         student.setBirthDate(new Date(1999, 0,16));
-        student.setPersonalID("123123123");
+        student.setPersonalId("123123123");
 
 
         connection = DataBaseConnector.getConnection();
@@ -107,7 +107,7 @@ public class StudentDaoTest {
         Assert.assertEquals(student.getParentNumber(), studentFromDb.getParentName());
         Assert.assertEquals(student.getPhoneNumber(), studentFromDb.getPhoneNumber());
         Assert.assertEquals(student.getSchool(),studentFromDb.getSchool());
-        Assert.assertEquals(student.getPersonalID(),studentFromDb.getPersonalID());
+        Assert.assertEquals(student.getPersonalId(),studentFromDb.getPersonalId());
         Assert.assertEquals(student.getBirthDate(),studentFromDb.getBirthDate());
 
     }
@@ -123,7 +123,7 @@ public class StudentDaoTest {
         student.setParentNumber("5665685");
         student.setSchool("MZIURI");
         student.setBirthDate(new Date(2003,10 ,28));
-        student.setPersonalID("1234");
+        student.setPersonalId("1234");
         return student;
     }
 
@@ -138,7 +138,7 @@ public class StudentDaoTest {
         student.setParentNumber("566565454554685");
         student.setSchool("OTOS_SKOLA");
         student.setBirthDate(new Date(2002, 0, 1));
-        student.setPersonalID("12312312");
+        student.setPersonalId("12312312");
         return student;
     }
 }

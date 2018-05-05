@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface JournalDAO {
 
-    void addLabel (Label label, Connection con) throws Exception;
+    void addLabel(Label label, Connection con) throws Exception;
 
-    void editLabel (Label label, Connection con) throws Exception;
+    void editLabel(Label label, Connection con) throws Exception;
 
-    List<Label> getLabelbyCourseandDate (Course course, Date date, Connection con) throws Exception;
+    List<Label> getLabelsByCourseAndDate(Course course, Date date, Connection con) throws Exception;
 }

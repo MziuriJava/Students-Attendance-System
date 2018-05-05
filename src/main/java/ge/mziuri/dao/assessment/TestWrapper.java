@@ -10,7 +10,7 @@ import java.util.List;
 @XmlRootElement
 public class TestWrapper {
 
-    List <Test> tests= new ArrayList<>();
+    private List <Test> tests = new ArrayList<>();
 
     @XmlElement
     public List <Test> getTests() {return tests;}

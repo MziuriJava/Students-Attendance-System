@@ -1,4 +1,4 @@
-package ge.mziuri.servlet;
+package ge.mziuri.servlet.course;
 
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;

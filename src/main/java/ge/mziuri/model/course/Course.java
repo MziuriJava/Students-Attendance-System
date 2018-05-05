@@ -4,7 +4,7 @@ import ge.mziuri.model.user.staff.Staff;
 
 public class Course {
 
-    private int ID;
+    private int id;
 
     private String courseName;
 
@@ -24,12 +24,12 @@ public class Course {
 
     private byte[] syllabus;
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCourseName() {

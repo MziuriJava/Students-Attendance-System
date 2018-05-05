@@ -1,6 +1,6 @@
 package ge.mziuri.dao.post;
 
-import ge.mziuri.model.blog.post.Post;
+import ge.mziuri.model.blog.Post;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,9 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostDAOImpl implements PostDAO {
+
     @Override
     public void addPost(Post post, Connection con) throws Exception {
-        PreparedStatement pstm=con.prepareStatement("INSERT INTO post(post , author , date ) VALUES (?,?,?)");
+        PreparedStatement pstm=con.prepareStatement("INSERT INTO post(post, author, date) VALUES (?,?,?)");
         pstm.setString(1, post.getPost());
         pstm.setString(2, post.getAuthor());
         pstm.setDate(3, new Date(post.getDate().getTime()));
@@ -27,7 +28,7 @@ public class PostDAOImpl implements PostDAO {
         pstmt.setString(1, post.getPost());
         pstmt.setString(2, post.getAuthor());
         pstmt.setDate(3, new Date(post.getDate().getTime()));
-        pstmt.setInt(4,post.getId());
+        pstmt.setInt(4, post.getId());
         pstmt.executeUpdate();
         pstmt.close();
         con.close();
@@ -46,7 +47,7 @@ public class PostDAOImpl implements PostDAO {
         return posts;
     }
 
-    public Post getPost(ResultSet rs)throws Exception{
+    private Post getPost(ResultSet rs)throws Exception{
         Post post=new Post();
         post.setId(rs.getInt("id"));
         post.setPost(rs.getString("post"));

@@ -12,7 +12,7 @@ public class User {
 
     private String password;
 
-    private String personalID;
+    private String personalId;
 
     public int getId() {
         return id;
@@ -54,7 +54,7 @@ public class User {
         this.password = password;
     }
 
-    public String getPersonalID() { return personalID; }
+    public String getPersonalId() { return personalId; }
 
-    public void setPersonalID(String personalID) { this.personalID = personalID; }
+    public void setPersonalId(String personalId) { this.personalId = personalId; }
 }

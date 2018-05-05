@@ -6,7 +6,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentDaoImpl implements StudentDao {
+public class StudentDaoImpl implements StudentDAO {
 
     @Override
     public void addStudent(Student student, Connection con) throws Exception {
@@ -20,7 +20,7 @@ public class StudentDaoImpl implements StudentDao {
         pstm.setString(7, student.getParentNumber());
         pstm.setString(8, student.getSchool());
         pstm.setDate(9, new Date(student.getBirthDate().getTime()));
-        pstm.setString(10,student.getPersonalID());
+        pstm.setString(10, student.getPersonalId());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -46,7 +46,7 @@ public class StudentDaoImpl implements StudentDao {
         pstm.setString(7, student.getParentNumber());
         pstm.setString(8,student.getSchool());
         pstm.setDate(9,new Date(student.getBirthDate().getTime()));
-        pstm.setString(10,student.getPersonalID());
+        pstm.setString(10,student.getPersonalId());
         pstm.setInt(11,student.getId());
         pstm.executeUpdate();
         pstm.close();
@@ -92,18 +92,28 @@ public class StudentDaoImpl implements StudentDao {
         student.setParentNumber(parent_number);
         student.setSchool(school);
         student.setBirthDate(birth_date);
-        student.setPersonalID(personal_ID);
+        student.setPersonalId(personal_ID);
         return student;
     }
 
     @Override
     public List<Student> searchStudent(int id,String name,String surname,String email,String school, Connection con) throws Exception {
         String sql ="SELECT * FROM student WHERE 1=1 ";
-        if(id==0) {} else sql=sql+"AND id="+Integer.toString(id)+" ";
-        if(name == null || name.isEmpty()) {} else sql=sql+"AND firstname LIKE "+"'%"+name+"%' ";
-        if(surname == null || surname.isEmpty()) {} else sql=sql+"AND lastname LIKE "+"'%"+surname+"%' ";
-        if(email == null || email.isEmpty()) {} else sql=sql+"AND email LIKE "+"'%"+email+"%' ";
-        if(school == null || school.isEmpty()) {} else sql=sql+"AND school Like "+"'%"+school+"%' ";
+        if (id != 0) {
+            sql += "AND id = " + Integer.toString(id) + " ";
+        }
+        if(name != null && !name.isEmpty()) {
+            sql += "AND firstname LIKE " + "'%" + name + "%' ";
+        }
+        if(surname != null && !surname.isEmpty()) {
+            sql += "AND lastname LIKE " + "'%" + surname + "%' ";
+        }
+        if(email != null && !email.isEmpty()) {
+            sql += "AND email LIKE " + "'%" + email + "%' ";
+        }
+        if(school != null && !school.isEmpty()) {
+            sql += "AND school Like " + "'%" + school + "%' ";
+        }
         PreparedStatement pstm = con.prepareStatement(sql);
         ResultSet rs=pstm.executeQuery();
         List<Student> students = new ArrayList<>();
@@ -117,19 +127,14 @@ public class StudentDaoImpl implements StudentDao {
 
     @Override
     public Student getStudentById(int id, Connection con) throws Exception {
-        try {
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM student WHERE id = ?");
-            pstmt.setInt(1, id);
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            Student student = getStudent(rs);
-            pstmt.close();
-            con.close();
-            return student;
-        }catch(Exception ex){
-            ex.printStackTrace();
-            return null;
-        }
+        PreparedStatement pstmt = con.prepareStatement("SELECT * FROM student WHERE id = ?");
+        pstmt.setInt(1, id);
+        ResultSet rs = pstmt.executeQuery();
+        rs.next();
+        Student student = getStudent(rs);
+        pstmt.close();
+        con.close();
+        return student;
     }
 }
 

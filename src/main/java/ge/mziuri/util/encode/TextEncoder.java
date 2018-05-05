@@ -26,8 +26,6 @@ public class TextEncoder {
         messageDigest.update(inputeText);
 
         byte[] digest = messageDigest.digest();
-        String encodedText= DatatypeConverter.printHexBinary(digest).toLowerCase();
-        return encodedText;
+        return DatatypeConverter.printHexBinary(digest).toLowerCase();
     }
-
 }

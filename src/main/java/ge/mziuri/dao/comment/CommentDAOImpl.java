@@ -1,7 +1,7 @@
 package ge.mziuri.dao.comment;
 
-import ge.mziuri.model.blog.comment.Comment;
-import ge.mziuri.model.blog.post.Post;
+import ge.mziuri.model.blog.Comment;
+import ge.mziuri.model.blog.Post;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -11,13 +11,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentDAOImpl implements CommentDAO{
+
     @Override
     public void addComment(Comment comment, Connection con) throws Exception {
-        PreparedStatement pstm=con.prepareStatement("INSERT INTO comment(comment , author , date , post_id) VALUES (?,?,?, ?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO comment(comment , author , date , post_id) VALUES (?,?,?,?)");
         pstm.setString(1, comment.getComment());
         pstm.setString(2, comment.getAuthor());
         pstm.setDate(3, new Date(comment.getDate().getTime()));
-        pstm.setInt(4,comment.getPost().getId());
+        pstm.setInt(4, comment.getPost().getId());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -29,8 +30,8 @@ public class CommentDAOImpl implements CommentDAO{
         pstmt.setString(1, comment.getComment());
         pstmt.setString(2, comment.getAuthor());
         pstmt.setDate(3, new Date(comment.getDate().getTime()));
-        pstmt.setInt(4,comment.getPost().getId());
-        pstmt.setInt(5,comment.getId());
+        pstmt.setInt(4, comment.getPost().getId());
+        pstmt.setInt(5, comment.getId());
         pstmt.executeUpdate();
         pstmt.close();
         con.close();

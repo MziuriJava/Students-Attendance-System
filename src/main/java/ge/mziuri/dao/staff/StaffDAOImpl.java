@@ -15,7 +15,7 @@ public class StaffDAOImpl implements StaffDAO {
 
     @Override
     public void addStaff(Staff staff, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname , lastname, email , main_phone_number , additional_phone_number , password, staff_status) VALUES (?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status) VALUES (?,?,?,?,?,?,?)");
         pstm.setString(1, staff.getFirstname());
         pstm.setString(2, staff.getLastname());
         pstm.setString(3, staff.getEmail());
@@ -68,39 +68,29 @@ public class StaffDAOImpl implements StaffDAO {
 
     @Override
     public Staff loginStaff(String email , String password , Connection con) throws Exception {
-        try {
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE email = ? AND password = ?");
-            pstmt.setString(1, email);
-            pstmt.setString(2, password);
-            ResultSet rs = pstmt.executeQuery();
-            Staff staff = null;
-            if (rs.next()) {
-                staff = getStaff(rs);
-            }
-            pstmt.close();
-            con.close();
-            return staff;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
+        PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE email = ? AND password = ?");
+        pstmt.setString(1, email);
+        pstmt.setString(2, password);
+        ResultSet rs = pstmt.executeQuery();
+        Staff staff = null;
+        if (rs.next()) {
+            staff = getStaff(rs);
         }
+        pstmt.close();
+        con.close();
+        return staff;
     }
 
     @Override
     public Staff getStaffById(int id, Connection con) throws Exception {
-        try {
-            PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE id = ?");
-            pstmt.setInt(1, id);
-            ResultSet rs = pstmt.executeQuery();
-            rs.next();
-            Staff staff = getStaff(rs);
-            pstmt.close();
-            con.close();
-            return staff;
-        }catch(Exception ex){
-            ex.printStackTrace();
-            return null;
-        }
+        PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE id = ?");
+        pstmt.setInt(1, id);
+        ResultSet rs = pstmt.executeQuery();
+        rs.next();
+        Staff staff = getStaff(rs);
+        pstmt.close();
+        con.close();
+        return staff;
     }
 
     private Staff getStaff(ResultSet rs) throws SQLException {

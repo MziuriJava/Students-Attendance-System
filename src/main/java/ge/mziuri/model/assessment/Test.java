@@ -14,7 +14,6 @@ public class Test {
         return date;
     }
 
-
     public void setDate(Date date) {
         this.date = date;
     }

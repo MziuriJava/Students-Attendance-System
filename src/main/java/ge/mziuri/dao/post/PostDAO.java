@@ -1,6 +1,6 @@
 package ge.mziuri.dao.post;
 
-import ge.mziuri.model.blog.post.Post;
+import ge.mziuri.model.blog.Post;
 
 import java.sql.Connection;
 import java.util.List;

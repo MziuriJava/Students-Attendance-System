@@ -1,8 +1,8 @@
-package ge.mziuri.servlet;
+package ge.mziuri.servlet.staff;
 
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
-import ge.mziuri.emailsender.EmailSender;
+import ge.mziuri.util.emailsender.EmailSender;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
 import ge.mziuri.util.db.DataBaseConnector;
@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class AddStaffServlet extends HttpServlet {
+
     private StaffDAO staffDAO = new StaffDAOImpl();
 
     @Override
@@ -59,9 +60,5 @@ public class AddStaffServlet extends HttpServlet {
         } catch (Exception ex) {
             // TODO
         }
-
-
     }
-
-
 }

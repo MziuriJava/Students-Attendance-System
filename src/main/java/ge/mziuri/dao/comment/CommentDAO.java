@@ -1,6 +1,6 @@
 package ge.mziuri.dao.comment;
 
-import ge.mziuri.model.blog.comment.Comment;
+import ge.mziuri.model.blog.Comment;
 
 import java.sql.Connection;
 import java.util.List;

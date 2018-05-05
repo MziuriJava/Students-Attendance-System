@@ -11,34 +11,32 @@ import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class AssessmentDAOimpl implements AssessmentDAO {
+public class AssessmentDAOImpl implements AssessmentDAO {
+
     @Override
     public void addAssessment(Assessment assess, Connection con) throws Exception {
-
         PreparedStatement pstm = con.prepareStatement("INSERT INTO assessment (staff_id,student_id,group_id,name,start_date,end_date,description,average_grade,tests,number_of_lessons,attended_lessons) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-        pstm.setInt(1,assess.getStaff().getId());
-        pstm.setInt(2,assess.getStudent().getId());
-        pstm.setInt(3,assess.getGroup().getId());
-        pstm.setString(4,assess.getName());
-        pstm.setDate(5,new java.sql.Date(assess.getStartDate().getTime()));
-        pstm.setDate(6,new java.sql.Date(assess.getEndDate().getTime()));
-        pstm.setString(7,assess.getDescription());
-        pstm.setInt(8,assess.getAvrgScore());
-        String marshall =marshallTests(assess.getTests());
-        pstm.setString(9,marshall);
-        pstm.setInt(10,assess.getAttendance().getLessonNumber());
-        pstm.setInt(11,assess.getAttendance().getAttendedLessons());
+        pstm.setInt(1, assess.getStaff().getId());
+        pstm.setInt(2, assess.getStudent().getId());
+        pstm.setInt(3, assess.getGroup().getId());
+        pstm.setString(4, assess.getName());
+        pstm.setDate(5, new java.sql.Date(assess.getStartDate().getTime()));
+        pstm.setDate(6, new java.sql.Date(assess.getEndDate().getTime()));
+        pstm.setString(7, assess.getDescription());
+        pstm.setInt(8, assess.getAvrgScore());
+        pstm.setString(9, marshallTests(assess.getTests()));
+        pstm.setInt(10, assess.getAttendance().getLessonNumber());
+        pstm.setInt(11, assess.getAttendance().getAttendedLessons());
         pstm.executeUpdate();
         pstm.close();
         con.close();
-
     }
+
     @Override
     public String marshallTests(List<Test> tests) {
-        String Result=null;
+        String result=null;
         try {
             //creating the JAXB context
             JAXBContext jContext = JAXBContext.newInstance(TestWrapper.class);
@@ -58,18 +56,17 @@ public class AssessmentDAOimpl implements AssessmentDAO {
             StringWriter sw = new StringWriter();
             marshallObj.marshal(testWrapper, sw);
 
-            String result = sw.toString();
-            Result=result;
+            result = sw.toString();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return Result;
+        return result;
     }
 
 
     @Override
-    public List<Test> unmarshallTests(String text) throws Exception {
+    public List<Test> unmarshallTests(String text) {
         List<Test> tests= new ArrayList<>();
         try{
             JAXBContext jaxbContext = JAXBContext.newInstance(TestWrapper.class);

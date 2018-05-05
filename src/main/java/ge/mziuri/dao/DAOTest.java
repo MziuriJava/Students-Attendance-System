@@ -1,15 +1,14 @@
 package ge.mziuri.dao;
 
 import ge.mziuri.dao.assessment.AssessmentDAO;
-import ge.mziuri.dao.assessment.AssessmentDAOimpl;
-import ge.mziuri.dao.assessment.TestWrapper;
+import ge.mziuri.dao.assessment.AssessmentDAOImpl;
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
 import ge.mziuri.dao.journal.JournalDAO;
 import ge.mziuri.dao.journal.JournalDAOimpl;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
-import ge.mziuri.dao.student.StudentDao;
+import ge.mziuri.dao.student.StudentDAO;
 import ge.mziuri.dao.student.StudentDaoImpl;
 import ge.mziuri.model.assessment.Test;
 import ge.mziuri.model.course.Course;
@@ -43,11 +42,11 @@ public static void main(String[]args)throws Exception{
     //TestSearchStudents();
     //Testunmarshller();
         }
-    private static StudentDao studentDao = new StudentDaoImpl();
+    private static StudentDAO studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
     private static CourseDAO courseDAO = new CourseDAOImpl();
     private static JournalDAO journalDAO = new JournalDAOimpl();
-    private static AssessmentDAO assessmentDAO = new AssessmentDAOimpl();
+    private static AssessmentDAO assessmentDAO = new AssessmentDAOImpl();
     public static void   TestAddStaff() throws Exception{
         try {
         Scanner scanner = new Scanner(System.in);
@@ -137,7 +136,7 @@ public static void main(String[]args)throws Exception{
         Connection con = DataBaseConnector.getConnection();
         Course course = new Course();
         course.setCourseName("JAVA");
-        course.setID(1);
+        course.setId(1);
         course.setCourseStatus(CourseStatus.DEACTIVATED);
         Staff staff = new Staff();
         staff.setId(1);
@@ -149,7 +148,7 @@ public static void main(String[]args)throws Exception{
         List <Course> course;
         course=courseDAO.getAllCourse(con);
         for(int i=0;i<course.size();i++){
-            System.out.println(course.get(i).getID());
+            System.out.println(course.get(i).getId());
         }
     }
     public static void TestAddStudent() throws Exception{
@@ -158,7 +157,7 @@ public static void main(String[]args)throws Exception{
         student.setFirstname(sc.nextLine());
         student.setLastname(sc.nextLine());
         student.setEmail(sc.nextLine());
-        student.setPersonalID("10101013");
+        student.setPersonalId("10101013");
         student.setSchool("komarovi");
         student.setPassword(TextEncoder.textEncode("rame"));
         student.setPhoneNumber("579460707");
