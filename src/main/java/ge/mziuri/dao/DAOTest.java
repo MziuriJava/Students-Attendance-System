@@ -2,6 +2,7 @@ package ge.mziuri.dao;
 
 import ge.mziuri.dao.assessment.AssessmentDAO;
 import ge.mziuri.dao.assessment.AssessmentDAOimpl;
+import ge.mziuri.dao.assessment.TestWrapper;
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
 import ge.mziuri.dao.journal.JournalDAO;
@@ -10,6 +11,7 @@ import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.dao.student.StudentDao;
 import ge.mziuri.dao.student.StudentDaoImpl;
+import ge.mziuri.model.assessment.Test;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.group.Group;
@@ -36,7 +38,7 @@ public static void main(String[]args)throws Exception{
     //TestAddCourse();
     //TestEditCourse();
     //TestGetCourses();
-    TestAddStudent();
+    //TestAddStudent();
     //TestAddLabel();
     //TestSearchStudents();
     //Testunmarshller();
@@ -189,6 +191,22 @@ public static void main(String[]args)throws Exception{
         }
     }
     public static void Testunmarshller() throws Exception{
+
+        List <Test> tests = new ArrayList<>();
+        String marshall="<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n" +
+                "<testWrapper>\n" +
+                "    <tests>\n" +
+                "        <date>2018-05-05T16:22:57.459+04:00</date>\n" +
+                "        <score>10</score>\n" +
+                "    </tests>\n" +
+                "    <tests>\n" +
+                "        <date>2018-05-05T16:22:57.460+04:00</date>\n" +
+                "        <score>9</score>\n" +
+                "    </tests>\n" +
+                "</testWrapper>";
+        tests=assessmentDAO.unmarshallTests(marshall);
+        System.out.println(tests.get(0).getDate()+" "+tests.get(0).getScore());
+
 
     }
 }

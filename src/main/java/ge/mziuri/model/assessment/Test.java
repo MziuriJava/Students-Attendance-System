@@ -18,6 +18,7 @@ public class Test {
     public void setDate(Date date) {
         this.date = date;
     }
+
     @XmlElement
     public int getScore() {
         return score;
