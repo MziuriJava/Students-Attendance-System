@@ -47,7 +47,12 @@ table.blueTable tfoot td {
     font-size: 14px;
 }
 
+.textx{
+    margin-bottom: 15px;
+    margin-left: auto;
 
+
+}
 .centerButton{
     text-align: center;
     width: 1px;

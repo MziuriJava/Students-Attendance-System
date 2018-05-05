@@ -9,6 +9,10 @@
         <meta charset="UTF-8">
     </head>
     <body>
+    <input class="textx" type="text" name="search">
+    <input class="textx" type="text" name="search">
+    <input class="textx" type="text" name="search">
+    <input class="textx" type="text" name="search">
         <table class="blueTable">
             <thead>
                 <tr>
