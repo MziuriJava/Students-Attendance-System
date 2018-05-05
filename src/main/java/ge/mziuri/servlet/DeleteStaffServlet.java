@@ -25,4 +25,16 @@ public class DeleteStaffServlet extends HttpServlet {
             // TODO
         }
     }
+
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int staffId = Integer.parseInt(req.getParameter("staffId"));
+        try {
+            Staff staff = new Staff();
+            staff.setId(staffId);
+            staffDAO.deleteStaff(staff, DataBaseConnector.getConnection());
+            resp.sendRedirect("/loadStaffs");
+        } catch (Exception ex) {
+            // TODO
+        }
+    }
 }

@@ -26,4 +26,16 @@ public class EditStudentServlet extends HttpServlet {
             // TODO
         }
     }
+
+    @Override
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int studentId = Integer.parseInt(req.getParameter("studentId"));
+        try {
+            Student student = studentDao.getStudentById(studentId, DataBaseConnector.getConnection());
+            req.setAttribute("student", student);
+            req.getRequestDispatcher("sas/addStudent.jsp").forward(req, resp);
+        } catch (Exception ex) {
+            // TODO
+        }
+    }
 }

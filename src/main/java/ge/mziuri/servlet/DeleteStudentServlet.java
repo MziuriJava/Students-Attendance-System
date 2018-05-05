@@ -26,4 +26,16 @@ public class DeleteStudentServlet extends HttpServlet {
             // TODO
         }
     }
+
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int studentId = Integer.parseInt(req.getParameter("studentId"));
+        try {
+            Student student = new Student();
+            student.setId(studentId);
+            studentDao.deleteStudent(student, DataBaseConnector.getConnection());
+            resp.sendRedirect("/loadStudents");
+        } catch (Exception ex) {
+            // TODO
+        }
+    }
 }

@@ -39,5 +39,29 @@ public class AddStudentServlet extends HttpServlet{
         }
     }
 
+    @Override
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String studentName = req.getParameter("studentName");
+        String studentSurname = req.getParameter("studentSurname");
+        String studentEmail = req.getParameter("studentEmail");
+        String studentPhoneNumber = req.getParameter("studentPhoneNumber");
+        String studentParentName = req.getParameter("studentParentName");
+        String studentParentNumber = req.getParameter("studentParentNumber");
+
+        Student student = new Student();
+        student.setFirstname(studentName);
+        student.setLastname(studentSurname);
+        student.setEmail(studentEmail);
+        student.setPhoneNumber(studentPhoneNumber);
+        student.setParentName(studentParentName);
+        student.setParentNumber(studentParentNumber);
+
+        try {
+            studentDao.addStudent(student, DataBaseConnector.getConnection());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

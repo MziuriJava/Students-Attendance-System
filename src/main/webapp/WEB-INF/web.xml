@@ -135,6 +135,24 @@
         <url-pattern>/editStudent</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddStudentServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.AddStudentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddStudentServlet</servlet-name>
+        <url-pattern>/addStudent</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddStaffServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.AddStaffServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddStaffServlet</servlet-name>
+        <url-pattern>/addStaff</url-pattern>
+    </servlet-mapping>
+
 
 
 

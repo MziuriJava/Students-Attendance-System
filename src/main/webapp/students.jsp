@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<input type="text" name="search">
 <table class="blueTable">
     <thead>
     <tr>

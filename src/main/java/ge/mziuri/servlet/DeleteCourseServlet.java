@@ -26,4 +26,16 @@ public class DeleteCourseServlet extends HttpServlet {
             // TODO
         }
     }
+
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int courseId = Integer.parseInt(req.getParameter("courseId"));
+        try {
+            Course course = new Course();
+            course.setID(courseId);
+            courseDAO.deleteCourse(course, DataBaseConnector.getConnection());
+            resp.sendRedirect("/loadCourses");
+        } catch (Exception ex) {
+            // TODO
+        }
+    }
 }

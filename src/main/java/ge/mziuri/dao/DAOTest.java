@@ -36,10 +36,10 @@ public static void main(String[]args)throws Exception{
     //TestAddCourse();
     //TestEditCourse();
     //TestGetCourses();
-    //TestAddStudent();
+    TestAddStudent();
     //TestAddLabel();
     //TestSearchStudents();
-    Testunmarshller();
+    //Testunmarshller();
         }
     private static StudentDao studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();

@@ -20,8 +20,41 @@ import java.io.InputStream;
 public class AddCourseServlet extends HttpServlet {
     private CourseDAO courseDAO=new CourseDAOImpl();
 
-    protected void doPost(HttpServletRequest request,
-                          HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String courseName = request.getParameter("courseName");
+        int courseLength = Integer.parseInt(request.getParameter("courseLength"));
+        double courseLessonTime = Double.parseDouble(request.getParameter("courseLessonTime"));
+        int lessonsPerWeek = Integer.parseInt(request.getParameter("lessonsPerWeek"));
+        String description = request.getParameter("description");
+        int price = Integer.parseInt(request.getParameter("price"));
+        // TODO add founder
+
+        Course course=new Course();
+        course.setCourseName(courseName);
+        course.setCourseStatus(CourseStatus.ACTIVE);
+        course.setCourseLength(courseLength);
+        course.setLessonsPerWeek(lessonsPerWeek);
+        course.setCourseLessonTime(courseLessonTime);
+        course.setDescription(description);
+        course.setPrice(price);
+
+        InputStream inputStream = null;
+
+        Part filePart = request.getPart("syllabus");
+        if (filePart != null) {
+            inputStream = filePart.getInputStream();
+        }
+        course.setSyllabus(IOUtils.toByteArray(inputStream));
+
+        try {
+            courseDAO.addCourse(course, DataBaseConnector.getConnection());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String courseName = request.getParameter("courseName");
         int courseLength = Integer.parseInt(request.getParameter("courseLength"));
         double courseLessonTime = Double.parseDouble(request.getParameter("courseLessonTime"));
