@@ -8,6 +8,7 @@ import ge.mziuri.util.db.DataBaseConnector;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,40 +22,39 @@ public class StudentDaoTest {
         studentDao = new StudentDaoImpl();
     }
 
-        @Test
-        public void testAddStudentAndGetAllStudnent() throws Exception {
-            List<Student> mockStudents = new ArrayList<>();
-            Student student1 = makeMockStudent1();
-            mockStudents.add(student1);
-            Connection connection = TestDataBaseConnector.getConnection();
-            studentDao.addStudent(student1, connection);
-            Student student2 = makeMockStudent2();
-            mockStudents.add(student2);
-            connection = TestDataBaseConnector.getConnection();
-            studentDao.addStudent(student2, connection);
-            connection = TestDataBaseConnector.getConnection();
-            List<Student> students = studentDao.getAllStudent(connection);
-            Assert.assertEquals(mockStudents.size(), students.size());
-            for (int i = 0; i < mockStudents.size(); i++) {
-                Student mockStudent = mockStudents.get(i);
-                Student student = students.get(i);
-               Assert.assertEquals(mockStudent.getFirstname(), student.getFirstname());
-               Assert.assertEquals(mockStudent.getLastname(),student.getLastname());
-               Assert.assertEquals(mockStudent.getPhoneNumber(),student.getPhoneNumber());
-               Assert.assertEquals(mockStudent.getEmail(), student.getEmail());
-               Assert.assertEquals(mockStudent.getPassword(),student.getPassword());
-               Assert.assertEquals(mockStudent.getParentName(),student.getParentName());
-               Assert.assertEquals(mockStudent.getParentNumber(),student.getParentNumber());
-               Assert.assertEquals(mockStudent.getSchool(), student.getSchool());
-               Assert.assertEquals(mockStudent.getBirthDate(),student.getBirthDate());
-               Assert.assertEquals(mockStudent.getPersonalId(), student.getPersonalId());
-  }
-  }
+    @Test
+    public void testAddStudentAndGetAllStudnent() throws Exception {
+        List<Student> mockStudents = new ArrayList<>();
+        Student student1 = makeMockStudent1();
+        mockStudents.add(student1);
+        Connection connection = TestDataBaseConnector.getConnection();
+        studentDao.addStudent(student1, connection);
+        Student student2 = makeMockStudent2();
+        mockStudents.add(student2);
+        connection = TestDataBaseConnector.getConnection();
+        studentDao.addStudent(student2, connection);
+        connection = TestDataBaseConnector.getConnection();
+        List<Student> students = studentDao.getAllStudent(connection);
+        Assert.assertEquals(mockStudents.size(), students.size());
+        for (int i = 0; i < mockStudents.size(); i++) {
+            Student mockStudent = mockStudents.get(i);
+            Student student = students.get(i);
+            Assert.assertEquals(mockStudent.getFirstname(), student.getFirstname());
+            Assert.assertEquals(mockStudent.getLastname(), student.getLastname());
+            Assert.assertEquals(mockStudent.getPhoneNumber(), student.getPhoneNumber());
+            Assert.assertEquals(mockStudent.getEmail(), student.getEmail());
+            Assert.assertEquals(mockStudent.getPassword(), student.getPassword());
+            Assert.assertEquals(mockStudent.getParentName(), student.getParentName());
+            Assert.assertEquals(mockStudent.getParentNumber(), student.getParentNumber());
+            Assert.assertEquals(mockStudent.getSchool(), student.getSchool());
+            Assert.assertEquals(mockStudent.getBirthDate(), student.getBirthDate());
+            Assert.assertEquals(mockStudent.getPersonalId(), student.getPersonalId());
+        }
+    }
 
 
     @Test
-    public  void testDeleteStudent() throws Exception
-    {
+    public void testDeleteStudent() throws Exception {
         Student student = makeMockStudent1();
         Connection connection = DataBaseConnector.getConnection();
         studentDao.addStudent(student, connection);
@@ -88,7 +88,7 @@ public class StudentDaoTest {
         student.setParentName("asdasd");
         student.setParentNumber("123123213");
         student.setSchool("OTO_DAMSJELI_SKOLA");
-        student.setBirthDate(new Date(1999, 0,16));
+        student.setBirthDate(new Date(1999, 0, 16));
         student.setPersonalId("123123123");
 
 
@@ -102,18 +102,18 @@ public class StudentDaoTest {
         Assert.assertEquals(student.getFirstname(), studentFromDb.getFirstname());
         Assert.assertEquals(student.getLastname(), studentFromDb.getLastname());
         Assert.assertEquals(student.getEmail(), studentFromDb.getEmail());
-        Assert.assertEquals(student.getPassword(),studentFromDb.getPassword());
-        Assert.assertEquals(student.getParentName(),student.getParentName());
+        Assert.assertEquals(student.getPassword(), studentFromDb.getPassword());
+        Assert.assertEquals(student.getParentName(), student.getParentName());
         Assert.assertEquals(student.getParentNumber(), studentFromDb.getParentName());
         Assert.assertEquals(student.getPhoneNumber(), studentFromDb.getPhoneNumber());
-        Assert.assertEquals(student.getSchool(),studentFromDb.getSchool());
-        Assert.assertEquals(student.getPersonalId(),studentFromDb.getPersonalId());
-        Assert.assertEquals(student.getBirthDate(),studentFromDb.getBirthDate());
+        Assert.assertEquals(student.getSchool(), studentFromDb.getSchool());
+        Assert.assertEquals(student.getPersonalId(), studentFromDb.getPersonalId());
+        Assert.assertEquals(student.getBirthDate(), studentFromDb.getBirthDate());
 
     }
 
-    private Student makeMockStudent1(){
-        Student student= new Student();
+    private Student makeMockStudent1() {
+        Student student = new Student();
         student.setFirstname("BEQA");
         student.setLastname("vinmedze");
         student.setPhoneNumber("55555");
@@ -122,13 +122,13 @@ public class StudentDaoTest {
         student.setParentName("otototo");
         student.setParentNumber("5665685");
         student.setSchool("MZIURI");
-        student.setBirthDate(new Date(2003,10 ,28));
+        student.setBirthDate(new Date(2003, 10, 28));
         student.setPersonalId("1234");
         return student;
     }
 
-    private Student makeMockStudent2(){
-        Student student= new Student();
+    private Student makeMockStudent2() {
+        Student student = new Student();
         student.setFirstname("oto");
         student.setLastname("vinze");
         student.setPhoneNumber("5125555");

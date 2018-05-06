@@ -1,6 +1,7 @@
 package ge.mziuri.model.blog;
 
 import ge.mziuri.model.blog.Post;
+import ge.mziuri.model.user.User;
 
 import java.util.Date;
 
@@ -10,7 +11,7 @@ public class Comment {
 
     private String comment;
 
-    private String author;
+    private User author;
 
     private Date date;
 
@@ -32,11 +33,11 @@ public class Comment {
         this.comment = comment;
     }
 
-    public String getAuthor() {
+    public User getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(User author) {
         this.author = author;
     }
 

@@ -11,5 +11,5 @@ public interface CommentDAO {
 
     void editComment(Comment comment, Connection con) throws Exception;
 
-    List<Comment> getAllComment(Connection con) throws Exception;
+    List<Comment> getAllComment(int postId,Connection con) throws Exception;
 }

@@ -1,6 +1,10 @@
 package ge.mziuri.model.blog;
 
+import ge.mziuri.model.user.staff.Staff;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Post {
 
@@ -8,9 +12,11 @@ public class Post {
 
     private String post;
 
-    private String author;
+    private Staff author;
 
     private Date date;
+
+    private List<Comment> comments = new ArrayList<>();
 
     public int getId() {
         return id;
@@ -28,11 +34,11 @@ public class Post {
         this.post = post;
     }
 
-    public String getAuthor() {
+    public Staff getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
+    public void setAuthor(Staff author) {
         this.author = author;
     }
 
@@ -42,5 +48,13 @@ public class Post {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
     }
 }

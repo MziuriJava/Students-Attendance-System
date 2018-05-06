@@ -71,13 +71,13 @@ CREATE TABLE assessment(
 CREATE TABLE post(
   id SERIAL PRIMARY KEY NOT NULL,
   post VARCHAR ,
-  author VARCHAR ,
+  author_id INTEGER ,
   date DATE
 );
 CREATE TABLE comment(
   id SERIAL PRIMARY KEY NOT NULL ,
   post VARCHAR ,
-  author VARCHAR ,
+  author_id int ,
   date DATE ,
   post_id int REFERENCES post(id)
   );
