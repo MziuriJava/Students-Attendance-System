@@ -48,11 +48,16 @@ table.blueTable tfoot td {
 }
 
 .textx{
-    margin-bottom: 15px;
-    margin-left: auto;
-
+    margin-bottom: 5px;
+    margin-left: auto;}
+.imgStyleSearch{
 
 }
+.searchButton{
+    margin-top: 2px;
+    padding-bottom: 2px;
+}
+
 .centerButton{
     text-align: center;
     width: 1px;

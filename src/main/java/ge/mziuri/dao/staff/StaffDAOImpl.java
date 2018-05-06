@@ -54,19 +54,6 @@ public class StaffDAOImpl implements StaffDAO {
     }
 
     @Override
-    public List<Staff> getAllStaffs(Connection con) throws Exception {
-        PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff");
-        ResultSet rs = pstmt.executeQuery();
-        List<Staff> staffs = new ArrayList<>();
-        while (rs.next()) {
-            staffs.add(getStaff(rs));
-        }
-        pstmt.close();
-        con.close();
-        return staffs;
-    }
-
-    @Override
     public Staff loginStaff(String email , String password , Connection con) throws Exception {
         PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE email = ? AND password = ?");
         pstmt.setString(1, email);
@@ -79,6 +66,35 @@ public class StaffDAOImpl implements StaffDAO {
         pstmt.close();
         con.close();
         return staff;
+    }
+
+    @Override
+    public List<Staff> searchStaff(String firstName, String lastName, String personalId, String email, StaffStatus status, Connection con) throws Exception {
+        String sql ="SELECT * FROM staff WHERE 1=1 ";
+        if(firstName != null && !firstName.isEmpty()) {
+            sql += "AND firstname LIKE " + "'%" + firstName + "%' ";
+        }
+        if(lastName != null && !lastName.isEmpty()) {
+            sql += "AND lastname LIKE " + "'%" + lastName + "%' ";
+        }
+        if(personalId != null && !personalId.isEmpty()) {
+            sql += "AND personalid LIKE " + "'%" + personalId + "%' ";
+        }
+        if(email != null && !email.isEmpty()) {
+            sql += "AND email LIKE " + "'%" + email + "%' ";
+        }
+        if(status != null){
+            sql += "AND staff_status = '"+ status.name() + "' ";
+        }
+        PreparedStatement pstm = con.prepareStatement(sql);
+        ResultSet rs=pstm.executeQuery();
+        List<Staff> staffs = new ArrayList<>();
+        while (rs.next()) {
+            staffs.add(getStaff(rs));
+        }
+        pstm.close();
+        con.close();
+        return staffs;
     }
 
     @Override

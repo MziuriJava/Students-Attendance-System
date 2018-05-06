@@ -68,7 +68,7 @@ public static void main(String[]args)throws Exception{
         try {
         List <Staff> staffs = new ArrayList<>();
         Connection con = DataBaseConnector.getConnection();
-        staffs=staffDAO.getAllStaffs(con);
+        staffs=staffDAO.searchStaff(null,null,null,null,null, con);
         for(int i = 0; i < staffs.size() ; i ++){
             System.out.println(staffs.get(i).getFirstname());
         }
