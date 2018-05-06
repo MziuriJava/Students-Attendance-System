@@ -48,7 +48,6 @@ public class AddStaffServlet extends HttpServlet {
             case "Other" :
                 default:
                     staff.setStaffStatus(StaffStatus.OTHER);
-
         }
         String password = RandomTextGenerator.generateRandomString(7);
 

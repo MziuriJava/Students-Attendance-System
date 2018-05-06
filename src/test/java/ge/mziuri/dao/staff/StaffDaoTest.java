@@ -37,7 +37,7 @@ public class StaffDaoTest {
         connection = TestDataBaseConnector.getConnection();
         staffDAO.addStaff(staff2, connection);
         connection = TestDataBaseConnector.getConnection();
-        List<Staff> staffs = staffDAO.getAllStaffs(connection);
+        List<Staff> staffs = getAllStaffs(connection);
         Assert.assertEquals(mockStaffs.size(), staffs.size());
         for (int i = 0; i < mockStaffs.size(); i++) {
             Staff mockStaff = mockStaffs.get(i);
@@ -58,7 +58,7 @@ public class StaffDaoTest {
         Connection connection = DataBaseConnector.getConnection();
         staffDAO.addStaff(staff, connection);
         connection = DataBaseConnector.getConnection();
-        List<Staff> staffs = staffDAO.getAllStaffs(connection);
+        List<Staff> staffs = getAllStaffs(connection);
         Assert.assertTrue(!staffs.isEmpty());
 
         staff.setId(staffs.get(0).getId());
@@ -73,7 +73,7 @@ public class StaffDaoTest {
         connection = DataBaseConnector.getConnection();
         staffDAO.editStaff(staff, connection);
         connection = DataBaseConnector.getConnection();
-        staffs = staffDAO.getAllStaffs(connection);
+        staffs = getAllStaffs(connection);
         Assert.assertEquals(1, staffs.size());
         Staff staffFromDb = staffs.get(0);
         Assert.assertEquals(staff.getFirstname(), staffFromDb.getFirstname());
@@ -91,14 +91,14 @@ public class StaffDaoTest {
         Connection connection = DataBaseConnector.getConnection();
         staffDAO.addStaff(staff, connection);
         connection = DataBaseConnector.getConnection();
-        List<Staff> staffs = staffDAO.getAllStaffs(connection);
+        List<Staff> staffs = getAllStaffs(connection);
         Assert.assertTrue(!staffs.isEmpty());
 
         connection = DataBaseConnector.getConnection();
         staff.setId(staffs.get(0).getId());
         staffDAO.deleteStaff(staff, connection);
         connection = DataBaseConnector.getConnection();
-        staffs = staffDAO.getAllStaffs(connection);
+        staffs = getAllStaffs(connection);
         Assert.assertTrue(staffs.isEmpty());
     }
 
@@ -152,6 +152,10 @@ public class StaffDaoTest {
         staff.setPassword("safhsafgh");
         staff.setStaffStatus(StaffStatus.ADMIN);
         return staff;
+    }
+
+    private List<Staff> getAllStaffs(Connection conn) throws Exception {
+        return staffDAO.searchStaff(null, null, null, null, null, conn);
     }
 }
 
