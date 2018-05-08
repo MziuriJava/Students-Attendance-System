@@ -19,7 +19,7 @@ public class CommentDAOImpl implements CommentDAO{
         pstm.setString(1, comment.getComment());
         pstm.setInt(2, comment.getAuthor().getId());
         pstm.setDate(3, new Date(comment.getDate().getTime()));
-        pstm.setInt(4, comment.getPost().getId());
+        pstm.setInt(4, comment.getPostId());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -31,7 +31,7 @@ public class CommentDAOImpl implements CommentDAO{
         pstmt.setString(1, comment.getComment());
         pstmt.setInt(2, comment.getAuthor().getId());
         pstmt.setDate(3, new Date(comment.getDate().getTime()));
-        pstmt.setInt(4, comment.getPost().getId());
+        pstmt.setInt(4, comment.getPostId());
         pstmt.setInt(5, comment.getId());
         pstmt.executeUpdate();
         pstmt.close();
