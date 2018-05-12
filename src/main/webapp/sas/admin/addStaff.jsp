@@ -21,12 +21,14 @@
     %>
     <form method="post" action="/sas/admin/addStaff">
         <h2 class ="inputadd"><%=(staff == null) ? "მასწავლებლის დამატება" : "მასწავლებლის რედაქტირება"%>  </h2>
-        <input class="inputtext"  type="text" placeholder="სახელი" name="name" value="<%=(staff == null) ? "" : staff.getFirstname()%>">
-        <input class="inputtext"  type="text" placeholder="გვარი" name="surname" value="<%=(staff == null) ? "" : staff.getLastname()%>">
-        <input class="inputtext"  type="email" placeholder="Email" name="email" value="<%=(staff == null) ? "" : staff.getEmail()%>">
-        <input class="inputtext"  type="text" placeholder="ID" name="ID" value="<%=(staff == null) ? "" : staff.getId()%>">
-        <input class="inputtext"  type="tel" placeholder="მთავარი ნომერი" name="MainNumber" value="<%=(staff == null) ? "" : staff.getMainPhoneNumber()%>">
-        <input class="inputtext"  type="tel" placeholder="სუბ. ნომერი" name="SubNumber" value="<%=(staff == null) ? "" : staff.getAdditionalPhoneNumber()%>">
+        <input type="hidden" name="commandType" value="<%=(staff == null) ? "add" : "edit"%>">
+        <input type="hidden" name="staffId" value="<%=(staff == null) ? "0" : staff.getId()%>">
+        <input class="inputtext" type="text" placeholder="სახელი" name="name" value="<%=(staff == null) ? "" : staff.getFirstname()%>">
+        <input class="inputtext" type="text" placeholder="გვარი" name="surname" value="<%=(staff == null) ? "" : staff.getLastname()%>">
+        <input class="inputtext" type="email" placeholder="Email" name="email" value="<%=(staff == null) ? "" : staff.getEmail()%>">
+        <input class="inputtext" type="text" placeholder="პირ. ნომერი" name="personalId" value="<%=(staff == null) ? "" : staff.getId()%>">
+        <input class="inputtext" type="tel" placeholder="მთავარი ნომერი" name="MainNumber" value="<%=(staff == null) ? "" : staff.getMainPhoneNumber()%>">
+        <input class="inputtext" type="tel" placeholder="სუბ. ნომერი" name="SubNumber" value="<%=(staff == null) ? "" : staff.getAdditionalPhoneNumber()%>">
         <div style="text-align: center;">
             <select class="fixed-size" name="status">
                 <option value="Administrator" <%=(staff != null && staff.getStaffStatus() == StaffStatus.ADMIN) ? "selected" : ""%>>ადმინისტრატორი</option>

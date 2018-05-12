@@ -13,6 +13,8 @@ import java.util.List;
 
 public class StaffDAOImpl implements StaffDAO {
 
+    // TODO add personalId support
+
     @Override
     public void addStaff(Staff staff, Connection con) throws Exception {
         PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status) VALUES (?,?,?,?,?,?,?)");
@@ -78,7 +80,7 @@ public class StaffDAOImpl implements StaffDAO {
             sql += "AND lastname LIKE " + "'%" + lastName + "%' ";
         }
         if(personalId != null && !personalId.isEmpty()) {
-            sql += "AND personalid LIKE " + "'%" + personalId + "%' ";
+            sql += "AND personal_id LIKE " + "'%" + personalId + "%' ";
         }
         if(email != null && !email.isEmpty()) {
             sql += "AND email LIKE " + "'%" + email + "%' ";
