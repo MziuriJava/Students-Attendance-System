@@ -168,15 +168,15 @@ public static void main(String[]args)throws Exception{
     }
     public static void TestAddLabel() throws Exception{
         Student student = new Student();
-        student.setId(1);
+        student.setId(3);
         Group group = new Group();
         group.setId(1);
         Label label = new Label();
-        label.setAttend(true);
+        label.setAttend(false);
         label.setStudent(student);
         label.setGroup(group);
         label.setDate(new Date());
-        label.setLessonMark(9);
+        label.setLessonMark(8);
         Connection con = DataBaseConnector.getConnection();
         journalDAO.addLabel(label,con);
     }
@@ -184,7 +184,7 @@ public static void main(String[]args)throws Exception{
     public static void TestSearchStudents() throws Exception{
         List<Student> students=new ArrayList<>();
         Connection con = DataBaseConnector.getConnection();
-        students=studentDao.searchStudent(3,"lekso","bora","lekso","komarovi",con);
+        students=studentDao.searchStudent("lekso","bora","lekso","komarovi",con);
         for(int i=0;i<students.size();i++){
             System.out.println(students.get(i).getFirstname());
         }

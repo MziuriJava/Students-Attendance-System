@@ -23,7 +23,25 @@ public class Assessment {
 
     private String description;
 
-    private int avrgScore;
+    private int avrghomeworkScore;
+
+    private int avrglessonScore;
+
+    public int getAvrghomeworkScore() {
+        return avrghomeworkScore;
+    }
+
+    public void setAvrghomeworkScore(int avrghomeworkScore) {
+        this.avrghomeworkScore = avrghomeworkScore;
+    }
+
+    public int getAvrglessonScore() {
+        return avrglessonScore;
+    }
+
+    public void setAvrglessonScore(int avrglessonScore) {
+        this.avrglessonScore = avrglessonScore;
+    }
 
     private List<Test> tests;
 
@@ -85,13 +103,6 @@ public class Assessment {
         this.description = description;
     }
 
-    public int getAvrgScore() {
-        return avrgScore;
-    }
-
-    public void setAvrgScore(int avrgScore) {
-        this.avrgScore = avrgScore;
-    }
 
     public List<Test> getTests() {
         return tests;
