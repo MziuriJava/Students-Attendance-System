@@ -10,17 +10,28 @@
 </head>
 <body>
 <form method="post" action="/loadStaffs">
-    <input class="textx" type="text" placeholder="სახელი" name="searchName" value="<%=(request.getAttribute("searchName") == null) ? "" : request.getAttribute("searchName")%>">
-    <input class="textx" type="text" placeholder="გვარი" name="searchLastName" value="<%=(request.getAttribute("searchLastName") == null) ? "" : request.getAttribute("searchLastName")%>">
-    <input class="textx" type="text" placeholder="ID" name="searchPersonalId" value="<%=(request.getAttribute("searchPersonalId") == null) ? "" : request.getAttribute("searchPersonalId")%>">
-    <input class="textx" type="text" placeholder="იმეილი" name="searchEmail" value="<%=(request.getAttribute("searchEmail") == null) ? "" : request.getAttribute("searchEmail")%>">
+    <input class="textx" type="text" placeholder="სახელი" name="searchName"
+           value="<%=(request.getAttribute("searchName") == null) ? "" : request.getAttribute("searchName")%>">
+    <input class="textx" type="text" placeholder="გვარი" name="searchLastName"
+           value="<%=(request.getAttribute("searchLastName") == null) ? "" : request.getAttribute("searchLastName")%>">
+    <input class="textx" type="text" placeholder="ID" name="searchPersonalId"
+           value="<%=(request.getAttribute("searchPersonalId") == null) ? "" : request.getAttribute("searchPersonalId")%>">
+    <input class="textx" type="text" placeholder="იმეილი" name="searchEmail"
+           value="<%=(request.getAttribute("searchEmail") == null) ? "" : request.getAttribute("searchEmail")%>">
     <select name="searchStatus">
-        <option value="All">ყველა</option>
-        <option value="Administrator">ადმინისტრატორი</option>
-        <option value="Teacher">მასწავლებელი</option>
-        <option value="Other">სხვა</option>
+        <option value="All" <%=(request.getAttribute("searchStatus") == null) ? "selected" : ""%>>ყველა</option>
+        <option value="Administrator"<%=(request.getAttribute("searchStatus") != null && request.getAttribute("searchStatus").equals("Administrator")) ? "selected" : ""%>>
+            ადმინისტრატორი
+        </option>
+        <option value="Teacher"<%=(request.getAttribute("searchStatus") != null && request.getAttribute("searchStatus").equals("Teacher")) ? "selected" : ""%>>
+            მასწავლებელი
+        </option>
+        <option value="Other"<%=(request.getAttribute("searchStatus") != null && request.getAttribute("searchStatus").equals("Other")) ? "selected" : ""%>>
+            სხვა
+        </option>
     </select>
-    <button type="submit" class="searchButton"><img class="imgStyleSearch" src="images/search-13-16.png"/></button>
+    <button type="submit" class="blackButtons"><img class="imgStyleSearch" src="images/search-13-16.png"/></button>
+    <button type="button" class="blackButtons"><img class="imgStyleSearch" src="images/add.png" onclick="location.href='/sas/admin/addStaff.jsp';"/></button>
 </form>
 
 <table class="blueTable">
@@ -62,7 +73,7 @@
         <td><%=staffs.get(i).getStaffStatus()%>
         </td>
         <td class="centerButton">
-            <form method="post" action="/editStaff">
+            <form method="post" action="/loadStaff">
                 <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
                 <input type="hidden" name="staffId" value="<%=staffs.get(i).getId()%>">
             </form>

@@ -8,6 +8,7 @@ CREATE TABLE staff (
   password VARCHAR(50) NOT NULL,
   staff_status VARCHAR(50) NOT NULL
 );
+ALTER TABLE staff ADD COLUMN personal_id VARCHAR(50);
 
 CREATE TABLE course(
   id SERIAL PRIMARY KEY NOT NULL,

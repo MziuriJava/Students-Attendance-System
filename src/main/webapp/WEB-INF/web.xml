@@ -72,12 +72,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>EditStaffServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.staff.EditStaffServlet</servlet-class>
+        <servlet-name>LoadSingleStaffServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.staff.LoadSingleStaffServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>EditStaffServlet</servlet-name>
-        <url-pattern>/editStaff</url-pattern>
+        <servlet-name>LoadSingleStaffServlet</servlet-name>
+        <url-pattern>/loadStaff</url-pattern>
     </servlet-mapping>
 
     <servlet>

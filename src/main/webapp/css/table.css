@@ -51,11 +51,14 @@ table.blueTable tfoot td {
     margin-bottom: 5px;
     margin-left: auto;}
 .imgStyleSearch{
-
+    width: 10px;
+    height: 10px;
 }
-.searchButton{
+.blackButtons{
     margin-top: 2px;
     padding-bottom: 2px;
+    width: 32px;
+    height: 20px;
 }
 
 .centerButton{

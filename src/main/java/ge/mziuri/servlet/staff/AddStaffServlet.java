@@ -25,10 +25,11 @@ public class AddStaffServlet extends HttpServlet {
         String email = req.getParameter("email");
         String name = req.getParameter("name");
         String surname = req.getParameter("surname");
-        String id = req.getParameter("id");   // TODO use id
+        String personalId = req.getParameter("personalId");
         String mainNumber = req.getParameter("MainNumber");
         String subNumber = req.getParameter("SubNumber");
         String statusStr = req.getParameter("status");
+        String staffId = req.getParameter("staffId");
 
         Staff staff = new Staff();
         staff.setEmail(email);
@@ -36,6 +37,8 @@ public class AddStaffServlet extends HttpServlet {
         staff.setLastname(surname);
         staff.setMainPhoneNumber(mainNumber);
         staff.setAdditionalPhoneNumber(subNumber);
+        staff.setPersonalId(personalId);
+        staff.setId(Integer.parseInt(staffId));
         switch (statusStr) {
             case "Administrator" : {
                 staff.setStaffStatus(StaffStatus.ADMIN);
@@ -54,7 +57,13 @@ public class AddStaffServlet extends HttpServlet {
         try {
             EmailSender.sendEmail(PropertiesUtil.getProperty("SenderEmail"), PropertiesUtil.getProperty("SenderPassword"), email , password , "დროებითი პაროლი");
             staff.setPassword(TextEncoder.textEncode(password));
-            staffDAO.addStaff(staff, DataBaseConnector.getConnection());
+
+            String commandType = req.getParameter("commandType");
+            if (commandType.equals("add")) {
+                staffDAO.addStaff(staff, DataBaseConnector.getConnection());
+            } else if (commandType.equals("edit")) {
+                staffDAO.editStaff(staff, DataBaseConnector.getConnection());
+            }
             resp.sendRedirect("/loadStaffs");
         } catch (Exception ex) {
             // TODO
