@@ -16,8 +16,13 @@ public class LoadStudentsServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            List<Student> students = studentDao.getAllStudent(DataBaseConnector.getConnection());
+            String searchName = req.getParameter("searchName");
+            String searchLastName = req.getParameter("searchLastName");
+            String searchPersonalId = req.getParameter( "searchPersonalId");
+            String searchEmail = req.getParameter("searchEmail");
+            List<Student> students = studentDao.searchStudent(searchName, searchLastName, searchPersonalId, searchEmail, DataBaseConnector.getConnection());
             req.setAttribute("students", students);
+            req.setAttribute("searchName", searchName);
             req.getRequestDispatcher("students.jsp").forward(req, resp);
         } catch (Exception e) {
             //TODO
@@ -26,9 +31,7 @@ public class LoadStudentsServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            List<Student> students = studentDao.getAllStudent(DataBaseConnector.getConnection());
-            req.setAttribute("students", students);
-            req.getRequestDispatcher("students.jsp").forward(req, resp);
+
         } catch (Exception e) {
             //TODO
         }

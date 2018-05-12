@@ -15,7 +15,7 @@ public interface StudentDAO {
 
     List<Student> getAllStudent(Connection con) throws Exception;
 
-    List<Student> searchStudent(int id,String name,String lastname,String email, String school, Connection con) throws Exception;
+    List<Student> searchStudent(String name,String lastname,String personalId, String email, Connection con) throws Exception;
 
     Student getStudentById(int id, Connection con) throws Exception;
 }

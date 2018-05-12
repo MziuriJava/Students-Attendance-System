@@ -10,12 +10,22 @@
     <meta charset="UTF-8">
 </head>
 <body>
+<form method="post" action="/loadStudents">
+    <input class="textx" type="text" placeholder="სახელი" name="searchName" value="<%=(request.getAttribute("searchName") == null) ? "" : request.getAttribute("searchName")%>">
+    <input class="textx" type="text" placeholder="გვარი" name="searchLastName" value="<%=(request.getAttribute("searchLastName") == null) ? "" : request.getAttribute("searchLastName")%>">
+    <input class="textx" type="text" placeholder="ID" name="searchPersonalId" value="<%=(request.getAttribute("searchPersonalId") == null) ? "" : request.getAttribute("searchPersonalId")%>">
+    <input class="textx" type="text" placeholder="იმეილი" name="searchEmail" value="<%=(request.getAttribute("searchEmail") == null) ? "" : request.getAttribute("searchEmail")%>">
+    <button type="submit" class="searchButton"><img class="imgStyleSearch" src="images/search-13-16.png"/></button>
+</form>
+
 <table class="blueTable">
     <thead>
     <tr>
-        <th>ID</th>
+        <th>№</th>
         <th>სახელი</th>
         <th>გვარი</th>
+        <th>პირადი ნომერი</th>
+        <th>იმეილი</th>
         <th>ტელეფონი</th>
         <th>მშობლის სახელი</th>
         <th>მშობლის ტელ</th>
@@ -33,6 +43,8 @@
         <td><%=students.get(i).getId()%></td>
         <td><%=students.get(i).getFirstname()%></td>
         <td><%=students.get(i).getLastname()%></td>
+        <td><%=students.get(i).getPersonalId()%></td>
+        <td><%=students.get(i).getEmail()%></td>
         <td><%=students.get(i).getPhoneNumber()%></td>
         <td><%=students.get(i).getParentName()%></td>
         <td><%=students.get(i).getParentNumber()%></td>

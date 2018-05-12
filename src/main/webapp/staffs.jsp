@@ -11,9 +11,9 @@
 <body>
 <form method="post" action="/loadStaffs">
     <input class="textx" type="text" placeholder="სახელი" name="searchName" value="<%=(request.getAttribute("searchName") == null) ? "" : request.getAttribute("searchName")%>">
-    <input class="textx" type="text" placeholder="გვარი" name="searchLastName" value="">
-    <input class="textx" type="text" placeholder="ID" name="searchPersonalId" value="">
-    <input class="textx" type="text" placeholder="იმეილი" name="searchEmail" value="">
+    <input class="textx" type="text" placeholder="გვარი" name="searchLastName" value="<%=(request.getAttribute("searchLastName") == null) ? "" : request.getAttribute("searchLastName")%>">
+    <input class="textx" type="text" placeholder="ID" name="searchPersonalId" value="<%=(request.getAttribute("searchPersonalId") == null) ? "" : request.getAttribute("searchPersonalId")%>">
+    <input class="textx" type="text" placeholder="იმეილი" name="searchEmail" value="<%=(request.getAttribute("searchEmail") == null) ? "" : request.getAttribute("searchEmail")%>">
     <select name="searchStatus">
         <option value="All">ყველა</option>
         <option value="Administrator">ადმინისტრატორი</option>
@@ -26,7 +26,7 @@
 <table class="blueTable">
     <thead>
     <tr>
-        <th>ID</th>
+        <th>№</th>
         <th>სახელი</th>
         <th>გვარი</th>
         <th>პირადი ნომერი</th>

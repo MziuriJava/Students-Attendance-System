@@ -97,22 +97,19 @@ public class StudentDaoImpl implements StudentDAO {
     }
 
     @Override
-    public List<Student> searchStudent(int id,String name,String surname,String email,String school, Connection con) throws Exception {
+    public List<Student> searchStudent(String name,String surname,String personalId, String email, Connection con) throws Exception {
         String sql ="SELECT * FROM student WHERE 1=1 ";
-        if (id != 0) {
-            sql += "AND id = " + Integer.toString(id) + " ";
-        }
         if(name != null && !name.isEmpty()) {
             sql += "AND firstname LIKE " + "'%" + name + "%' ";
         }
         if(surname != null && !surname.isEmpty()) {
             sql += "AND lastname LIKE " + "'%" + surname + "%' ";
         }
-        if(email != null && !email.isEmpty()) {
-            sql += "AND email LIKE " + "'%" + email + "%' ";
+        if(personalId != null && !personalId.isEmpty()) {
+            sql += "AND personal_id LIKE " + "'%" + personalId + "%' ";
         }
-        if(school != null && !school.isEmpty()) {
-            sql += "AND school Like " + "'%" + school + "%' ";
+        if(email != null && !email.isEmpty()) {
+            sql += "AND email Like " + "'%" + email + "%' ";
         }
         PreparedStatement pstm = con.prepareStatement(sql);
         ResultSet rs=pstm.executeQuery();

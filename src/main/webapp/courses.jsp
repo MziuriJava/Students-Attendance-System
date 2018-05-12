@@ -14,7 +14,7 @@
 <table class="blueTable">
     <thead>
     <tr>
-        <th>ID</th>
+        <th>№</th>
         <th>კურსის სახელი</th>
         <th>კურსის ხანგრძლივობა</th>
         <th>კვირაში გაკვეთილი</th>
