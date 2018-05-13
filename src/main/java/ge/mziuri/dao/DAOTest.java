@@ -168,15 +168,20 @@ public static void main(String[]args)throws Exception{
     }
     public static void TestAddLabel() throws Exception{
         Student student = new Student();
-        student.setId(3);
+        student.setId(1);
         Group group = new Group();
         group.setId(1);
+        Staff staff = new Staff();
+        staff.setId(3);
         Label label = new Label();
+        label.setStaff(staff);
         label.setAttend(false);
         label.setStudent(student);
         label.setGroup(group);
         label.setDate(new Date());
-        label.setLessonMark(8);
+        label.setTestMark(10);
+        label.setHomeworkMark(2);
+        label.setLessonMark(2);
         Connection con = DataBaseConnector.getConnection();
         journalDAO.addLabel(label,con);
     }

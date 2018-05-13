@@ -1,5 +1,6 @@
 package ge.mziuri.model.group;
 
+import javax.xml.bind.annotation.XmlElement;
 import java.util.Date;
 
 public class LessonSchedule {
@@ -10,6 +11,7 @@ public class LessonSchedule {
 
     private String room;
 
+    @XmlElement
     public WeekDay getWeekDay() {
         return weekDay;
     }
@@ -18,6 +20,7 @@ public class LessonSchedule {
         this.weekDay = weekDay;
     }
 
+    @XmlElement
     public Date getStartTime() {
         return startTime;
     }
@@ -26,6 +29,7 @@ public class LessonSchedule {
         this.startTime = startTime;
     }
 
+    @XmlElement
     public String getRoom() {
         return room;
     }
