@@ -23,29 +23,29 @@ public class Assessment {
 
     private String description;
 
-    private int avrghomeworkScore;
+    private int avrgHomeworkScore;
 
-    private int avrglessonScore;
-
-    public int getAvrghomeworkScore() {
-        return avrghomeworkScore;
-    }
-
-    public void setAvrghomeworkScore(int avrghomeworkScore) {
-        this.avrghomeworkScore = avrghomeworkScore;
-    }
-
-    public int getAvrglessonScore() {
-        return avrglessonScore;
-    }
-
-    public void setAvrglessonScore(int avrglessonScore) {
-        this.avrglessonScore = avrglessonScore;
-    }
+    private int avrgLessonScore;
 
     private List<Test> tests;
 
     private Attendance attendance;
+
+    public int getAvrgHomeworkScore() {
+        return avrgHomeworkScore;
+    }
+
+    public void setAvrgHomeworkScore(int avrgHomeworkScore) {
+        this.avrgHomeworkScore = avrgHomeworkScore;
+    }
+
+    public int getAvrgLessonScore() {
+        return avrgLessonScore;
+    }
+
+    public void setAvrgLessonScore(int avrgLessonScore) {
+        this.avrgLessonScore = avrgLessonScore;
+    }
 
     public Staff getStaff() {
         return staff;

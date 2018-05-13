@@ -30,8 +30,8 @@
             სხვა
         </option>
     </select>
-    <button type="submit" class="blackButtons"><img class="imgStyleSearch" src="images/search-13-16.png"/></button>
-    <button type="button" class="blackButtons"><img class="imgStyleSearch" src="images/add.png" onclick="location.href='/sas/admin/addStaff.jsp';"/></button>
+    <button type="submit" class="submitAddButtons"><img class="submitAddButtonsImg" src="images/search_blue.png"/></button>
+    <button type="button" class="submitAddButtons"><img class="submitAddButtonsImg" src="images/add_blue.png" onclick="location.href='/sas/admin/addStaff.jsp';"/></button>
 </form>
 
 <table class="blueTable">
@@ -72,15 +72,15 @@
         </td>
         <td><%=staffs.get(i).getStaffStatus()%>
         </td>
-        <td class="centerButton">
+        <td>
             <form method="post" action="/loadStaff">
-                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
+                <button type="submit" class="editDeleteButtons"><img class="editDeleteButtonsImg" src="images/edit_blue.png"/></button>
                 <input type="hidden" name="staffId" value="<%=staffs.get(i).getId()%>">
             </form>
         </td>
-        <td class="centerButton">
+        <td>
             <form method="post" action="/deleteStaff">
-                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
+                <button type="submit" class="editDeleteButtons"><img class="editDeleteButtonsImg" src="images/erase.png"/></button>
                 <input type="hidden" name="staffId" value="<%=staffs.get(i).getId()%>">
             </form>
         </td>

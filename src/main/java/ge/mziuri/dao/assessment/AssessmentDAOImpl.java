@@ -25,11 +25,11 @@ public class AssessmentDAOImpl implements AssessmentDAO {
         pstm.setDate(5, new java.sql.Date(assess.getStartDate().getTime()));
         pstm.setDate(6, new java.sql.Date(assess.getEndDate().getTime()));
         pstm.setString(7, assess.getDescription());
-        pstm.setInt(8, assess.getAvrglessonScore());
+        pstm.setInt(8, assess.getAvrgLessonScore());
         pstm.setString(9, marshallTests(assess.getTests()));
         pstm.setInt(10, assess.getAttendance().getLessonNumber());
         pstm.setInt(11, assess.getAttendance().getAttendedLessons());
-        pstm.setInt(12,assess.getAvrghomeworkScore());
+        pstm.setInt(12,assess.getAvrgHomeworkScore());
         pstm.executeUpdate();
         pstm.close();
         con.close();

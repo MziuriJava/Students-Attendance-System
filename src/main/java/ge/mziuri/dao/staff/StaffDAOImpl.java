@@ -13,18 +13,17 @@ import java.util.List;
 
 public class StaffDAOImpl implements StaffDAO {
 
-    // TODO add personalId support
-
     @Override
     public void addStaff(Staff staff, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status) VALUES (?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname, lastname, personalId, email, main_phone_number, additional_phone_number, password, staff_status) VALUES (?,?,?,?,?,?,?,?)");
         pstm.setString(1, staff.getFirstname());
         pstm.setString(2, staff.getLastname());
-        pstm.setString(3, staff.getEmail());
-        pstm.setString(4, staff.getMainPhoneNumber());
-        pstm.setString(5, staff.getAdditionalPhoneNumber());
-        pstm.setString(6, staff.getPassword());
-        pstm.setString(7, staff.getStaffStatus().name());
+        pstm.setString(3, staff.getPersonalId());
+        pstm.setString(4, staff.getEmail());
+        pstm.setString(5, staff.getMainPhoneNumber());
+        pstm.setString(6, staff.getAdditionalPhoneNumber());
+        pstm.setString(7, staff.getPassword());
+        pstm.setString(8, staff.getStaffStatus().name());
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -41,22 +40,23 @@ public class StaffDAOImpl implements StaffDAO {
 
     @Override
     public void editStaff(Staff staff, Connection con) throws Exception {
-        PreparedStatement pstmt = con.prepareStatement("Update staff SET firstname=?, lastname=?, email=?, main_phone_number=?,additional_phone_number=?, staff_status=?, password=? WHERE id=?");
+        PreparedStatement pstmt = con.prepareStatement("Update staff SET firstname=?, lastname=?, personal_id=?, email=?, main_phone_number=?,additional_phone_number=?, staff_status=?, password=? WHERE id=?");
         pstmt.setString(1, staff.getFirstname());
         pstmt.setString(2, staff.getLastname());
-        pstmt.setString(3, staff.getEmail());
-        pstmt.setString(4, staff.getMainPhoneNumber());
-        pstmt.setString(5, staff.getAdditionalPhoneNumber());
-        pstmt.setString(6, staff.getStaffStatus().name());
-        pstmt.setString(7, staff.getPassword());
-        pstmt.setInt(8, staff.getId());
+        pstmt.setString(3, staff.getPersonalId());
+        pstmt.setString(4, staff.getEmail());
+        pstmt.setString(5, staff.getMainPhoneNumber());
+        pstmt.setString(6, staff.getAdditionalPhoneNumber());
+        pstmt.setString(7, staff.getStaffStatus().name());
+        pstmt.setString(8, staff.getPassword());
+        pstmt.setInt(9, staff.getId());
         pstmt.executeUpdate();
         pstmt.close();
         con.close();
     }
 
     @Override
-    public Staff loginStaff(String email , String password , Connection con) throws Exception {
+    public Staff loginStaff(String email, String password, Connection con) throws Exception {
         PreparedStatement pstmt = con.prepareStatement("SELECT * FROM staff WHERE email = ? AND password = ?");
         pstmt.setString(1, email);
         pstmt.setString(2, password);
@@ -72,24 +72,24 @@ public class StaffDAOImpl implements StaffDAO {
 
     @Override
     public List<Staff> searchStaff(String firstName, String lastName, String personalId, String email, StaffStatus status, Connection con) throws Exception {
-        String sql ="SELECT * FROM staff WHERE 1=1 ";
-        if(firstName != null && !firstName.isEmpty()) {
+        String sql = "SELECT * FROM staff WHERE 1=1 ";
+        if (firstName != null && !firstName.isEmpty()) {
             sql += "AND firstname LIKE " + "'%" + firstName + "%' ";
         }
-        if(lastName != null && !lastName.isEmpty()) {
+        if (lastName != null && !lastName.isEmpty()) {
             sql += "AND lastname LIKE " + "'%" + lastName + "%' ";
         }
-        if(personalId != null && !personalId.isEmpty()) {
+        if (personalId != null && !personalId.isEmpty()) {
             sql += "AND personal_id LIKE " + "'%" + personalId + "%' ";
         }
-        if(email != null && !email.isEmpty()) {
+        if (email != null && !email.isEmpty()) {
             sql += "AND email LIKE " + "'%" + email + "%' ";
         }
-        if(status != null){
-            sql += "AND staff_status = '"+ status.name() + "' ";
+        if (status != null) {
+            sql += "AND staff_status = '" + status.name() + "' ";
         }
         PreparedStatement pstm = con.prepareStatement(sql);
-        ResultSet rs=pstm.executeQuery();
+        ResultSet rs = pstm.executeQuery();
         List<Staff> staffs = new ArrayList<>();
         while (rs.next()) {
             staffs.add(getStaff(rs));
@@ -116,6 +116,7 @@ public class StaffDAOImpl implements StaffDAO {
         int ID = rs.getInt("id");
         String name = rs.getString("firstname");
         String surname = rs.getString("lastname");
+        String personalId = rs.getString("personal_Id");
         String mainPhoneNumber = rs.getString("main_phone_number");
         String additionalPhoneNumber = rs.getString("additional_phone_number");
         String mail = rs.getString("email");
@@ -127,6 +128,7 @@ public class StaffDAOImpl implements StaffDAO {
         staff.setEmail(mail);
         staff.setFirstname(name);
         staff.setLastname(surname);
+        staff.setPersonalId(personalId);
         staff.setMainPhoneNumber(mainPhoneNumber);
         staff.setAdditionalPhoneNumber(additionalPhoneNumber);
         staff.setStaffStatus(staffstatus);
