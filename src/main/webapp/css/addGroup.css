@@ -1,0 +1,41 @@
+.groupLengthInput{
+    text-align: center;
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+}
+
+.group{
+    width: 300px;
+    background:transparent;
+    margin: 50px auto auto;
+    border: solid 1px orange;
+
+}
+
+.shesvlasize{
+    text-align: center;
+    width: 200px;
+    height: 30px;
+    border: none;
+    margin-top: 10px;
+    border-radius: 5px;
+    background: rgba(255,255,255,.2);
+
+}
+
+h2{
+    text-align: center;
+    background: rgba(255,255,255,.2);
+    color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+body{
+    background-image: url(../images/webimage.jpg);
+}
