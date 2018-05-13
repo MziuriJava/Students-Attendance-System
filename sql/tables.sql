@@ -25,6 +25,7 @@ ALTER TABLE course ADD COLUMN syllabus bytea;
 ALTER TABLE course DROP COLUMN course_lesson_time;
 ALTER TABLE course ADD COLUMN course_lesson_time REAL;
 
+
 CREATE TABLE student(
   id SERIAL PRIMARY KEY NOT NULL,
   firstname VARCHAR(50) NOT NULL,
@@ -46,6 +47,7 @@ CREATE TABLE class_group(
   course_id INT REFERENCES course(id),
   staff_id INT REFERENCES staff(id)
 );
+ALTER TABLE class_group ADD COLUMN schedule TEXT;
 
 CREATE TABLE journal(
  student_id INT REFERENCES student(id),
@@ -69,7 +71,7 @@ CREATE TABLE assessment(
   description VARCHAR,
   average_lesson_grade INT,
   average_homework_grade INT,
-  tests VARCHAR,
+  tests TEXT,
   number_of_lessons INT,
   attended_lessons INT
 )
