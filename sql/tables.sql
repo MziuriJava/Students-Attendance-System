@@ -56,7 +56,10 @@ CREATE TABLE journal(
  homework_mark INT,
  test_mark INT
 )
+ALTER TABLE journal ADD COLUMN staff_id INT REFERENCES staff(id);
+
 CREATE TABLE assessment(
+  id SERIAL PRIMARY KEY NOT NULL,
   staff_id INT REFERENCES staff(id),
   student_id INT REFERENCES student(id),
   group_id INT REFERENCES class_group(id),
@@ -64,11 +67,13 @@ CREATE TABLE assessment(
   start_date DATE,
   end_date DATE,
   description VARCHAR,
-  average_grade INT,
+  average_lesson_grade INT,
+  average_homework_grade INT,
   tests VARCHAR,
   number_of_lessons INT,
   attended_lessons INT
 )
+
 CREATE TABLE post(
   id SERIAL PRIMARY KEY NOT NULL,
   post VARCHAR ,

@@ -9,6 +9,8 @@ import java.util.List;
 
 public class Assessment {
 
+    private int ID;
+
     private Staff staff;
 
     private Student student;
@@ -26,6 +28,14 @@ public class Assessment {
     private int avrghomeworkScore;
 
     private int avrglessonScore;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
 
     public int getAvrghomeworkScore() {
         return avrghomeworkScore;
