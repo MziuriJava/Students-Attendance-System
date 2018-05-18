@@ -17,7 +17,7 @@ public class AssessmentDAOImpl implements AssessmentDAO {
 
     @Override
     public void addAssessment(Assessment assess, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO assessment (staff_id,student_id,group_id,name,start_date,end_date,description,average_grade,tests,number_of_lessons,attended_lessons) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO assessment (staff_id,student_id,group_id,name,start_date,end_date,description,average_lesson_grade,tests,number_of_lessons,attended_lessons,average_homework_grade) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
         pstm.setInt(1, assess.getStaff().getId());
         pstm.setInt(2, assess.getStudent().getId());
         pstm.setInt(3, assess.getGroup().getId());
@@ -25,10 +25,11 @@ public class AssessmentDAOImpl implements AssessmentDAO {
         pstm.setDate(5, new java.sql.Date(assess.getStartDate().getTime()));
         pstm.setDate(6, new java.sql.Date(assess.getEndDate().getTime()));
         pstm.setString(7, assess.getDescription());
-        pstm.setInt(8, assess.getAvrgScore());
+        pstm.setInt(8, assess.getAvrgLessonScore());
         pstm.setString(9, marshallTests(assess.getTests()));
         pstm.setInt(10, assess.getAttendance().getLessonNumber());
         pstm.setInt(11, assess.getAttendance().getAttendedLessons());
+        pstm.setInt(12,assess.getAvrgHomeworkScore());
         pstm.executeUpdate();
         pstm.close();
         con.close();

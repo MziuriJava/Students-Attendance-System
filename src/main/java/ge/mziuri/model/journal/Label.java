@@ -1,6 +1,7 @@
 package ge.mziuri.model.journal;
 
 import ge.mziuri.model.group.Group;
+import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.student.Student;
 
 import java.util.Date;
@@ -11,6 +12,8 @@ public class Label {
 
     private Student student;
 
+    private Staff staff;
+
     private Date date;
 
     private boolean attend;
@@ -20,6 +23,14 @@ public class Label {
     private int homeworkMark;
 
     private int testMark;
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
 
     public Group getGroup() {
         return group;

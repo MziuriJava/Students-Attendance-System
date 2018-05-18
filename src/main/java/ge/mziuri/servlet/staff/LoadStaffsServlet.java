@@ -25,6 +25,10 @@ public class LoadStaffsServlet extends HttpServlet {
             List<Staff> staffs = staffDAO.searchStaff(searchName, searchLastName, searchPersonalId, searchEmail, getStaffStatus(searchStatus), DataBaseConnector.getConnection());
             req.setAttribute("staffs", staffs);
             req.setAttribute("searchName", searchName);
+            req.setAttribute("searchLastName", searchLastName);
+            req.setAttribute("searchPersonalId", searchPersonalId);
+            req.setAttribute("searchEmail", searchEmail);
+            req.setAttribute("searchStatus", searchStatus);
             req.getRequestDispatcher("staffs.jsp").forward(req, resp);
         } catch (Exception e) {
             // TODO

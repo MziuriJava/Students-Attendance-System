@@ -8,6 +8,7 @@ CREATE TABLE staff (
   password VARCHAR(50) NOT NULL,
   staff_status VARCHAR(50) NOT NULL
 );
+ALTER TABLE staff ADD COLUMN personal_id VARCHAR(50);
 
 CREATE TABLE course(
   id SERIAL PRIMARY KEY NOT NULL,
@@ -23,6 +24,7 @@ CREATE TABLE course(
 ALTER TABLE course ADD COLUMN syllabus bytea;
 ALTER TABLE course DROP COLUMN course_lesson_time;
 ALTER TABLE course ADD COLUMN course_lesson_time REAL;
+
 
 CREATE TABLE student(
   id SERIAL PRIMARY KEY NOT NULL,
@@ -45,6 +47,7 @@ CREATE TABLE class_group(
   course_id INT REFERENCES course(id),
   staff_id INT REFERENCES staff(id)
 );
+ALTER TABLE class_group ADD COLUMN schedule TEXT;
 
 CREATE TABLE journal(
  student_id INT REFERENCES student(id),
@@ -55,7 +58,10 @@ CREATE TABLE journal(
  homework_mark INT,
  test_mark INT
 )
+ALTER TABLE journal ADD COLUMN staff_id INT REFERENCES staff(id);
+
 CREATE TABLE assessment(
+  id SERIAL PRIMARY KEY NOT NULL,
   staff_id INT REFERENCES staff(id),
   student_id INT REFERENCES student(id),
   group_id INT REFERENCES class_group(id),
@@ -63,11 +69,13 @@ CREATE TABLE assessment(
   start_date DATE,
   end_date DATE,
   description VARCHAR,
-  average_grade INT,
-  tests VARCHAR,
+  average_lesson_grade INT,
+  average_homework_grade INT,
+  tests TEXT,
   number_of_lessons INT,
   attended_lessons INT
 )
+
 CREATE TABLE post(
   id SERIAL PRIMARY KEY NOT NULL,
   post VARCHAR ,

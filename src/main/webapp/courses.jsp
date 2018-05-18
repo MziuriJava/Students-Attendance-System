@@ -51,7 +51,7 @@
         </td>
         <td class= "centerButton">
             <form method="post" action="/editCourse">
-                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/edit.png"/></button>
+                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/edit_black.png"/></button>
                 <input type="hidden" name="courseId" value="<%=courses.get(i).getId()%>">
             </form>
         </td>

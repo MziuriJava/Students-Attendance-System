@@ -9,6 +9,8 @@ import java.util.List;
 
 public class Assessment {
 
+    private int ID;
+
     private Staff staff;
 
     private Student student;
@@ -23,11 +25,37 @@ public class Assessment {
 
     private String description;
 
-    private int avrgScore;
+    private int avrgHomeworkScore;
+
+    private int avrgLessonScore;
 
     private List<Test> tests;
 
     private Attendance attendance;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getAvrgHomeworkScore() {
+        return avrgHomeworkScore;
+    }
+
+    public void setAvrgHomeworkScore(int avrgHomeworkScore) {
+        this.avrgHomeworkScore = avrgHomeworkScore;
+    }
+
+    public int getAvrgLessonScore() {
+        return avrgLessonScore;
+    }
+
+    public void setAvrgLessonScore(int avrgLessonScore) {
+        this.avrgLessonScore = avrgLessonScore;
+    }
 
     public Staff getStaff() {
         return staff;
@@ -85,13 +113,6 @@ public class Assessment {
         this.description = description;
     }
 
-    public int getAvrgScore() {
-        return avrgScore;
-    }
-
-    public void setAvrgScore(int avrgScore) {
-        this.avrgScore = avrgScore;
-    }
 
     public List<Test> getTests() {
         return tests;
