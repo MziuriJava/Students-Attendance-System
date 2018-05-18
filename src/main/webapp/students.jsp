@@ -14,7 +14,7 @@
     <input class="textx" type="text" placeholder="სახელი" name="searchName" value="<%=(request.getAttribute("searchName") == null) ? "" : request.getAttribute("searchName")%>">
     <input class="textx" type="text" placeholder="გვარი" name="searchLastName" value="<%=(request.getAttribute("searchLastName") == null) ? "" : request.getAttribute("searchLastName")%>">
     <input class="textx" type="text" placeholder="ID" name="searchPersonalId" value="<%=(request.getAttribute("searchPersonalId") == null) ? "" : request.getAttribute("searchPersonalId")%>">
-    <input class="textx" type="text" placeholder="იმეილი" name="searchEmail" value="<%=(request.getAttribute("searchEmail") == null) ? "" : request.getAttribute("searchEmail")%>">
+    <input class="textx" type="text" placeho lder="იმეილი" name="searchEmail" value="<%=(request.getAttribute("searchEmail") == null) ? "" : request.getAttribute("searchEmail")%>">
     <button type="submit" class="searchButton"><img class="imgStyleSearch" src="images/search-13-16.png"/></button>
 </form>
 
