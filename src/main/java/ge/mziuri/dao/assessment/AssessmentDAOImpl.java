@@ -2,6 +2,7 @@ package ge.mziuri.dao.assessment;
 
 import ge.mziuri.model.assessment.Assessment;
 import ge.mziuri.model.assessment.Test;
+import ge.mziuri.model.user.staff.Staff;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -10,7 +11,10 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class AssessmentDAOImpl implements AssessmentDAO {
@@ -81,4 +85,58 @@ public class AssessmentDAOImpl implements AssessmentDAO {
         }
         return tests;
     }
+
+    @Override
+    public List<Assessment> searchAssessments(String staff, String student, String group, String startDate, Connection con) throws Exception {
+            String sql = "SELECT * FROM assessment WHERE 1=1 ";
+            if (staff != null && !staff.isEmpty()) {
+                sql += "AND staff LIKE " + "'%" + staff + "%' ";
+            }
+            if (student != null && !student.isEmpty()) {
+                sql += "AND student LIKE " + "'%" + student + "%' ";
+            }
+            if (group != null && !group.isEmpty()) {
+                sql += "AND group LIKE " + "'%" + group + "%' ";
+            }
+            if (startDate != null) {
+                sql += "AND startdate LIKE " + "'%" + startDate + "%' ";
+            }
+            
+            PreparedStatement pstm = con.prepareStatement(sql);
+            ResultSet rs = pstm.executeQuery();
+            List<Assessment> assessments = new ArrayList<>();
+            while (rs.next()) {
+                assessments.add(getAssessment(rs));
+            }
+            pstm.close();
+            con.close();
+            return assessments;
+        }
+    private Assessment getAssessment(ResultSet rs) throws SQLException {
+        // TODO remove password
+        int ID = rs.getInt("id");
+        String staff = rs.getString("staff");
+        String student = rs.getString("student");
+        String group = rs.getString("group");
+        String name = rs.getString("name");   //rsebi  rogor gavuketo rom getGroup iyos da ara getString?
+        Date startDate = rs.getDate("startDate");
+        String description = rs.getString("description");
+        int avrgHomeworkScore = rs.getInt("avrghomeworkscore");
+        int avrgLessonScore = rs.getInt("avrglessonscore");
+      // TODO  List<Test> tests = rs.getArray("tests");
+        Assessment assessment = new Assessment();
+        assessment.setID(ID);
+        assessment.setStaff(staff); // TODO
+        assessment.setStudent(student); // TODO
+        assessment.setGroup(group);  // TODO
+        assessment.setName(name);
+        assessment.setStartDate(startDate);
+        assessment.setDescription(description);
+        assessment.setAvrgHomeworkScore(avrgHomeworkScore);
+        assessment.setAvrgLessonScore(avrgLessonScore);
+        //assessment.set(List);
+        return assessment;
+    }
 }
+
+        

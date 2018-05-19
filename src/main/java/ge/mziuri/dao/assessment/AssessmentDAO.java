@@ -5,6 +5,7 @@ import ge.mziuri.model.assessment.Test;
 
 
 import java.sql.Connection;
+import java.util.Date;
 import java.util.List;
 
 public interface AssessmentDAO {
@@ -14,4 +15,6 @@ public interface AssessmentDAO {
     String marshallTests(List<Test> tests) throws Exception;
 
     List<Test> unmarshallTests(String text) throws Exception;
+
+    List<Assessment> searchAssessments(String staff, String student, String group, String startDate, Connection con ) throws Exception;
 }
