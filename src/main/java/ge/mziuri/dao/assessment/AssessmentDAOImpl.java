@@ -115,9 +115,9 @@ public class AssessmentDAOImpl implements AssessmentDAO {
     private Assessment getAssessment(ResultSet rs) throws SQLException {
         // TODO remove password
         int ID = rs.getInt("id");
-        String staff = rs.getString("staff");
-        String student = rs.getString("student");
-        String group = rs.getString("group");
+//        String staff = rs.getString("staff");
+//        String student = rs.getString("student");
+//        String group = rs.getString("group");
         String name = rs.getString("name");   //rsebi  rogor gavuketo rom getGroup iyos da ara getString?
         Date startDate = rs.getDate("startDate");
         String description = rs.getString("description");
@@ -126,9 +126,9 @@ public class AssessmentDAOImpl implements AssessmentDAO {
       // TODO  List<Test> tests = rs.getArray("tests");
         Assessment assessment = new Assessment();
         assessment.setID(ID);
-        assessment.setStaff(staff); // TODO
-        assessment.setStudent(student); // TODO
-        assessment.setGroup(group);  // TODO
+//        assessment.setStaff(staff);  TODO
+//        assessment.setStudent(student);  TODO
+//        assessment.setGroup(group);   TODO
         assessment.setName(name);
         assessment.setStartDate(startDate);
         assessment.setDescription(description);

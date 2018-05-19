@@ -64,7 +64,7 @@ public class AddStaffServlet extends HttpServlet {
             } else if (commandType.equals("edit")) {
                 staffDAO.editStaff(staff, DataBaseConnector.getConnection());
             }
-            resp.sendRedirect("/loadStaffs");
+            resp.sendRedirect("/sas/admin/loadStaffs");
         } catch (Exception ex) {
             // TODO
         }

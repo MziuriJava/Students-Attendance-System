@@ -1,3 +1,4 @@
+--Staff
 CREATE TABLE staff (
   id SERIAL PRIMARY KEY NOT NULL,
   firstname VARCHAR(50) NOT NULL,
@@ -10,6 +11,7 @@ CREATE TABLE staff (
 );
 ALTER TABLE staff ADD COLUMN personal_id VARCHAR(50);
 
+--Course
 CREATE TABLE course(
   id SERIAL PRIMARY KEY NOT NULL,
   course_name VARCHAR(30),
@@ -25,7 +27,7 @@ ALTER TABLE course ADD COLUMN syllabus bytea;
 ALTER TABLE course DROP COLUMN course_lesson_time;
 ALTER TABLE course ADD COLUMN course_lesson_time REAL;
 
-
+--Student
 CREATE TABLE student(
   id SERIAL PRIMARY KEY NOT NULL,
   firstname VARCHAR(50) NOT NULL,
@@ -40,6 +42,7 @@ CREATE TABLE student(
   school VARCHAR(50) NOT NULL
 );
 
+--Class Group
 CREATE TABLE class_group(
   id SERIAL PRIMARY KEY NOT NULL,
   groupName VARCHAR(30),
@@ -49,6 +52,7 @@ CREATE TABLE class_group(
 );
 ALTER TABLE class_group ADD COLUMN schedule TEXT;
 
+--Journal
 CREATE TABLE journal(
  student_id INT REFERENCES student(id),
  group_id INT REFERENCES class_group(id),
@@ -60,6 +64,7 @@ CREATE TABLE journal(
 )
 ALTER TABLE journal ADD COLUMN staff_id INT REFERENCES staff(id);
 
+--Assessment
 CREATE TABLE assessment(
   id SERIAL PRIMARY KEY NOT NULL,
   staff_id INT REFERENCES staff(id),
@@ -74,14 +79,17 @@ CREATE TABLE assessment(
   tests TEXT,
   number_of_lessons INT,
   attended_lessons INT
-)
+);
 
+--Post
 CREATE TABLE post(
   id SERIAL PRIMARY KEY NOT NULL,
   post VARCHAR ,
   author_id INTEGER ,
   date DATE
 );
+
+--Comment
 CREATE TABLE comment(
   id SERIAL PRIMARY KEY NOT NULL ,
   post VARCHAR ,
@@ -89,3 +97,7 @@ CREATE TABLE comment(
   date DATE ,
   post_id int REFERENCES post(id)
   );
+
+--Initial user
+INSERT INTO staff (id, firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status)
+VALUES (1, 'ვინმე', 'ვინმეძე', 'test@gmail.com', '555555555', '555555555', 'a6ff80ac5af9a527ef5e67eec501e118b47dbdc5', 'ADMIN')

@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <head>
     <title>სტაფები</title>
-    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <meta charset="UTF-8">
 </head>
 <body>
@@ -30,8 +30,8 @@
             სხვა
         </option>
     </select>
-    <button type="submit" class="submitAddButtons"><img class="submitAddButtonsImg" src="images/search_blue.png"/></button>
-    <button type="button" class="submitAddButtons"><img class="submitAddButtonsImg" src="images/add_blue.png" onclick="location.href='/sas/admin/addStaff.jsp';"/></button>
+    <button type="submit" class="submitAddButtons"><img class="submitAddButtonsImg" src="../../images/search_blue.png"/></button>
+    <button type="button" class="submitAddButtons"><img class="submitAddButtonsImg" src="../../images/add_blue.png" onclick="location.href='/sas/admin/addStaff.jsp';"/></button>
 </form>
 
 <table class="blueTable">
@@ -74,13 +74,13 @@
         </td>
         <td>
             <form method="post" action="/loadStaff">
-                <button type="submit" class="editDeleteButtons"><img class="editDeleteButtonsImg" src="images/edit_blue.png"/></button>
+                <button type="submit" class="editDeleteButtons"><img class="editDeleteButtonsImg" src="../../images/edit_blue.png"/></button>
                 <input type="hidden" name="staffId" value="<%=staffs.get(i).getId()%>">
             </form>
         </td>
         <td>
             <form method="post" action="/deleteStaff">
-                <button type="submit" class="editDeleteButtons"><img class="editDeleteButtonsImg" src="images/erase.png"/></button>
+                <button type="submit" class="editDeleteButtons"><img class="editDeleteButtonsImg" src="../../images/erase.png"/></button>
                 <input type="hidden" name="staffId" value="<%=staffs.get(i).getId()%>">
             </form>
         </td>

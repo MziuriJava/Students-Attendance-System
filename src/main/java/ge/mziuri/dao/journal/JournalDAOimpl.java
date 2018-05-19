@@ -96,8 +96,8 @@ public class JournalDAOimpl implements JournalDAO {
         Assessment assessment = new Assessment();
         assessment.setAttendance(attendance);
         assessment.setTests(tests);
-        assessment.setAvrghomeworkScore(totalHomeworkScore/homeworkMarkCounter);
-        assessment.setAvrglessonScore(totalLessonScore/lessonMarkCounter);
+        assessment.setAvrgHomeworkScore(totalHomeworkScore/homeworkMarkCounter);
+        assessment.setAvrgLessonScore(totalLessonScore/lessonMarkCounter);
 
 
         return assessment;

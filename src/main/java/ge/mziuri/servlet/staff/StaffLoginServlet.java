@@ -33,15 +33,11 @@ public class StaffLoginServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (staff != null) { // TODO test
-            if (staff.getStaffStatus().equals(StaffStatus.ADMIN)) {
-                resp.sendRedirect("sas/admin/addStaff.jsp");
-            } else {
-                resp.sendRedirect("sas/table.html");
-            }
+        if (staff != null && (staff.getStaffStatus().equals(StaffStatus.ADMIN) || staff.getStaffStatus().equals(StaffStatus.TEACHER))) {
             HttpSession session = req.getSession();
             session.setAttribute("staff", staff);
             session.setMaxInactiveInterval(3000);
+            req.getRequestDispatcher("/sas/main.jsp").forward(req, resp);
         } else {
             req.setAttribute("failedAuth", "true");
             req.getRequestDispatcher("login.jsp").forward(req, resp);

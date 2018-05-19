@@ -18,15 +18,6 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>StaffAddServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.staff.AddStaffServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>StaffAddServlet</servlet-name>
-        <url-pattern>/sas/admin/addStaff</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>ge.mziuri.servlet.staff.StaffLoginServlet</servlet-class>
     </servlet>
@@ -41,7 +32,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadCourseServlet</servlet-name>
-        <url-pattern>/loadCourses</url-pattern>
+        <url-pattern>/sas/admin/loadCourses</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -50,7 +41,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadStaffServlet</servlet-name>
-        <url-pattern>/loadStaffs</url-pattern>
+        <url-pattern>/sas/admin/loadStaffs</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -59,16 +50,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadStudentServlet</servlet-name>
-        <url-pattern>/loadStudents</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>FileUploadDBServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.FileUploadDBServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>FileUploadDBServlet</servlet-name>
-        <url-pattern>/uploadServlet</url-pattern>
+        <url-pattern>/sas/admin/loadStudents</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -77,7 +59,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoadSingleStaffServlet</servlet-name>
-        <url-pattern>/loadStaff</url-pattern>
+        <url-pattern>/sas/admin/loadStaff</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -86,7 +68,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteStaffServlet</servlet-name>
-        <url-pattern>/deleteStaff</url-pattern>
+        <url-pattern>/sas/admin/deleteStaff</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -95,7 +77,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AddCourseServlet</servlet-name>
-        <url-pattern>/uploadTest/addCourse</url-pattern>
+        <url-pattern>/sas/admin/addCourse</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -104,7 +86,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteStudentServlet</servlet-name>
-        <url-pattern>/deleteStudent</url-pattern>
+        <url-pattern>/sas/admin/deleteStudent</url-pattern>
     </servlet-mapping>
 
 
@@ -114,7 +96,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>DeleteCourseServlet</servlet-name>
-        <url-pattern>/deleteCourse</url-pattern>
+        <url-pattern>/sas/admin/deleteCourse</url-pattern>
     </servlet-mapping>
 
     <!--<servlet>-->
@@ -132,16 +114,16 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>EditStudentServlet</servlet-name>
-        <url-pattern>/editStudent</url-pattern>
+        <url-pattern>/sas/admin/editStudent</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>AddStudentServlet</servlet-name>
-        <servlet-class>ge.mziuri.servlet.student.AddStudentServlet</servlet-class>
+        <servlet-class>ge.mziuri.servlet.AddStudentServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AddStudentServlet</servlet-name>
-        <url-pattern>/addStudent</url-pattern>
+        <url-pattern>/sas/admin/addStudent</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -150,7 +132,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AddStaffServlet</servlet-name>
-        <url-pattern>/addStaff</url-pattern>
+        <url-pattern>/sas/admin/addStaff</url-pattern>
     </servlet-mapping>
 
 

@@ -23,17 +23,13 @@ public class LoadStudentsServlet extends HttpServlet {
             List<Student> students = studentDao.searchStudent(searchName, searchLastName, searchPersonalId, searchEmail, DataBaseConnector.getConnection());
             req.setAttribute("students", students);
             req.setAttribute("searchName", searchName);
-            req.getRequestDispatcher("students.jsp").forward(req, resp);
+            req.getRequestDispatcher("/sas/admin/students.jsp").forward(req, resp);
         } catch (Exception e) {
             //TODO
         }
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) {
-        try {
-
-        } catch (Exception e) {
-            //TODO
-        }
+        doPost(req, resp);
     }
 }

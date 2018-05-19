@@ -29,7 +29,7 @@ public class LoadStaffsServlet extends HttpServlet {
             req.setAttribute("searchPersonalId", searchPersonalId);
             req.setAttribute("searchEmail", searchEmail);
             req.setAttribute("searchStatus", searchStatus);
-            req.getRequestDispatcher("staffs.jsp").forward(req, resp);
+            req.getRequestDispatcher("/sas/admin/staffs.jsp").forward(req, resp);
         } catch (Exception e) {
             // TODO
         }

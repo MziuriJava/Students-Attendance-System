@@ -39,8 +39,8 @@ public class AssessmentManager {
         assessment.setStartDate(startDate);
         assessment.setEndDate(endDate);
         Assessment assessment1 = journalDAO.searchInJournal(startDate,endDate,group_id,staff_id,student_id,connection);
-        assessment.setAvrglessonScore(assessment1.getAvrglessonScore());
-        assessment.setAvrghomeworkScore(assessment1.getAvrglessonScore());
+        assessment.setAvrgLessonScore(assessment1.getAvrgLessonScore());
+        assessment.setAvrgHomeworkScore(assessment1.getAvrgLessonScore());
         assessment.setTests(assessment1.getTests());
         assessment.setAttendance(assessment1.getAttendance());
         AssessmentDAO assessmentDAO = new AssessmentDAOImpl();
