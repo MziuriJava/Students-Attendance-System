@@ -1,0 +1,32 @@
+table.assesment{
+    border: 3px solid #000000;
+    height: 353px;
+    width: 803px;
+    border-collapse: collapse;
+}
+table.assesment td, table.assesment th{
+    border: 2px solid #000000;
+    padding: 5px 10px;
+}
+
+table.assesment tbody td{
+    font-size: 15px;
+}
+
+table.assesment thead {
+    background: #CFCFCF;
+    border-bottom: 4px solid #000000;
+}
+
+table.assesment thead td {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+}
+table.assesment tbody th{
+    font-size: 15px;
+    font-style: italic;
+    color: #000000;
+    text-align: center;
+}
