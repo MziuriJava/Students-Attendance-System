@@ -7,42 +7,34 @@
     <title>ჯგუფი</title>
 </head>
 <body>
-<div style="text-align: center">
-    <form class="group">
+<form>
+    <div style="text-align: center" class="group">
         <h2>ჯგუფი</h2>
         <p>ჯგუფის სახელი</p>
-        <input type="text" class="groupLengthInput" name="groupName">
+        <input type="text" class="inputContent" name="groupName">
         <p>თარიღი</p>
-        <input type="date" class="groupLengthInput" name="groupStartDate">
+        <input type="date" class="inputContent" name="groupStartDate">
         <p>კურსი</p>
-        <select class="groupLengthInput">
+        <select class="inputContent">
             <option value="java">java</option>
             <option value="java v2">java v2</option>
             <option value="C++">C++</option>
         </select>
         <p>მასწავლებელი</p>
-        <ul>
-            <li onclick="this.parentNode.removeChild(this);">
-                <input type="hidden" name="ingredients[]" value="მას1" />
-                მას1
-            </li>
-            <li onclick="this.parentNode.removeChild(this);">
-                <input type="hidden" name="ingredients[]" value="მას2" />
-                მას2
-            </li>
-            <li onclick="this.parentNode.removeChild(this);">
-                <input type="hidden" name="ingredients[]" value="მას3" />
-                მას3
-            </li>
-        </ul>
-        <select onchange="selectIngredient(this);">
+        <select class="comboBoxContent" name="groupTeacherNames" onchange="selectIngredient(this);" >
             <option value="მას1">მას1</option>
             <option value="მას2">მას2</option>
             <option value="მას3">მას3</option>
             ...
         </select>
+        <ul class="selectContent">
+
+        </ul>
+    </div>
+<div class="divgroup">
+    <div class="group1" >
         <p>სასწავლო დღეები</p>
-        <select class="groupLengthInput" name="groupStartDay" >
+        <select  class="inputContent" name="groupStartDay" >
             <option value="Mon">ორშაბათი</option>
             <option value="Tue">სამშაბათი</option>
             <option value="Wed">ოთხშაბათი</option>
@@ -50,14 +42,49 @@
             <option value="Fri">პარასკევი</option>
             <option value="Sat">შაბათი</option>
             <option value="Sun">კვირა</option>
+            ...
         </select>
         <p>გაკვეთილის დაწყების დრო</p>
-        <input type="time" class="groupLengthInput" name="groupStartTime">
+        <input type="time" class="inputContent" name="groupStartTime" >
         <p>ოთახი</p>
-        <input type="text" class="groupLengthInput" name="groupRoom">
-        <input type="submit" class="shesvlasize" value="დამატება">
-    </form>
-</div>
-
+        <input type="text" class="inputContent" name="groupRoom">
+    </div>
+    <div class="group1">
+        <p>სასწავლო დღეები</p>
+        <select  class="inputContent" name="groupStartDay" >
+            <option value="Mon">ორშაბათი</option>
+            <option value="Tue">სამშაბათი</option>
+            <option value="Wed">ოთხშაბათი</option>
+            <option value="Thu">ხუთშაბათი</option>
+            <option value="Fri">პარასკევი</option>
+            <option value="Sat">შაბათი</option>
+            <option value="Sun">კვირა</option>
+            ...
+        </select>
+        <p>გაკვეთილის დაწყების დრო</p>
+        <input type="time" class="inputContent" name="groupStartTime" >
+        <p>ოთახი</p>
+        <input type="text" class="inputContent" name="groupRoom">
+    </div>
+    <div class="group1">
+        <p>სასწავლო დღეები</p>
+        <select  class="inputContent" name="groupStartDay" >
+            <option value="Mon">ორშაბათი</option>
+            <option value="Tue">სამშაბათი</option>
+            <option value="Wed">ოთხშაბათი</option>
+            <option value="Thu">ხუთშაბათი</option>
+            <option value="Fri">პარასკევი</option>
+            <option value="Sat">შაბათი</option>
+            <option value="Sun">კვირა</option>
+            ...
+        </select>
+        <p>გაკვეთილის დაწყების დრო</p>
+        <input type="time" class="inputContent" name="groupStartTime" >
+        <p>ოთახი</p>
+        <input type="text" class="inputContent" name="groupRoom">
+    </div>
+    <input type="submit" class="submitContent" value="დამატება">
+    </div>
+</form>
 </body>
 </html>
