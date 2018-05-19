@@ -27,14 +27,6 @@ form{
 
 }
 
-.inputadd{
-    text-align: center;
-    color: #444444;
-    padding: 10px;
-    border-radius: 20px;
-    background: rgba(255,255,255,.2);
-}
-
 .courseLengthInput {
     text-align: center;
     margin: 4px;
@@ -58,6 +50,7 @@ form{
     margin: 4px;
     width: 250px;
     height: 90px;
+    border: none;
     border-radius: 10px;
     background: rgba(255,255,255,.2);
 }
@@ -73,8 +66,8 @@ form{
 
 h2{
     text-align: center;
-    background-color: orange;
-    color: white;
+    background: rgba(255,255,255,.2);
+    color: black;
     padding: 10px;
     border-radius: 10px;
 }
