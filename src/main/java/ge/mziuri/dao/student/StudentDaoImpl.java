@@ -1,5 +1,7 @@
 package ge.mziuri.dao.student;
 
+import ge.mziuri.dao.student_group_relation.StudentGroupDAO;
+import ge.mziuri.dao.student_group_relation.StudentGroupDAOimpl;
 import ge.mziuri.model.user.student.Student;
 
 import java.sql.*;
@@ -23,8 +25,16 @@ public class StudentDaoImpl implements StudentDAO {
         pstm.setString(10, student.getPersonalId());
         pstm.executeUpdate();
         pstm.close();
+        if(student.getGroups()!=null){
+        int i=0;
+        StudentGroupDAO studentGroupDAO = new StudentGroupDAOimpl();
+        for(i=0;i<student.getGroups().size();i++) {
+            studentGroupDAO.addRelation(student.getId(),student.getGroups().get(i).getId(),con);
+
+        }}
         con.close();
     }
+
     @Override
       public void deleteStudent(Student student, Connection con) throws Exception {
         PreparedStatement pstmt = con.prepareStatement("DELETE  FROM student where id=?");
@@ -49,6 +59,14 @@ public class StudentDaoImpl implements StudentDAO {
         pstm.setString(10,student.getPersonalId());
         pstm.setInt(11,student.getId());
         pstm.executeUpdate();
+        int i=0;
+        StudentGroupDAO studentGroupDAO = new StudentGroupDAOimpl();
+        studentGroupDAO.deleteRelation(student.getId(),con);
+
+        for(i=0;i<student.getGroups().size();i++) {
+            studentGroupDAO.addRelation(student.getId(),student.getGroups().get(i).getId(),con);
+        }
+
         pstm.close();
         con.close();
     }

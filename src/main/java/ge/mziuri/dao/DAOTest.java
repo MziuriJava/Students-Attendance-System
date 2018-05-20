@@ -4,16 +4,22 @@ import ge.mziuri.dao.assessment.AssessmentDAO;
 import ge.mziuri.dao.assessment.AssessmentDAOImpl;
 import ge.mziuri.dao.course.CourseDAO;
 import ge.mziuri.dao.course.CourseDAOImpl;
+import ge.mziuri.dao.group.GroupDAO;
+import ge.mziuri.dao.group.GroupDAOImpl;
 import ge.mziuri.dao.journal.JournalDAO;
 import ge.mziuri.dao.journal.JournalDAOimpl;
 import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.dao.staff.StaffDAOImpl;
 import ge.mziuri.dao.student.StudentDAO;
 import ge.mziuri.dao.student.StudentDaoImpl;
+import ge.mziuri.dao.student_group_relation.StudentGroupDAO;
+import ge.mziuri.dao.student_group_relation.StudentGroupDAOimpl;
 import ge.mziuri.model.assessment.Test;
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.course.CourseStatus;
 import ge.mziuri.model.group.Group;
+import ge.mziuri.model.group.LessonSchedule;
+import ge.mziuri.model.group.WeekDay;
 import ge.mziuri.model.journal.Label;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
@@ -22,6 +28,8 @@ import ge.mziuri.util.db.DataBaseConnector;
 import ge.mziuri.util.encode.TextEncoder;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,16 +45,20 @@ public static void main(String[]args)throws Exception{
     //TestAddCourse();
     //TestEditCourse();
     //TestGetCourses();
-    //TestAddStudent();
+    TestAddStudent();
     //TestAddLabel();
     //TestSearchStudents();
     //Testunmarshller();
+    //TestEditGroup();
+    TestAddRelation();
         }
     private static StudentDAO studentDao = new StudentDaoImpl();
     private static StaffDAO staffDAO = new StaffDAOImpl();
     private static CourseDAO courseDAO = new CourseDAOImpl();
     private static JournalDAO journalDAO = new JournalDAOimpl();
     private static AssessmentDAO assessmentDAO = new AssessmentDAOImpl();
+    private static GroupDAO groupDAO = new GroupDAOImpl();
+    private static StudentGroupDAO sgd = new StudentGroupDAOimpl();
     public static void   TestAddStaff() throws Exception{
         try {
         Scanner scanner = new Scanner(System.in);
@@ -164,6 +176,10 @@ public static void main(String[]args)throws Exception{
         student.setParentName("alex");
         student.setBirthDate(new Date());
         student.setParentNumber("555555555");
+        Group group = new Group();
+        group.setId(1);
+        List<Group> groups = new ArrayList<>();
+        student.setGroups(groups);
         studentDao.addStudent(student, DataBaseConnector.getConnection());
     }
     public static void TestAddLabel() throws Exception{
@@ -212,6 +228,32 @@ public static void main(String[]args)throws Exception{
         System.out.println(tests.get(0).getDate()+" "+tests.get(0).getScore());
 
 
+    }
+    public static void TestEditGroup() throws Exception{
+        Group group = new Group();
+        group.setId(1);
+        group.setGroupName("MAIN_GROUP");
+        Course course = new Course();
+        course.setId(1);
+        group.setCourse(course);
+        Staff staff = new Staff();
+        staff.setId(3);
+        group.setStaff(staff);
+        LessonSchedule lessonSchedule = new LessonSchedule();
+        lessonSchedule.setRoom("1");
+        lessonSchedule.setWeekDay(WeekDay.MONDAY);
+        lessonSchedule.setStartTime(new Date());
+        List <LessonSchedule> lessonSchedules = new ArrayList<>();
+        lessonSchedules.add(lessonSchedule);
+        group.setLessonSchedules(lessonSchedules);
+        Connection con = DataBaseConnector.getConnection();
+        groupDAO.editGroup(group,con);
+    }
+
+    public static void TestAddRelation() throws Exception{
+        Connection con = DataBaseConnector.getConnection();
+        sgd.addRelation(1,1,con);
+        //sgd.deleteRelation(1,con);
     }
 }
 
