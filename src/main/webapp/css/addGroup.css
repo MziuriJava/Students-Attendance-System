@@ -19,6 +19,16 @@
     
 }
 
+.roomContent{
+    text-align: center;
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,.2);
+    margin-bottom: 10px;
+}
+
 .inputContent{
     text-align: center;
     width: 250px;
