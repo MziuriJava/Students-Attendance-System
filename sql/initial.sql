@@ -98,6 +98,13 @@ CREATE TABLE comment(
   post_id int REFERENCES post(id)
   );
 
+--Group-student
+CREATE TABLE student_group(
+id SERIAL PRIMARY KEY NOT NULL ,
+group_id INT REFERENCES class_group(id),
+student_id INT REFERENCES student(id),
+)
+
 --Initial user
 INSERT INTO staff (id, firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status, personal_id)
 VALUES (0, 'ვინმე', 'ვინმეძე', 'test@gmail.com', '555555555', '555555555', 'a6ff80ac5af9a527ef5e67eec501e118b47dbdc5', 'ADMIN', '01010101010');

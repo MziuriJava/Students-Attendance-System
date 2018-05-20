@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html lang="en">
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="../css/post.css">
@@ -13,10 +13,10 @@
     <div class="popup">
         <h2>გამოაქვეყნე შენი პოსტი:</h2>
         <a class="close" href="#">×</a>
-        <div class="content">
-            <textarea class="posttextsize" cols="50" rows="10"></textarea>
+        <form class="content" method="post" action="/sas/addPost">
+            <textarea class="posttextsize" cols="50" rows="10" name="post"></textarea>
             <button type="submit">გამოქვეყნება</button>
-        </div>
+        </form>
     </div>
 </div>
 </body>

@@ -19,12 +19,12 @@ public class GroupDAOImpl implements GroupDAO {
 
     @Override
     public void addGroup(Group group, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO class_group (groupName , startDate, course_id,) VALUES (?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO class_group (groupName , startDate, course_id, schedule) VALUES (?,?,?,?,?)");
         pstm.setString(1, group.getGroupName());
         pstm.setDate(2, group.getStartDate());
         pstm.setInt(3, group.getCourse().getId());
         pstm.setInt(4, group.getStaff().getId());
-
+        pstm.setString(5,marshallSchedule(group.getLessonSchedules()));
         pstm.executeUpdate();
         pstm.close();
         con.close();
@@ -41,11 +41,13 @@ public class GroupDAOImpl implements GroupDAO {
 
     @Override
     public void editGroup(Group group, Connection con) throws Exception {
-        PreparedStatement pstmt = con.prepareStatement("Update class_group SET groupName=?, startDate=?, course_id=?, staff_id=?  WHERE id=?");
+        PreparedStatement pstmt = con.prepareStatement("Update class_group SET groupName=?, startDate=?, course_id=?, staff_id=?, schedule=?  WHERE id=?");
         pstmt.setString(1, group.getGroupName());
         pstmt.setDate(2, group.getStartDate());
         pstmt.setInt(3, group.getCourse().getId());
         pstmt.setInt(4, group.getStaff().getId());
+        pstmt.setString(5,marshallSchedule(group.getLessonSchedules()));
+        pstmt.setInt(6,group.getId());
         pstmt.executeUpdate();
         pstmt.close();
         con.close();
