@@ -49,7 +49,15 @@
     <div class="w3-teal">
         <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
         <div class="w3-container">
-            <h1>მოსწავლეთა მართვის სისტემა</h1>
+            <h1><div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+
+                    <a href="#">პაროლის შეცვლა</a>
+                    <a href="#">გასვლა</a>
+                </div>
+            </div>
+                <div class="nav">ვინმე ვინმე</div></h1>
         </div>
     </div>
 
