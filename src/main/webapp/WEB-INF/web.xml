@@ -135,6 +135,14 @@
         <url-pattern>/sas/admin/addStaff</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddPostServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.post.AddPostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddPostServlet</servlet-name>
+        <url-pattern>/sas/addPost</url-pattern>
+    </servlet-mapping>
 
 
 

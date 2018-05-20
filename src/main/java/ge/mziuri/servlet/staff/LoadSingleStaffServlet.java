@@ -29,13 +29,6 @@ public class LoadSingleStaffServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int staffId = Integer.parseInt(req.getParameter("staffId"));
-        try {
-            Staff staff = staffDAO.getStaffById(staffId, DataBaseConnector.getConnection());
-            req.setAttribute("staff", staff);
-            req.getRequestDispatcher("sas/admin/addStaff.jsp").forward(req, resp);
-        } catch (Exception ex) {
-            // TODO
-        }
+        doPost(req, resp);
     }
 }
