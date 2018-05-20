@@ -61,7 +61,7 @@ CREATE TABLE journal(
  lesson_mark INT,
  homework_mark INT,
  test_mark INT
-)
+);
 ALTER TABLE journal ADD COLUMN staff_id INT REFERENCES staff(id);
 
 --Assessment
@@ -99,5 +99,5 @@ CREATE TABLE comment(
   );
 
 --Initial user
-INSERT INTO staff (id, firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status)
-VALUES (1, 'ვინმე', 'ვინმეძე', 'test@gmail.com', '555555555', '555555555', 'a6ff80ac5af9a527ef5e67eec501e118b47dbdc5', 'ADMIN')
+INSERT INTO staff (id, firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status, personal_id)
+VALUES (0, 'ვინმე', 'ვინმეძე', 'test@gmail.com', '555555555', '555555555', 'a6ff80ac5af9a527ef5e67eec501e118b47dbdc5', 'ADMIN', '01010101010');

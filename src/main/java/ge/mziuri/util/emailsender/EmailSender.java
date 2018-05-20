@@ -8,7 +8,7 @@ public class EmailSender {
 
     private static final String SMTP_AUTH = "true";
 
-    private static final String STARTLES_ENABLE = " true";
+    private static final String STARTLES_ENABLE = "true";
 
     private static final String SMTP_HOST = "smtp.gmail.com";
 

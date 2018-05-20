@@ -66,6 +66,7 @@ public class AddStaffServlet extends HttpServlet {
             }
             resp.sendRedirect("/sas/admin/loadStaffs");
         } catch (Exception ex) {
+            ex.printStackTrace();
             // TODO
         }
     }

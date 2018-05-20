@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <head>
     <title>სტუდენტები</title>
-    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="../../css/table.css">
     <meta charset="UTF-8">
 </head>
 <body>
@@ -15,7 +15,7 @@
     <input class="textx" type="text" placeholder="გვარი" name="searchLastName" value="<%=(request.getAttribute("searchLastName") == null) ? "" : request.getAttribute("searchLastName")%>">
     <input class="textx" type="text" placeholder="ID" name="searchPersonalId" value="<%=(request.getAttribute("searchPersonalId") == null) ? "" : request.getAttribute("searchPersonalId")%>">
     <input class="textx" type="text" placeholder="იმეილი" name="searchEmail" value="<%=(request.getAttribute("searchEmail") == null) ? "" : request.getAttribute("searchEmail")%>">
-    <button type="submit" class="searchButton"><img class="imgStyleSearch" src="images/search_black.png"/></button>
+    <button type="submit" class="searchButton"><img class="imgStyleSearch" src="../../images/search_black.png"/></button>
 </form>
 
 <table class="blueTable">
@@ -50,14 +50,14 @@
         <td><%=students.get(i).getParentNumber()%></td>
         <td class= "centerButton">
             <form method="post" action="/editStudent">
-                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/edit_black.png"/></button>
+                <button type="submit" class="buttonStyle"><img class="imgStyle" src="../../images/edit_black.png"/></button>
                 <input type="hidden" name="studentId" value="<%=students.get(i).getId()%>">
             </form>
         </td>
 
         <td class= "centerButton">
             <form method="post" action="/deleteStudent">
-                <button type="submit" class="buttonStyle"><img class="imgStyle" src="images/erase.png"/></button>
+                <button type="submit" class="buttonStyle"><img class="imgStyle" src="../../images/erase.png"/></button>
                 <input type="hidden" name="studentId" value="<%=students.get(i).getId()%>">
             </form>
         </td>

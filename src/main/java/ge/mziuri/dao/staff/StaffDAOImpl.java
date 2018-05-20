@@ -1,6 +1,5 @@
 package ge.mziuri.dao.staff;
 
-import ge.mziuri.dao.staff.StaffDAO;
 import ge.mziuri.model.user.staff.Staff;
 import ge.mziuri.model.user.staff.StaffStatus;
 
@@ -15,7 +14,7 @@ public class StaffDAOImpl implements StaffDAO {
 
     @Override
     public void addStaff(Staff staff, Connection con) throws Exception {
-        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname, lastname, personalId, email, main_phone_number, additional_phone_number, password, staff_status) VALUES (?,?,?,?,?,?,?,?)");
+        PreparedStatement pstm = con.prepareStatement("INSERT INTO staff (firstname, lastname, personal_id, email, main_phone_number, additional_phone_number, password, staff_status) VALUES (?,?,?,?,?,?,?,?)");
         pstm.setString(1, staff.getFirstname());
         pstm.setString(2, staff.getLastname());
         pstm.setString(3, staff.getPersonalId());

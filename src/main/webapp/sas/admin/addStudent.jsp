@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="../css/addStudent.css">
+<link rel="stylesheet" type="text/css" href="../../css/addStudent.css">
 <head>
     <title>სტუდენტის დამატება</title>
 </head>
