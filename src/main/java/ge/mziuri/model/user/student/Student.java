@@ -1,8 +1,10 @@
 package ge.mziuri.model.user.student;
 
+import ge.mziuri.model.group.Group;
 import ge.mziuri.model.user.User;
 
 import java.util.Date;
+import java.util.List;
 
 public class Student extends User {
 
@@ -14,26 +16,57 @@ public class Student extends User {
 
     private Date birthDate;
 
+    private List<Group> groups;
+
     private String school;
 
-    public String getParentNumber() { return parentNumber; }
+    public List<Group> getGroups() {
+        return groups;
+    }
 
-    public void setParentNumber(String parentNumber) { this.parentNumber = parentNumber; }
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
 
-    public String getParentName() { return parentName; }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-    public void setParentName(String parentName) { this.parentName = parentName; }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-    public String getPhoneNumber() { return phoneNumber; }
+    public String getParentName() {
+        return parentName;
+    }
 
-    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
 
-    public Date getBirthDate() { return birthDate; }
+    public String getParentNumber() {
+        return parentNumber;
+    }
 
-    public void setBirthDate(Date birthDate) { this.birthDate = birthDate; }
+    public void setParentNumber(String parentNumber) {
+        this.parentNumber = parentNumber;
+    }
 
-    public String getSchool() { return school;  }
+    public Date getBirthDate() {
+        return birthDate;
+    }
 
-    public void setSchool(String school) { this.school = school; }
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
 }
 

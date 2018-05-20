@@ -97,6 +97,13 @@ CREATE TABLE comment(
   date DATE ,
   post_id int REFERENCES post(id)
   );
+--Group-student
+CREATE TABLE student_group(
+id SERIAL PRIMARY KEY NOT NULL ,
+group_id INT REFERENCES class_group(id),
+student_id INT REFERENCES student(id),
+)
+
 
 --Initial user
 INSERT INTO staff (id, firstname, lastname, email, main_phone_number, additional_phone_number, password, staff_status)

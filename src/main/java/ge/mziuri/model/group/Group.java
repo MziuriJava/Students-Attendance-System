@@ -2,6 +2,7 @@ package ge.mziuri.model.group;
 
 import ge.mziuri.model.course.Course;
 import ge.mziuri.model.user.staff.Staff;
+import ge.mziuri.model.user.student.Student;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -18,6 +19,8 @@ public class Group {
     private Course course;
 
     private Staff staff;
+
+    private List<Student> students;
 
     private List<LessonSchedule> lessonSchedules = new ArrayList<>();
 
@@ -59,6 +62,14 @@ public class Group {
 
     public void setStaff(Staff staff) {
         this.staff = staff;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 
     public List<LessonSchedule> getLessonSchedules() {

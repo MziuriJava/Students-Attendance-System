@@ -2,6 +2,10 @@
 <%@ page import="ge.mziuri.dao.staff.StaffDAOImpl" %>
 <%@ page import="ge.mziuri.model.user.staff.Staff" %>
 <%@ page import="ge.mziuri.model.user.staff.StaffStatus" %>
+<%@ page import="ge.mziuri.dao.post.PostDAO" %>
+<%@ page import="ge.mziuri.dao.post.PostDAOImpl" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="ge.mziuri.util.db.DataBaseConnector" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <meta charset="UTF-8">
@@ -18,6 +22,7 @@
 <body>
 <%
     Staff staff = (Staff) session.getAttribute("staff");
+    PostDAO postDAO = new PostDAOImpl();
 %>
 <div
         class="w3-sidebar w3-bar-block w3-card w3-animate-left" style="display:none" id="mySidebar">
@@ -40,6 +45,13 @@
         <a href="/sas/admin/loadTeacherGroups" class="w3-bar-item w3-button">ჯგუფები</a>
         <a href="/sas/admin/loadAssessments" class="w3-bar-item w3-button">შეფასებები</a>
     <%
+        }
+        int i=0;
+        while(i<postDAO.getAllPost(DataBaseConnector.getConnection()).size()){
+       // if (postDAO.getAllPost(DataBaseConnector.getConnection()).get(i))
+
+
+            i++;
         }
     %>
 </div>
