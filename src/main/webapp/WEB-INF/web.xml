@@ -99,6 +99,18 @@
         <url-pattern>/sas/admin/deleteCourse</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>AssesmentServlet</servlet-name>
+        <servlet-class>ge.mziuri.servlet.lastassesment.AssesmentServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AssesmentServlet</servlet-name>
+        <url-pattern>/sas/assesmentTest/assesment</url-pattern>
+    </servlet-mapping>
+
+
+
     <!--<servlet>-->
         <!--<servlet-name>EditCourseServlet</servlet-name>-->
         <!--<servlet-class>ge.mziuri.servlet.course.EditCourseServlet</servlet-class>-->

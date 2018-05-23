@@ -3,10 +3,12 @@ table.assesment{
     height: 353px;
     width: 803px;
     border-collapse: collapse;
+    text: solide #000000;
 }
-table.assesment td, table.assesment th{
+table.assesment td:not(.description), table.assesment th {
     border: 2px solid #000000;
     padding: 5px 10px;
+    text-align: center;
 }
 
 table.assesment tbody td{
@@ -19,7 +21,7 @@ table.assesment thead {
 }
 
 table.assesment thead td {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     color: #000000;
     text-align: left;
@@ -29,4 +31,37 @@ table.assesment tbody th{
     font-style: italic;
     color: #000000;
     text-align: center;
+}
+table.assesment tbody td.teacher{
+    text-align: right;
+}
+
+/*table.assesment tbody div.descriptionTop{
+    border-bottom-style: dashed;
+}
+
+table.assesment tbody td.description{
+    border-top-style: dashed;
+}*/
+
+table.assesment tbody td.description{
+    border-bottom-style: none;
+}
+
+table.assesment tbody td.teacher{
+    border-top-style: none;
+}
+table.assesment thead td.name{
+    border-right-style: none;
+    text-align: left;
+}
+table.assesment thead td.topic{
+    border-left-style: none;
+    border-right-style: none;
+    text-align: center;
+}
+table.assesment thead td.information{
+    border-left-style: none;
+    text-align: right;
+    font-size: 25px;
 }
