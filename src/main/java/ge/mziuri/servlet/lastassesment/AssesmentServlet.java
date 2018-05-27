@@ -17,7 +17,7 @@ public class AssesmentServlet extends HttpServlet {
         String absent="5/20";
         String date1="10/02/17";
         String mark1="10";
-        String descriprion="dzalian kargia";
+        String description="dzalian kargia";
         String teacherName="vinme vinmedze";
 
         req.setAttribute("staffName",staffName);
@@ -28,11 +28,11 @@ public class AssesmentServlet extends HttpServlet {
         req.setAttribute("absent",absent);
         req.setAttribute("date1",date1);
         req.setAttribute("mark1",mark1);
-        req.setAttribute("descriprion", descriprion);
+        req.setAttribute("description",description);
         req.setAttribute("teacherName", teacherName);
 
 
-        req.getRequestDispatcher("/sas/assesmentTest/assessment.jsp").forward(req, resp);
+        req.getRequestDispatcher("assesment.jsp").forward(req, resp);
     }
 
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

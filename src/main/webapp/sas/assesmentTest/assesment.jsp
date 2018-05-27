@@ -37,12 +37,12 @@
     <tr style="height: 37px;">
         <th style="width: 112px; height: 37px;">თარიღი</th>
         <th style="width: 113px; height: 37px;">ნიშანი</th>
-        <td class="description" style="width: 556px; height: 189px;" colspan="6" rowspan="5" name="descriprion">
+        <td class="description" style="width: 556px; height: 189px;" colspan="6" rowspan="5" name="description">
             <%=request.getAttribute("description")%></td>
     </tr>
     <tr style="height: 38px;">
         <td style="width: 112px; height: 38px;" name="date1">
-            <%=request.getAttribute("data1")%></td>
+            <%=request.getAttribute("date1")%></td>
         <td style="width: 113px; height: 38px;" name="mark1">
             <%=request.getAttribute("mark1")%></td>
     </tr>
